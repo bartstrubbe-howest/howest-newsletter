@@ -1,0 +1,21 @@
+name = Howest Newsletter
+description = This is the install profile for the Howest newsletter website
+version = VERSION
+core = 7.x
+dependencies[] = block
+dependencies[] = dblog
+dependencies[] = field_ui
+dependencies[] = field
+dependencies[] = image
+dependencies[] = locale
+
+;contrib
+dependencies[] = ctools
+dependencies[] = features
+dependencies[] = views
+dependencies[] = views_ui
+dependencies[] = admin_menu
+dependencies[] = scheduler
+dependencies[] = strongarm
+dependencies[] = menu
+dependencies[] = search
