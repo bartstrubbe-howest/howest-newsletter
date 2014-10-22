@@ -8,6 +8,7 @@ dependencies[] = field_ui
 dependencies[] = field
 dependencies[] = image
 dependencies[] = locale
+dependencies[] = toolbar
 
 ;contrib
 dependencies[] = ctools
@@ -18,3 +19,7 @@ dependencies[] = scheduler
 dependencies[] = strongarm
 dependencies[] = menu
 dependencies[] = search
+
+;features
+dependencies[] = howest_blog_items
+dependencies[] = howest_newsletter_settings

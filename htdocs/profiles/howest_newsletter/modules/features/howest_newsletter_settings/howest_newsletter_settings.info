@@ -1,0 +1,10 @@
+name = Howest Newsletter settings
+core = 7.x
+package = Features
+dependencies[] = ctools
+dependencies[] = strongarm
+features[ctools][] = strongarm:strongarm:1
+features[features_api][] = api:2
+features[variable][] = admin_theme
+features[variable][] = node_admin_theme
+features[variable][] = theme_default
