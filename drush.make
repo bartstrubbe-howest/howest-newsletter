@@ -19,6 +19,7 @@ projects[] = features_extra
 projects[] = libraries
 projects[] = token
 projects[] = pathauto
+projects[] = entity
 projects[] = ldap
 
 ; themes
