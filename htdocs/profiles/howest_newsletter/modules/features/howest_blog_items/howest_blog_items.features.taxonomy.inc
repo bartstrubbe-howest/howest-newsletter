@@ -17,6 +17,14 @@ function howest_blog_items_taxonomy_default_vocabularies() {
       'module' => 'taxonomy',
       'weight' => -9,
     ),
+    'content_type' => array(
+      'name' => 'Content type',
+      'machine_name' => 'content_type',
+      'description' => '',
+      'hierarchy' => 0,
+      'module' => 'taxonomy',
+      'weight' => 0,
+    ),
     'location' => array(
       'name' => 'Location',
       'machine_name' => 'location',
