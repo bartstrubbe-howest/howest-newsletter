@@ -12,6 +12,7 @@ dependencies[] = toolbar
 
 ;contrib
 dependencies[] = ctools
+dependencies[] = ckeditor
 dependencies[] = features
 dependencies[] = views
 dependencies[] = views_ui

@@ -21,6 +21,8 @@ projects[] = token
 projects[] = pathauto
 projects[] = entity
 projects[] = ldap
+projects[] = ckeditor
+projects[] = diff
 
 ; themes
 projects[] = "bootstrap"
