@@ -25,3 +25,4 @@ dependencies[] = jquery_update
 ;features
 dependencies[] = howest_blog_items
 dependencies[] = howest_newsletter_settings
+dependencies[] = i18n_settings
