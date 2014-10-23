@@ -24,6 +24,13 @@ function howest_blog_items_field_default_field_instances() {
         'type' => 'text_default',
         'weight' => 0,
       ),
+      'rss' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 0,
+      ),
       'teaser' => array(
         'label' => 'hidden',
         'module' => 'text',
@@ -54,10 +61,62 @@ function howest_blog_items_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-blog_item-field_content'
+  $field_instances['node-blog_item-field_content'] = array(
+    'bundle' => 'blog_item',
+    'default_value' => array(
+      0 => array(
+        'tid' => 7,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 2,
+      ),
+      'rss' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 1,
+      ),
+      'teaser' => array(
+        'label' => 'inline',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 2,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_content',
+    'label' => 'Content',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => -2,
+    ),
+  );
+
   // Exported field_instance: 'node-blog_item-field_location'
   $field_instances['node-blog_item-field_location'] = array(
     'bundle' => 'blog_item',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'tid' => 3,
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -68,8 +127,14 @@ function howest_blog_items_field_default_field_instances() {
         'type' => 'taxonomy_term_reference_link',
         'weight' => 1,
       ),
-      'teaser' => array(
+      'rss' => array(
         'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 2,
+      ),
+      'teaser' => array(
+        'label' => 'inline',
         'module' => 'taxonomy',
         'settings' => array(),
         'type' => 'taxonomy_term_reference_link',
@@ -95,6 +160,7 @@ function howest_blog_items_field_default_field_instances() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Body');
+  t('Content');
   t('Location');
 
   return $field_instances;
