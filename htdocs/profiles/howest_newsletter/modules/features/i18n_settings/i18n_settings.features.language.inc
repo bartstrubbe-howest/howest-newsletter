@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * howest_newsletter_settings.features.language.inc
+ * i18n_settings.features.language.inc
  */
 
 /**
  * Implements hook_locale_default_languages().
  */
-function howest_newsletter_settings_locale_default_languages() {
+function i18n_settings_locale_default_languages() {
   $languages = array();
 
   // Exported language: en.
@@ -20,7 +20,7 @@ function howest_newsletter_settings_locale_default_languages() {
     'plurals' => 0,
     'formula' => '',
     'domain' => '',
-    'prefix' => '',
+    'prefix' => 'en',
     'weight' => 0,
   );
   // Exported language: nl.
@@ -30,8 +30,8 @@ function howest_newsletter_settings_locale_default_languages() {
     'native' => 'Nederlands',
     'direction' => 0,
     'enabled' => 1,
-    'plurals' => 0,
-    'formula' => '',
+    'plurals' => 2,
+    'formula' => '($n!=1)',
     'domain' => '',
     'prefix' => 'nl',
     'weight' => 0,

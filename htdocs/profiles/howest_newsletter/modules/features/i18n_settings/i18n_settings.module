@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the i18n settings feature.
+ */
+
+include_once 'i18n_settings.features.inc';
