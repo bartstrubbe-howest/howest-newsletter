@@ -20,6 +20,7 @@ dependencies[] = scheduler
 dependencies[] = strongarm
 dependencies[] = menu
 dependencies[] = search
+dependencies[] = jquery_update
 
 ;features
 dependencies[] = howest_blog_items
