@@ -106,7 +106,6 @@ function howest_blog_items_strongarm() {
   $strongarm->value = array(
     0 => 'status',
     1 => 'promote',
-    2 => 'sticky',
   );
   $export['node_options_blog_item'] = $strongarm;
 
