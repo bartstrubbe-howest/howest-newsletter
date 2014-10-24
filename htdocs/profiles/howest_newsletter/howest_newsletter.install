@@ -40,6 +40,16 @@ function howest_newsletter_install() {
       'pages' => '',
       'cache' => -1,
     ),
+    array(
+      'module' => 'locale',
+      'delta' => 'language',
+      'theme' => $default_theme,
+      'status' => 1,
+      'weight' => -5,
+      'region' => 'sidebar_first',
+      'pages' => '',
+      'cache' => -1,
+    ),
   );
 
   $query = db_insert('block')->fields(array('module', 'delta', 'theme', 'status', 'weight', 'region', 'pages', 'cache'));
@@ -51,6 +61,8 @@ function howest_newsletter_install() {
   $query->execute();
 
   howest_newsletter_add_taxonomy_term('location', 'Brugge');
+  howest_newsletter_add_taxonomy_term('location', 'Kortrijk');
+  howest_newsletter_add_taxonomy_term('location', 'Howest');
 }
 
 function howest_newsletter_add_taxonomy_term($machine_name, $term_name) {
@@ -65,4 +77,8 @@ function howest_newsletter_add_taxonomy_term($machine_name, $term_name) {
 
 function howest_newsletter_update_7000() {
   howest_newsletter_add_taxonomy_term('location', 'Kortrijk');
+}
+
+function howest_newsletter_update_7001() {
+  howest_newsletter_add_taxonomy_term('location', 'Howest');
 }
