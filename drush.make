@@ -26,6 +26,7 @@ projects[] = ldap
 projects[] = ckeditor
 projects[] = diff
 projects[] = variable
+projects[] = imce
 
 ; themes
 projects[] = "bootstrap"
