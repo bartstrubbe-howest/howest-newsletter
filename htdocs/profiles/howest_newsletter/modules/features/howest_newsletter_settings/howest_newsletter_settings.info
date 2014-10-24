@@ -18,5 +18,6 @@ features[user_role][] = reader
 features[variable][] = admin_theme
 features[variable][] = imce_profiles
 features[variable][] = node_admin_theme
+features[variable][] = site_frontpage
 features[variable][] = theme_default
 features_exclude[dependencies][ckeditor] = ckeditor
