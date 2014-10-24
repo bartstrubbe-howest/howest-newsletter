@@ -40,5 +40,19 @@ function howest_newsletter_install() {
 
   $query->execute();
 
+  howest_newsletter_add_taxonomy_term('location', 'Brugge');
+}
 
+function howest_newsletter_add_taxonomy_term($machine_name, $term_name) {
+  $vocabulary = taxonomy_vocabulary_machine_name_load($machine_name);
+  
+  $term = new stdClass();
+  $term->name = $term_name;
+  $term->vid = $vocabulary->vid;
+
+  taxonomy_term_save($term);
+}
+
+function howest_newsletter_update_7000() {
+  howest_newsletter_add_taxonomy_term('location', 'Kortrijk');
 }
