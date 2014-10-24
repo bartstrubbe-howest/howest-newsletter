@@ -11,6 +11,34 @@
  *
  * @see system_install()
  */
-function howest_newsletter_install()
-{
+function howest_newsletter_install() {
+  $default_theme = 'howest_newsletter';
+  theme_enable(array($theme_name));
+  variable_set('admin_theme', 'seven');
+  variable_set('theme_default', $default_theme);
+  variable_set('node_admin_theme', '1');
+
+  // Enable blocks and add on the correct region
+   $blocks = array(
+    array(
+      'module' => 'search',
+      'delta' => 'form',
+      'theme' => $default_theme,
+      'status' => 1,
+      'weight' => -10,
+      'region' => 'header',
+      'pages' => '',
+      'cache' => -1,
+    ),
+  );
+
+  $query = db_insert('block')->fields(array('module', 'delta', 'theme', 'status', 'weight', 'region', 'pages', 'cache'));
+
+  foreach ($blocks as $block) {
+    $query->values($block);
+  }
+
+  $query->execute();
+
+
 }
