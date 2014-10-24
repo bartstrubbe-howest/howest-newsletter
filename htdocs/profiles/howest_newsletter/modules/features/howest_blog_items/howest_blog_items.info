@@ -39,5 +39,6 @@ features[variable][] = node_options_blog_item
 features[variable][] = node_preview_blog_item
 features[variable][] = node_submitted_blog_item
 features[views_view][] = blog_items
+features[views_view][] = tag_cloud
 features_exclude[dependencies][ctools] = ctools
 features_exclude[dependencies][options] = options
