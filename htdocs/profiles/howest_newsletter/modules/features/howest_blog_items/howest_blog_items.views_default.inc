@@ -127,6 +127,7 @@ function howest_blog_items_views_default_views() {
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['row_options']['inline'] = array(
+    'name' => 'name',
     'nid' => 'nid',
   );
   /* Relationship: Taxonomy term: Content with term */
