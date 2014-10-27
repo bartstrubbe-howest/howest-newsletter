@@ -36,4 +36,3 @@ function howest_banner_get_image(){
     return false;
   }
 }
-p
