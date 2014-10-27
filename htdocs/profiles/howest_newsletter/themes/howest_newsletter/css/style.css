@@ -192,3 +192,14 @@ ul.language-switcher-locale-url{
   margin-top: 10px;
   display: block;
 }
+
+.view-blog-list .views-row{
+  padding-bottom: 15px;
+  border-bottom: dotted 1px gray;
+  margin-right: 30px;
+}
+
+.view-blog-list .views-row img{
+  max-width: 100%;
+  height: auto;
+}
