@@ -28,3 +28,4 @@ dependencies[] = diff
 dependencies[] = howest_blog_items
 dependencies[] = howest_newsletter_settings
 dependencies[] = i18n_settings
+dependencies[] = howest_image_styles

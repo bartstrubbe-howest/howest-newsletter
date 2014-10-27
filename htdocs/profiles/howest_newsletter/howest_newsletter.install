@@ -26,7 +26,7 @@ function howest_newsletter_install() {
       'theme' => $default_theme,
       'status' => 1,
       'weight' => -10,
-      'region' => 'header',
+      'region' => 'navigation',
       'pages' => '',
       'cache' => -1,
     ),

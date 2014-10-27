@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the howest_image_styles feature.
+ */
+
+include_once 'howest_image_styles.features.inc';

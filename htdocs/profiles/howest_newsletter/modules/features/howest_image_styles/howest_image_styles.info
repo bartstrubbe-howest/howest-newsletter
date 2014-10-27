@@ -1,0 +1,6 @@
+name = howest_image_styles
+core = 7.x
+package = Features
+dependencies[] = image
+features[features_api][] = api:2
+features[image][] = blog_inline

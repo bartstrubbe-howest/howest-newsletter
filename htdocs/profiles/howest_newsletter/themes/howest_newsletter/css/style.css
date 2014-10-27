@@ -1,4 +1,140 @@
 /**
- * This file should get overwritten if Method 1 is used. If Method 2 is chosen,
- * remove this comment and start adding your styles to this file.
- */
+* Import the typo
+*/
+
+/* #Site Styles
+================================================== */
+@font-face {
+  font-family: 'vagRoundedStdBold';
+  src: url('../fonts/vagroundedstd-bold-webfont.eot');
+  src: url('../fonts/vagroundedstd-bold-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/vagroundedstd-bold-webfont.woff') format('woff'), url('../fonts/vagroundedstd-bold-webfont.ttf') format('truetype'), url('../fonts/vagroundedstd-bold-webfont.svg#../fonts/vagRoundedStdBold') format('svg');
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'vagRoundedStdThin';
+  src: url('../fonts/vagroundedstd-thin-webfont.eot');
+  src: url('../fonts/vagroundedstd-thin-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/vagroundedstd-thin-webfont.woff') format('woff'), url('../fonts/vagroundedstd-thin-webfont.ttf') format('truetype'), url('../fonts/vagroundedstd-thin-webfont.svg#../fonts/vagRoundedStdThin') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+/**
+* Basic styling of basic layout stuff
+*/
+
+body {
+  background: rgb(67, 199, 244);
+  font-family: 'vagRoundedStdThin', Calibri, Arial, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: "vagRoundedStdBold", Calibri, Arial, sans-serif;
+}
+
+header#navbar{
+ background: transparent;
+  border: none;
+  margin-top: 0;
+}
+
+.region.region-navigation{
+  max-width: 300px;
+  float: right;
+}
+
+.main-container.container{
+  padding: 10px;
+  background: white;
+  overflow: hidden;
+}
+
+h1.page-header{
+  background: #f00088;
+  color: white;
+  border: none;
+  padding: 10px;
+  margin: 0;
+}
+
+h2 a{
+  color: rgb(67,199,244);
+}
+
+/**
+* Overriding default boostrap stuff
+*/
+
+.well{
+  border-radius: 0;
+  box-shadow: none;
+  border: none;
+}
+
+
+/**
+* Navigation
+*/
+
+.navbar-nav.secondary{
+  color: white;
+  font-weight: bold;
+}
+
+.sidebar_first h2{
+  background: black;
+  color: white;
+  font-family: 'vagRoundedStdThin', Calibri, Arial, sans-serif;
+  font-size: 18px;
+  padding: 8px 10px;
+}
+
+.sidebar_first .well{
+  padding: 0px;
+  background: transparent;
+}
+
+.sidebar_first .well .views-row, .language-switcher-locale-url li{
+  border: solid 2px #efefef;
+  border-collapse: collapse;
+  padding: 5px;
+  margin-top: -1px;
+  list-style: none;
+}
+
+ul.language-switcher-locale-url{
+  padding-left: 0;
+}
+
+.sidebar_first .well .views-row a{
+}
+
+
+/**
+* Node stuff
+*/
+
+.field-name-field-location{
+  overflow: hidden;
+  margin-bottom: 1em;
+  margin-top: 1em;
+}
+
+.field-name-field-location .field-label{
+  display: block;
+  clear: both;
+  font-size: 16px;
+  line-height: 1.5;
+  float: none;
+  margin-bottom: 10px;
+}
+
+.field-name-field-location a{
+  display: block;
+  background: #f00088;
+  color: white;
+  padding: 8px;
+  clear: both;
+  font-weight: bold;
+}
