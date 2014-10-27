@@ -232,3 +232,7 @@ ul.language-switcher-locale-url{
 .comment .submitted a.permalink{
   display: none;
 }
+
+.field-name-field-image{
+  clear: both;
+}
