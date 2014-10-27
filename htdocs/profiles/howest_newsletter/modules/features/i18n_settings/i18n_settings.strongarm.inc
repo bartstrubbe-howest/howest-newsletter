@@ -61,14 +61,13 @@ function i18n_settings_strongarm() {
     'name' => 'Dutch',
     'native' => 'Nederlands',
     'direction' => '0',
-    'enabled' => 1,
+    'enabled' => '1',
     'plurals' => '2',
     'formula' => '($n!=1)',
     'domain' => '',
     'prefix' => 'nl',
     'weight' => '0',
-    'javascript' => '',
-    'provider' => 'language-default',
+    'javascript' => '40LItYRa56vUcqemTo3QjLwpOeqYtB9GmrELQ_OKfUw',
   );
   $export['language_default'] = $strongarm;
 
@@ -84,6 +83,19 @@ function i18n_settings_strongarm() {
         'url_rewrite' => 'locale_language_url_rewrite_url',
       ),
       'file' => 'includes/locale.inc',
+    ),
+    'locale-user' => array(
+      'callbacks' => array(
+        'language' => 'locale_language_from_user',
+      ),
+      'file' => 'includes/locale.inc',
+    ),
+    'locale-browser' => array(
+      'callbacks' => array(
+        'language' => 'locale_language_from_browser',
+      ),
+      'file' => 'includes/locale.inc',
+      'cache' => 0,
     ),
     'language-default' => array(
       'callbacks' => array(
