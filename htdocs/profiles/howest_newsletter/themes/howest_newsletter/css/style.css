@@ -48,6 +48,7 @@ header#navbar{
   padding: 10px;
   background: white;
   overflow: hidden;
+  padding-bottom: 20px;
 }
 
 h1.page-header{
@@ -72,6 +73,49 @@ h2 a{
   border: none;
 }
 
+.nav-tabs{
+  margin-top: 15px;
+}
+
+p{
+  font-size: 1.1em;
+  line-height: 1.4215;
+}
+
+.breadcrumb{
+  border-radius: 0;
+  margin-bottom: 0;
+}
+
+.nav-tabs>li>a{
+  border-radius: 0;
+}
+
+input[type="text"], input[type="password"], input[type="email"]{
+  border-radius: 0;
+  border: solid 1px rgb(67,199,244);
+  background: white;
+}
+
+.alert{
+  border-radius: 0;
+}
+
+.navbar #block-search-form{
+  margin-top: 20px;
+}
+
+#block-search-form button[type="submit"]{
+ background: #f00088;
+  color: white;
+  border: none;
+  border-radius: 0;
+}
+
+#block-search-form button[type="submit"] .glyphicon{
+  top: 3px;
+  font-size: 15px;
+}
 
 /**
 * Navigation
@@ -137,4 +181,14 @@ ul.language-switcher-locale-url{
   padding: 8px;
   clear: both;
   font-weight: bold;
+  float: left;
+  margin-right: 10px;
+}
+
+.node-readmore a{
+  background: rgb(67,199,244);
+  color: white;
+  padding: 8px;
+  margin-top: 10px;
+  display: block;
 }

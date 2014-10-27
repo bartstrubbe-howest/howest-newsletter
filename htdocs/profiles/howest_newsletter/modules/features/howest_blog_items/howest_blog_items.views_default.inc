@@ -115,7 +115,7 @@ function howest_blog_items_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Lees over:';
+  $handler->display->display_options['title'] = 'Lees over';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['group_by'] = TRUE;
   $handler->display->display_options['access']['type'] = 'perm';
@@ -164,7 +164,7 @@ function howest_blog_items_views_default_views() {
   $handler = $view->new_display('block', 'Block', 'block');
   $translatables['tag_cloud'] = array(
     t('Master'),
-    t('Lees over:'),
+    t('Lees over'),
     t('more'),
     t('Apply'),
     t('Reset'),
