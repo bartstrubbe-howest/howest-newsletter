@@ -82,6 +82,10 @@ p{
   line-height: 1.4215;
 }
 
+p>a{
+  color: rgb(67, 199, 244) !important;
+}
+
 .breadcrumb{
   border-radius: 0;
   margin-bottom: 0;
@@ -171,18 +175,17 @@ ul.language-switcher-locale-url{
   overflow: hidden;
   margin-bottom: 1em;
   margin-top: 1em;
+  float: left;
 }
 
-.field-name-field-location .field-label{
-  display: block;
-  clear: both;
-  font-size: 16px;
-  line-height: 1.5;
-  float: none;
-  margin-bottom: 10px;
+.field-name-field-content{
+  float: left;
+  margin-bottom: 1em;
+  margin-top: 1em;
 }
 
-.field-name-field-location a{
+
+.field-name-field-location a, .field-name-field-content a{
   display: block;
   background: #f00088;
   color: white;
@@ -214,4 +217,18 @@ ul.language-switcher-locale-url{
 
 .howest-banner{
   margin-bottom: 10px;
+}
+
+.comment{
+  background: #F8F8F8;
+  padding: 0 20px 10px 20px;
+  margin-bottom: 10px;
+}
+
+.comment a{
+  color: rgb(67,199,244);
+}
+
+.comment .submitted a.permalink{
+  display: none;
 }
