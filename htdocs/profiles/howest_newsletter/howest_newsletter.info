@@ -9,6 +9,7 @@ dependencies[] = field
 dependencies[] = image
 dependencies[] = locale
 dependencies[] = toolbar
+dependencies[] = comment
 
 ;contrib
 dependencies[] = ctools
@@ -29,3 +30,4 @@ dependencies[] = howest_blog_items
 dependencies[] = howest_newsletter_settings
 dependencies[] = i18n_settings
 dependencies[] = howest_image_styles
+dependencies[] = howest_banner

@@ -1,6 +1,7 @@
 name = howest blog items
 core = 7.x
 package = Features
+dependencies[] = comment
 dependencies[] = features
 dependencies[] = image
 dependencies[] = strongarm

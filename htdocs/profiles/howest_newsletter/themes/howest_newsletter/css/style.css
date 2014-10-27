@@ -117,6 +117,14 @@ input[type="text"], input[type="password"], input[type="email"]{
   font-size: 15px;
 }
 
+.pagination a{
+  border-radius: 0 !important;
+}
+
+.bnt{
+  border-radius: 0;
+}
+
 /**
 * Navigation
 */
@@ -199,7 +207,11 @@ ul.language-switcher-locale-url{
   margin-right: 30px;
 }
 
-.view-blog-list .views-row img{
+.view-blog-list .views-row img, .field-name-field-image img{
   max-width: 100%;
   height: auto;
+}
+
+.howest-banner{
+  margin-bottom: 10px;
 }

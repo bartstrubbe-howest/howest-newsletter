@@ -111,6 +111,12 @@
 
 <div class="main-container container">
 
+  <?php if(howest_banner_get_image() != false):?>
+    <div class="howest-banner">
+     <img src="<?php print howest_banner_get_image();?>"/>
+    </div>
+  <?php endif;?>
+
   <header role="banner" id="page-header">
     <?php if (!empty($site_slogan)): ?>
       <p class="lead"><?php print $site_slogan; ?></p>

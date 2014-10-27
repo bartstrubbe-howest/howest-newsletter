@@ -1,146 +1,128 @@
 <?php
 /**
  * @file
- * howest_blog_items.strongarm.inc
+ * howest_banner.strongarm.inc
  */
 
 /**
  * Implements hook_strongarm().
  */
-function howest_blog_items_strongarm() {
+function howest_banner_strongarm() {
   $export = array();
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'comment_anonymous_blog_item';
+  $strongarm->name = 'comment_anonymous_banner';
   $strongarm->value = 0;
-  $export['comment_anonymous_blog_item'] = $strongarm;
+  $export['comment_anonymous_banner'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'comment_blog_item';
-  $strongarm->value = '2';
-  $export['comment_blog_item'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'comment_default_mode_blog_item';
-  $strongarm->value = 1;
-  $export['comment_default_mode_blog_item'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'comment_default_per_page_blog_item';
-  $strongarm->value = '30';
-  $export['comment_default_per_page_blog_item'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'comment_form_location_blog_item';
-  $strongarm->value = 1;
-  $export['comment_form_location_blog_item'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'comment_preview_blog_item';
+  $strongarm->name = 'comment_banner';
   $strongarm->value = '0';
-  $export['comment_preview_blog_item'] = $strongarm;
+  $export['comment_banner'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'comment_subject_field_blog_item';
+  $strongarm->name = 'comment_default_mode_banner';
   $strongarm->value = 1;
-  $export['comment_subject_field_blog_item'] = $strongarm;
+  $export['comment_default_mode_banner'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'field_bundle_settings_node__blog_item';
+  $strongarm->name = 'comment_default_per_page_banner';
+  $strongarm->value = '50';
+  $export['comment_default_per_page_banner'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'comment_form_location_banner';
+  $strongarm->value = 1;
+  $export['comment_form_location_banner'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'comment_preview_banner';
+  $strongarm->value = '1';
+  $export['comment_preview_banner'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'comment_subject_field_banner';
+  $strongarm->value = 1;
+  $export['comment_subject_field_banner'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'field_bundle_settings_node__banner';
   $strongarm->value = array(
-    'view_modes' => array(
-      'teaser' => array(
-        'custom_settings' => TRUE,
-      ),
-      'full' => array(
-        'custom_settings' => FALSE,
-      ),
-      'rss' => array(
-        'custom_settings' => FALSE,
-      ),
-      'search_index' => array(
-        'custom_settings' => FALSE,
-      ),
-      'search_result' => array(
-        'custom_settings' => FALSE,
-      ),
-      'diff_standard' => array(
-        'custom_settings' => FALSE,
-      ),
-    ),
+    'view_modes' => array(),
     'extra_fields' => array(
       'form' => array(
         'title' => array(
           'weight' => '0',
         ),
+        'scheduler_settings' => array(
+          'weight' => '2',
+        ),
       ),
       'display' => array(),
     ),
   );
-  $export['field_bundle_settings_node__blog_item'] = $strongarm;
+  $export['field_bundle_settings_node__banner'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'language_content_type_blog_item';
-  $strongarm->value = '2';
-  $export['language_content_type_blog_item'] = $strongarm;
+  $strongarm->name = 'language_content_type_banner';
+  $strongarm->value = '0';
+  $export['language_content_type_banner'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'menu_options_blog_item';
-  $strongarm->value = array(
-    0 => 'main-menu',
-  );
-  $export['menu_options_blog_item'] = $strongarm;
+  $strongarm->name = 'menu_options_banner';
+  $strongarm->value = array();
+  $export['menu_options_banner'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'menu_parent_blog_item';
+  $strongarm->name = 'menu_parent_banner';
   $strongarm->value = 'main-menu:0';
-  $export['menu_parent_blog_item'] = $strongarm;
+  $export['menu_parent_banner'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'node_options_blog_item';
+  $strongarm->name = 'node_options_banner';
   $strongarm->value = array(
     0 => 'status',
     1 => 'promote',
   );
-  $export['node_options_blog_item'] = $strongarm;
+  $export['node_options_banner'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'node_preview_blog_item';
+  $strongarm->name = 'node_preview_banner';
   $strongarm->value = '1';
-  $export['node_preview_blog_item'] = $strongarm;
+  $export['node_preview_banner'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'node_submitted_blog_item';
+  $strongarm->name = 'node_submitted_banner';
   $strongarm->value = 1;
-  $export['node_submitted_blog_item'] = $strongarm;
+  $export['node_submitted_banner'] = $strongarm;
 
   return $export;
 }
