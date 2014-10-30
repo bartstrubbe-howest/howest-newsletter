@@ -26,6 +26,8 @@ regions[page_bottom]    = 'Page bottom'
 
 stylesheets[all][] = css/style.css
 
+scripts[] = js/script.js
+
 
 ; For information on choosing the desired method, please read the Drupal
 ; Bootstrap sub-theme "how-to" documentation:

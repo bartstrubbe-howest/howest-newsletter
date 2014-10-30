@@ -109,11 +109,28 @@ input[type="text"], input[type="password"], input[type="email"]{
   margin-top: 20px;
 }
 
+#block-search-form input[type="text"]{
+  height: 40px;
+  border: none;
+}
+
 #block-search-form button[type="submit"]{
  background: #f00088;
   color: white;
   border: none;
   border-radius: 0;
+  width: 40px;
+  height: 40px;
+}
+
+#block-search-form .input-group{
+  -webkit-transition: box-shadow 0.3s;
+  -moz-transition: box-shadow 0.3s;
+  transition: box-shadow 0.3s;
+}
+
+#block-search-form .input-group:hover{
+  box-shadow: 0px 0px 12px #6C6B9C
 }
 
 #block-search-form button[type="submit"] .glyphicon{
@@ -144,6 +161,7 @@ input[type="text"], input[type="password"], input[type="email"]{
   font-family: 'vagRoundedStdThin', Calibri, Arial, sans-serif;
   font-size: 18px;
   padding: 8px 10px;
+  text-transform: uppercase;
 }
 
 .sidebar_first .well{
@@ -166,6 +184,9 @@ ul.language-switcher-locale-url{
 .sidebar_first .well .views-row a{
 }
 
+.sidebar_first .views-field-nid span{
+  float: right;
+}
 
 /**
 * Node stuff
@@ -217,6 +238,28 @@ ul.language-switcher-locale-url{
 
 .howest-banner{
   margin-bottom: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.howest-banner img{
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+
+.howest-banner::before{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255,255,255,0.3);
+  content: '';
+  -webkit-transition: -webkit-transform 0.6s;
+  transition: transform 0.6s;
+  -webkit-transform: scale3d(2,2,1) rotate3d(0,0,1,45deg) translate3d(0,-100%,0);
+  transform: scale3d(1.9,1.4,1) rotate3d(0,0,1,45deg) translate3d(0,-100%,0);
 }
 
 .comment{
@@ -235,4 +278,8 @@ ul.language-switcher-locale-url{
 
 .field-name-field-image{
   clear: both;
+}
+
+.comment .new{
+  display: none;
 }
