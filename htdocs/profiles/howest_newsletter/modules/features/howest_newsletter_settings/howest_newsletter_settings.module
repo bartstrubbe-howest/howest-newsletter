@@ -5,3 +5,61 @@
  */
 
 include_once 'howest_newsletter_settings.features.inc';
+
+/**
+ * Implementation of hook_menu
+ */
+function howest_newsletter_settings_menu()
+{
+  $items['access-denied'] = array(
+      'title' => 'Access denied',
+      'description' => t('Access denied'),
+      'page callback' => 'howest_newsletter_settings_access_denied',
+      'access callback' => TRUE
+  );
+
+  return $items;
+}
+
+function howest_newsletter_settings_access_denied() {
+  return variable_get('howest_newsletter_settings_access_denied_msg');
+}
+
+/**
+ * Implements hook_variable_info().
+ */
+function howest_newsletter_settings_variable_info($options) {
+  $variables['howest_newsletter_settings_access_denied_msg'] = array(
+    'type' => 'array',
+    'title' => t('Access denied message', array(), $options),
+    'default' => array('*' => 0),
+    'description' => t('Access denied message', array(), $options),
+    'required' => TRUE,
+    'localize' => TRUE,
+    'group' => 'site_information',
+  );
+
+  return $variables;
+}
+
+function howest_newsletter_settings_form_alter(&$form, &$form_state, $form_id) {
+
+  if ($form_id == 'system_site_information_settings') {
+    $form['howest_newsletter_settings_access_denied_msg'] = array(
+      '#type' => 'text_format',
+      '#format' => 'full_html',
+      '#title' => t('Access denied message'),
+      '#default_value' => variable_get('howest_newsletter_settings_access_denied_msg'),
+    );
+  }
+
+  $form['#submit'][] = 'howest_newsletter_settings_form_submit';
+}
+
+function howest_newsletter_settings_form_submit($form, &$form_state){
+    $values = $form_state['values'];
+
+    if(!empty($values['howest_newsletter_settings_access_denied_msg'])){
+      variable_set('howest_newsletter_settings_access_denied_msg', $values['howest_newsletter_settings_access_denied_msg']);
+    }
+}

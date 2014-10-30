@@ -4,6 +4,7 @@ package = Features
 dependencies[] = ctools
 dependencies[] = features
 dependencies[] = i18n
+dependencies[] = i18n_variable
 dependencies[] = l10n_update
 dependencies[] = locale
 dependencies[] = strongarm
