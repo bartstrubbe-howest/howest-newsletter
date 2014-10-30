@@ -20,6 +20,15 @@ function howest_newsletter_settings_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'howest_newsletter_settings_access_denied_msg';
+  $strongarm->value = '<p>You don\'t have access to this page.<br />
+&nbsp;</p>
+';
+  $export['howest_newsletter_settings_access_denied_msg'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'imce_profiles';
   $strongarm->value = array(
     1 => array(
@@ -105,6 +114,13 @@ function howest_newsletter_settings_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'site_403';
+  $strongarm->value = 'access-denied';
+  $export['site_403'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'site_frontpage';
   $strongarm->value = 'blog-items';
   $export['site_frontpage'] = $strongarm;
@@ -164,6 +180,17 @@ function howest_newsletter_settings_strongarm() {
   $strongarm->name = 'theme_default';
   $strongarm->value = 'howest_newsletter';
   $export['theme_default'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'variable_realm_list_language';
+  $strongarm->value = array(
+    0 => 'howest_newsletter_settings_access_denied_msg',
+    1 => 'site_name',
+    2 => 'site_slogan',
+  );
+  $export['variable_realm_list_language'] = $strongarm;
 
   return $export;
 }

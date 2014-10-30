@@ -22,7 +22,7 @@ function howest_newsletter_settings_menu()
 }
 
 function howest_newsletter_settings_access_denied() {
-  return variable_get('howest_newsletter_settings_access_denied_msg');
+  return variable_get('howest_newsletter_settings_access_denied_msg', '');
 }
 
 /**
@@ -59,7 +59,7 @@ function howest_newsletter_settings_form_alter(&$form, &$form_state, $form_id) {
 function howest_newsletter_settings_form_submit($form, &$form_state){
     $values = $form_state['values'];
 
-    if(!empty($values['howest_newsletter_settings_access_denied_msg'])){
-      variable_set('howest_newsletter_settings_access_denied_msg', $values['howest_newsletter_settings_access_denied_msg']);
+    if(!empty($values['howest_newsletter_settings_access_denied_msg']['value'])){
+      variable_set('howest_newsletter_settings_access_denied_msg', $values['howest_newsletter_settings_access_denied_msg']['value']);
     }
 }
