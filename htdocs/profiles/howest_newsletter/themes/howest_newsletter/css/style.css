@@ -294,3 +294,17 @@ ul.language-switcher-locale-url{
 .comment .new{
   display: none;
 }
+
+.show-all-tags{
+  display: block;
+  text-align: center;
+  padding: 10px;
+  background: rgb(67,199,244);;
+  color: white;
+  font-size: 16px;
+  margin-top: 10px;
+
+  &:hover{
+    color: white;
+  }
+}
