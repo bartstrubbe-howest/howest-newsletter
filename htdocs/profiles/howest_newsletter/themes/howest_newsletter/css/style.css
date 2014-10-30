@@ -193,16 +193,11 @@ ul.language-switcher-locale-url{
 */
 
 .field-name-field-location{
-  overflow: hidden;
-  margin-bottom: 1em;
-  margin-top: 1em;
-  float: left;
+  float: right;
 }
 
 .field-name-field-content{
-  float: left;
-  margin-bottom: 1em;
-  margin-top: 1em;
+  float: right;
 }
 
 
@@ -213,8 +208,16 @@ ul.language-switcher-locale-url{
   padding: 8px;
   clear: both;
   font-weight: bold;
-  float: left;
   margin-right: 10px;
+  font-size: 16px;
+
+  -webkit-transition: box-shadow 0.2s;
+  -moz-transition: box-shadow 0.2s;
+  transition: box-shadow 0.2s;
+}
+
+.field-name-field-location a:hover, .field-name-field-content a:hover{
+  box-shadow: 0px 0px 4px #cbcbcb;
 }
 
 .node-readmore a{
@@ -234,6 +237,14 @@ ul.language-switcher-locale-url{
 .view-blog-list .views-row img, .field-name-field-image img{
   max-width: 100%;
   height: auto;
+  width: 40%;
+  float: left;
+  margin-right: 20px;
+  margin-bottom 20px;
+}
+
+.node .links{
+  clear: both;
 }
 
 .howest-banner{

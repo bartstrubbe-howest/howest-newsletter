@@ -1,10 +1,12 @@
+jQuery.noConflict();
+
 (function($){
 
-  $('#block-search-form input[type="text"]').hover(function(){
-    $(this).closest('.input-group').addClass('focus');
-  }, function(){
-    $(this).closest('.input-group').removeClass('focus');
+  $(document).ready(function(){
+    $('.node h2').each(function(){
+      $(this).append($(this).closest('.node').find('.field-name-field-location'));
+      $(this).append($(this).closest('.node').find('.field-name-field-content'));
+    });
   });
-
 
 }(jQuery));
