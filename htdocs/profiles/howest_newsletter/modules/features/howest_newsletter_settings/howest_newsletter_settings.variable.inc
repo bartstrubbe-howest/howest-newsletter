@@ -30,8 +30,8 @@ $realm_variables = array();
   'comment_subject_field_banner' => 1,
   'comment_subject_field_blog_item' => 1,
   'cron_key' => 'bHPc0YIiCv5QGJF56UPbPMHMd1XdOmz6rCvjRhmQKFU',
-  'cron_last' => 1414760446,
-  'css_js_query_string' => 'neb9q2',
+  'cron_last' => 1414762702,
+  'css_js_query_string' => 'neb9vy',
   'ctools_last_cron' => 1414695116,
   'date_default_timezone' => 'UTC',
   'default_nodes_main' => 10,
@@ -121,7 +121,7 @@ $realm_variables = array();
   ),
   'file_temporary_path' => '/tmp',
   'filter_fallback_format' => 'plain_text',
-  'howest_newsletter_settings_access_denied_msg' => '<p>geen toegang</p>
+  'howest_newsletter_settings_access_denied_msg' => '<p>Geen toegang</p>
 ',
   'imce_profiles' => array(
     1 => array(
@@ -197,30 +197,29 @@ $realm_variables = array();
   ),
   'install_profile' => 'howest_newsletter',
   'install_task' => 'done',
-  'install_time' => 1414760446,
+  'install_time' => 1414762702,
   'javascript_parsed' => array(
     0 => 'misc/drupal.js',
     1 => 'sites/all/modules/contrib/jquery_update/replace/jquery/1.10/jquery.min.js',
     2 => 'misc/jquery.once.js',
-    3 => 'misc/form.js',
-    4 => 'sites/all/modules/contrib/ckeditor/includes/ckeditor.utils.js',
-    5 => 'misc/textarea.js',
-    6 => 'modules/filter/filter.js',
-    7 => 'sites/all/modules/contrib/jquery_update/replace/ui/external/jquery.cookie.js',
-    8 => 'modules/toolbar/toolbar.js',
-    'refresh:nl' => 'waiting',
-    9 => 'profiles/howest_newsletter/themes/howest_newsletter/js/script.js',
+    3 => 'profiles/howest_newsletter/themes/howest_newsletter/js/script.js',
+    4 => 'sites/all/modules/contrib/jquery_update/replace/ui/external/jquery.cookie.js',
+    5 => 'modules/toolbar/toolbar.js',
+    6 => 'misc/form.js',
+    7 => 'sites/all/modules/contrib/ckeditor/includes/ckeditor.utils.js',
+    8 => 'misc/textarea.js',
+    9 => 'modules/filter/filter.js',
     10 => 'sites/all/modules/contrib/features/features.js',
     11 => 'misc/tableheader.js',
     12 => 'misc/vertical-tabs.js',
-    13 => 'misc/collapse.js',
-    14 => 'misc/machine-name.js',
-    15 => 'misc/autocomplete.js',
-    16 => 'sites/all/modules/contrib/jquery_update/replace/misc/jquery.form.min.js',
-    17 => 'misc/progress.js',
-    18 => 'sites/all/modules/contrib/jquery_update/js/jquery_update.js',
-    19 => 'misc/ajax.js',
-    20 => 'sites/all/modules/contrib/jquery_update/replace/ui/ui/minified/jquery.ui.core.min.js',
+    13 => 'sites/all/modules/contrib/jquery_update/replace/ui/ui/minified/jquery.ui.core.min.js',
+    14 => 'misc/progress.js',
+    15 => 'sites/all/modules/contrib/jquery_update/js/jquery_update.js',
+    16 => 'misc/ajax.js',
+    17 => 'misc/collapse.js',
+    18 => 'misc/machine-name.js',
+    19 => 'misc/autocomplete.js',
+    20 => 'sites/all/modules/contrib/jquery_update/replace/misc/jquery.form.min.js',
     21 => 'sites/all/modules/contrib/jquery_update/replace/ui/ui/minified/jquery.ui.widget.min.js',
     22 => 'sites/all/modules/contrib/jquery_update/replace/ui/ui/minified/jquery.ui.button.min.js',
     23 => 'sites/all/modules/contrib/jquery_update/replace/ui/ui/minified/jquery.ui.mouse.min.js',
@@ -387,7 +386,7 @@ $realm_variables = array();
   'tagclouds_page_amount' => 60,
   'tagclouds_sort_order' => 'count,desc',
   'theme_default' => 'howest_newsletter',
-  'update_last_check' => 1414760571,
+  'update_last_check' => 1414762827,
   'update_notify_emails' => array(
     0 => 'admin@example.com',
   ),
@@ -399,7 +398,7 @@ $realm_variables = array();
 );
   $realm_variables['language']['en'] = array(
   'howest_newsletter_settings_access_denied_msg' => array(
-    'value' => '<p>Access denied.</p>
+    'value' => '<p>Access denied</p>
 ',
     'format' => 'full_html',
   ),
@@ -408,7 +407,7 @@ $realm_variables = array();
 );
   $realm_variables['language']['nl'] = array(
   'howest_newsletter_settings_access_denied_msg' => array(
-    'value' => '<p>geen toegang</p>
+    'value' => '<p>Geen toegang</p>
 ',
     'format' => 'full_html',
   ),

@@ -24,6 +24,7 @@ features[variable][] = imce_profiles
 features[variable][] = node_admin_theme
 features[variable][] = site_403
 features[variable][] = site_frontpage
+features[variable][] = site_name
 features[variable][] = tagclouds_block_tags_1
 features[variable][] = tagclouds_display_node_link
 features[variable][] = tagclouds_display_type

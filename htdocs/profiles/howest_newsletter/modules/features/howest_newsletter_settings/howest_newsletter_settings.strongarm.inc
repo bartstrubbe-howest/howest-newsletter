@@ -21,7 +21,7 @@ function howest_newsletter_settings_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'howest_newsletter_settings_access_denied_msg';
-  $strongarm->value = '<p>geen toegang</p>
+  $strongarm->value = '<p>Geen toegang</p>
 ';
   $export['howest_newsletter_settings_access_denied_msg'] = $strongarm;
 
@@ -123,6 +123,13 @@ function howest_newsletter_settings_strongarm() {
   $strongarm->name = 'site_frontpage';
   $strongarm->value = 'blog-items';
   $export['site_frontpage'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'site_name';
+  $strongarm->value = 'Howest Blog';
+  $export['site_name'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
