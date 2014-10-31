@@ -55,7 +55,7 @@ function howest_newsletter_install() {
       'delta' => 'login',
       'theme' => $default_theme,
       'status' => 1,
-      'weight' => -10,
+      'weight' => 10,
       'region' => 'content',
       'pages' => '',
       'cache' => -1,
