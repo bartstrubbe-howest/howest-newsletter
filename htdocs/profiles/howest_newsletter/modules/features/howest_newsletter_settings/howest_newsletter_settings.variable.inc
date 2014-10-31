@@ -10,6 +10,9 @@
 function howest_newsletter_settings_variable_realm_default_variables() {
 $realm_variables = array();
   $realm_variables['global']['default'] = array(
+  '404_fast_html' => '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN" "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>404 Not Found</title></head><body><h1>Not Found</h1><p>The requested URL "@path" was not found on this server.</p></body></html>',
+  '404_fast_paths' => '/\\.(?:txt|png|gif|jpe?g|css|js|ico|swf|flv|cgi|bat|pl|dll|exe|asp)$/i',
+  '404_fast_paths_exclude' => '/\\/(?:styles)\\//',
   'admin_theme' => 'seven',
   'clean_url' => TRUE,
   'comment_anonymous_banner' => 0,
@@ -27,8 +30,8 @@ $realm_variables = array();
   'comment_subject_field_banner' => 1,
   'comment_subject_field_blog_item' => 1,
   'cron_key' => 'bHPc0YIiCv5QGJF56UPbPMHMd1XdOmz6rCvjRhmQKFU',
-  'cron_last' => 1414695016,
-  'css_js_query_string' => 'ne9tns',
+  'cron_last' => 1414760446,
+  'css_js_query_string' => 'neb9q2',
   'ctools_last_cron' => 1414695116,
   'date_default_timezone' => 'UTC',
   'default_nodes_main' => 10,
@@ -53,11 +56,12 @@ $realm_variables = array();
       'views_view' => '3ca7316bb7d2b517db7573a6b65fcdfc',
     ),
     'howest_newsletter_settings' => array(
-      'variable' => 'd3fdb4d10899d8991f676b68311288e2',
+      'variable' => '1415e7ef3b5349208bf3dff3c6e238bf',
       'ckeditor_profile' => '05bbe2348b94d1463e1a2d3766ce39fa',
       'filter' => '9f4ed7bef8c4b57a65798270dfd9808b',
       'user_role' => 'af4f94193dc6e2e154ac4779e8174c15',
-      'dependencies' => '18f0ea9e6d2a4aae234c1feb7e61bd2d',
+      'dependencies' => 'de35c0e9c5ea94e959b6f4ef65792253',
+      'variable_realm' => 'a59921287cbcd00078efd6c1d39b6cf6',
     ),
     'i18n_settings' => array(
       'variable' => '4e6c9964eee34c3e94d798d2d6256b1b',
@@ -117,8 +121,7 @@ $realm_variables = array();
   ),
   'file_temporary_path' => '/tmp',
   'filter_fallback_format' => 'plain_text',
-  'howest_newsletter_settings_access_denied_msg' => '<p>You don\'t have access to this page.<br />
-&nbsp;</p>
+  'howest_newsletter_settings_access_denied_msg' => '<p>geen toegang</p>
 ',
   'imce_profiles' => array(
     1 => array(
@@ -194,38 +197,37 @@ $realm_variables = array();
   ),
   'install_profile' => 'howest_newsletter',
   'install_task' => 'done',
-  'install_time' => 1414695016,
+  'install_time' => 1414760446,
   'javascript_parsed' => array(
     0 => 'misc/drupal.js',
     1 => 'sites/all/modules/contrib/jquery_update/replace/jquery/1.10/jquery.min.js',
     2 => 'misc/jquery.once.js',
-    3 => 'profiles/howest_newsletter/themes/howest_newsletter/js/script.js',
-    4 => 'sites/all/modules/contrib/jquery_update/replace/ui/external/jquery.cookie.js',
-    5 => 'modules/toolbar/toolbar.js',
-    6 => 'misc/form.js',
-    7 => 'sites/all/modules/contrib/ckeditor/includes/ckeditor.utils.js',
-    8 => 'misc/textarea.js',
-    9 => 'modules/filter/filter.js',
+    3 => 'misc/form.js',
+    4 => 'sites/all/modules/contrib/ckeditor/includes/ckeditor.utils.js',
+    5 => 'misc/textarea.js',
+    6 => 'modules/filter/filter.js',
+    7 => 'sites/all/modules/contrib/jquery_update/replace/ui/external/jquery.cookie.js',
+    8 => 'modules/toolbar/toolbar.js',
     'refresh:nl' => 'waiting',
-    10 => 'misc/tableselect.js',
+    9 => 'profiles/howest_newsletter/themes/howest_newsletter/js/script.js',
+    10 => 'sites/all/modules/contrib/features/features.js',
     11 => 'misc/tableheader.js',
-    12 => 'misc/collapse.js',
-    13 => 'misc/vertical-tabs.js',
-    14 => 'sites/all/modules/contrib/features/features.js',
-    15 => 'misc/machine-name.js',
-    16 => 'misc/autocomplete.js',
-    17 => 'sites/all/modules/contrib/jquery_update/replace/misc/jquery.form.min.js',
-    18 => 'misc/progress.js',
-    19 => 'sites/all/modules/contrib/jquery_update/js/jquery_update.js',
-    20 => 'misc/ajax.js',
-    21 => 'sites/all/modules/contrib/jquery_update/replace/ui/ui/minified/jquery.ui.core.min.js',
-    22 => 'sites/all/modules/contrib/jquery_update/replace/ui/ui/minified/jquery.ui.widget.min.js',
-    23 => 'sites/all/modules/contrib/jquery_update/replace/ui/ui/minified/jquery.ui.button.min.js',
-    24 => 'sites/all/modules/contrib/jquery_update/replace/ui/ui/minified/jquery.ui.mouse.min.js',
-    25 => 'sites/all/modules/contrib/jquery_update/replace/ui/ui/minified/jquery.ui.draggable.min.js',
-    26 => 'sites/all/modules/contrib/jquery_update/replace/ui/ui/minified/jquery.ui.position.min.js',
-    27 => 'sites/all/modules/contrib/jquery_update/replace/ui/ui/minified/jquery.ui.resizable.min.js',
-    28 => 'sites/all/modules/contrib/jquery_update/replace/ui/ui/minified/jquery.ui.dialog.min.js',
+    12 => 'misc/vertical-tabs.js',
+    13 => 'misc/collapse.js',
+    14 => 'misc/machine-name.js',
+    15 => 'misc/autocomplete.js',
+    16 => 'sites/all/modules/contrib/jquery_update/replace/misc/jquery.form.min.js',
+    17 => 'misc/progress.js',
+    18 => 'sites/all/modules/contrib/jquery_update/js/jquery_update.js',
+    19 => 'misc/ajax.js',
+    20 => 'sites/all/modules/contrib/jquery_update/replace/ui/ui/minified/jquery.ui.core.min.js',
+    21 => 'sites/all/modules/contrib/jquery_update/replace/ui/ui/minified/jquery.ui.widget.min.js',
+    22 => 'sites/all/modules/contrib/jquery_update/replace/ui/ui/minified/jquery.ui.button.min.js',
+    23 => 'sites/all/modules/contrib/jquery_update/replace/ui/ui/minified/jquery.ui.mouse.min.js',
+    24 => 'sites/all/modules/contrib/jquery_update/replace/ui/ui/minified/jquery.ui.draggable.min.js',
+    25 => 'sites/all/modules/contrib/jquery_update/replace/ui/ui/minified/jquery.ui.position.min.js',
+    26 => 'sites/all/modules/contrib/jquery_update/replace/ui/ui/minified/jquery.ui.resizable.min.js',
+    27 => 'sites/all/modules/contrib/jquery_update/replace/ui/ui/minified/jquery.ui.dialog.min.js',
   ),
   'l10n_update_check_disabled' => 0,
   'l10n_update_check_frequency' => 0,
@@ -375,7 +377,8 @@ $realm_variables = array();
   'site_default_country' => '',
   'site_frontpage' => 'blog-items',
   'site_mail' => 'admin@example.com',
-  'site_name' => 'Site-Install',
+  'site_name' => 'Howest Blog',
+  'site_slogan' => '',
   'tagclouds_block_tags_1' => 12,
   'tagclouds_display_node_link' => 1,
   'tagclouds_display_type' => 'style',
@@ -384,7 +387,7 @@ $realm_variables = array();
   'tagclouds_page_amount' => 60,
   'tagclouds_sort_order' => 'count,desc',
   'theme_default' => 'howest_newsletter',
-  'update_last_check' => 1414695142,
+  'update_last_check' => 1414760571,
   'update_notify_emails' => array(
     0 => 'admin@example.com',
   ),
@@ -393,15 +396,25 @@ $realm_variables = array();
     1 => 'site_name',
     2 => 'site_slogan',
   ),
-  '404_fast_paths_exclude' => '/\\/(?:styles)\\//',
-  '404_fast_paths' => '/\\.(?:txt|png|gif|jpe?g|css|js|ico|swf|flv|cgi|bat|pl|dll|exe|asp)$/i',
-  '404_fast_html' => '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN" "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>404 Not Found</title></head><body><h1>Not Found</h1><p>The requested URL "@path" was not found on this server.</p></body></html>',
 );
   $realm_variables['language']['en'] = array(
-  'site_name' => 'Site-Install',
+  'howest_newsletter_settings_access_denied_msg' => array(
+    'value' => '<p>Access denied.</p>
+',
+    'format' => 'full_html',
+  ),
+  'site_name' => 'Howest Blog',
   'site_slogan' => '',
 );
-  $realm_variables['language']['nl'] = array();
+  $realm_variables['language']['nl'] = array(
+  'howest_newsletter_settings_access_denied_msg' => array(
+    'value' => '<p>geen toegang</p>
+',
+    'format' => 'full_html',
+  ),
+  'site_name' => 'Howest Blog',
+  'site_slogan' => '',
+);
 
 return $realm_variables;
 }

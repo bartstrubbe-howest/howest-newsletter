@@ -22,7 +22,7 @@ function howest_newsletter_settings_menu()
 }
 
 function howest_newsletter_settings_access_denied() {
-  return variable_get('howest_newsletter_settings_access_denied_msg', '');
+  return howest_newsletter_settings_get_access_denied_msg();
 }
 
 /**
@@ -31,9 +31,9 @@ function howest_newsletter_settings_access_denied() {
 function howest_newsletter_settings_variable_info($options) {
   $variables['howest_newsletter_settings_access_denied_msg'] = array(
     'type' => 'array',
-    'title' => t('Access denied message', array(), $options),
+    'title' => t('Access denied message'),
     'default' => array('*' => 0),
-    'description' => t('Access denied message', array(), $options),
+    'description' => t('Access denied message'),
     'required' => TRUE,
     'localize' => TRUE,
     'group' => 'site_information',
@@ -49,17 +49,36 @@ function howest_newsletter_settings_form_alter(&$form, &$form_state, $form_id) {
       '#type' => 'text_format',
       '#format' => 'full_html',
       '#title' => t('Access denied message'),
-      '#default_value' => variable_get('howest_newsletter_settings_access_denied_msg'),
+      '#default_value' => howest_newsletter_settings_get_access_denied_msg(TRUE),
     );
-  }
 
-  $form['#submit'][] = 'howest_newsletter_settings_form_submit';
+    $form['#submit'][] = 'howest_newsletter_settings_form_submit';
+  }
 }
 
 function howest_newsletter_settings_form_submit($form, &$form_state){
     $values = $form_state['values'];
 
-    if(!empty($values['howest_newsletter_settings_access_denied_msg']['value'])){
+    if (!empty($values['howest_newsletter_settings_access_denied_msg']['value'])) {
       variable_set('howest_newsletter_settings_access_denied_msg', $values['howest_newsletter_settings_access_denied_msg']['value']);
     }
+}
+
+function howest_newsletter_settings_get_access_denied_msg($settings = FALSE) {
+  global $language;
+
+  if ($settings && array_key_exists('variable_realm_key_language', $_GET)) {
+    $language_var = $_GET['variable_realm_key_language'];
+  }
+  else {
+    $language_var = $language->language;
+  }
+
+  $msg = i18n_variable_get('howest_newsletter_settings_access_denied_msg', $language_var, array());
+
+  if (array_key_exists('value', $msg)) {
+    return $msg['value']; 
+  }
+
+  return 'Access denied';
 }

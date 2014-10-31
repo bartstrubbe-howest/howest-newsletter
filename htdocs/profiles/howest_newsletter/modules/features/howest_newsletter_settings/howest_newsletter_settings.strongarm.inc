@@ -21,8 +21,7 @@ function howest_newsletter_settings_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'howest_newsletter_settings_access_denied_msg';
-  $strongarm->value = '<p>You don\'t have access to this page.<br />
-&nbsp;</p>
+  $strongarm->value = '<p>geen toegang</p>
 ';
   $export['howest_newsletter_settings_access_denied_msg'] = $strongarm;
 
@@ -108,7 +107,7 @@ function howest_newsletter_settings_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'node_admin_theme';
-  $strongarm->value = '1';
+  $strongarm->value = 1;
   $export['node_admin_theme'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -129,7 +128,7 @@ function howest_newsletter_settings_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'tagclouds_block_tags_1';
-  $strongarm->value = '12';
+  $strongarm->value = 12;
   $export['tagclouds_block_tags_1'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -157,14 +156,14 @@ function howest_newsletter_settings_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'tagclouds_levels';
-  $strongarm->value = '6';
+  $strongarm->value = 6;
   $export['tagclouds_levels'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'tagclouds_page_amount';
-  $strongarm->value = '60';
+  $strongarm->value = 60;
   $export['tagclouds_page_amount'] = $strongarm;
 
   $strongarm = new stdClass();
