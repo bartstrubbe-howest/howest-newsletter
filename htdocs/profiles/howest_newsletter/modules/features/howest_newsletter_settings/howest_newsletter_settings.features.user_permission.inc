@@ -644,6 +644,8 @@ function howest_newsletter_settings_user_default_permissions() {
     'name' => 'view the administration theme',
     'roles' => array(
       'admin' => 'admin',
+      'editor' => 'editor',
+      'publisher' => 'publisher',
     ),
     'module' => 'system',
   );

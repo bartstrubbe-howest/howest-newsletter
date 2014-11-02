@@ -15,6 +15,7 @@ $realm_variables = array();
   '404_fast_paths_exclude' => '/\\/(?:styles)\\//',
   'additional_settings__active_tab_blog_item' => 'edit-workflow',
   'admin_theme' => 'seven',
+  'anonymous' => 'Anonymous',
   'clean_url' => TRUE,
   'comment_anonymous_banner' => 0,
   'comment_anonymous_blog_item' => 0,
@@ -41,6 +42,7 @@ $realm_variables = array();
   'diff_view_mode_preview_node_blog_item' => 'full',
   'drupal_http_request_fails' => FALSE,
   'drupal_private_key' => 'BsVStGbG87FHCs-aAJvN-yQxOTvle5DlVvzz2VY4lWA',
+  'email__active_tab' => 'edit-email-password-reset',
   'features_codecache' => array(
     'howest_banner' => array(
       'variable' => 'a9ebdb4eda5809393f951bd369706681',
@@ -51,7 +53,7 @@ $realm_variables = array();
       'node' => 'f1d1f2c09514cc7ee394009136387f88',
     ),
     'howest_blog_items' => array(
-      'variable' => 'dd4e9ace081e9e59277291826f8f4580',
+      'variable' => '86bcae4525363de2a35a0144744503b4',
       'field_base' => '18bdb41c67863b831de0c9eea3f6ec78',
       'field_instance' => 'edf34194c5f61c82e1d181f46e0d2198',
       'taxonomy' => '18d7a0e378cd4cd9368db7d3836bd82f',
@@ -60,12 +62,13 @@ $realm_variables = array();
       'views_view' => '3ca7316bb7d2b517db7573a6b65fcdfc',
     ),
     'howest_newsletter_settings' => array(
-      'variable' => '1415e7ef3b5349208bf3dff3c6e238bf',
+      'variable' => 'a7150d81728ff9aa29c949749c982e16',
       'ckeditor_profile' => '05bbe2348b94d1463e1a2d3766ce39fa',
       'filter' => '9f4ed7bef8c4b57a65798270dfd9808b',
       'user_role' => 'af4f94193dc6e2e154ac4779e8174c15',
-      'dependencies' => 'de35c0e9c5ea94e959b6f4ef65792253',
+      'dependencies' => 'b29899b8fbac7a4bb093f2a8f3ef9bfd',
       'variable_realm' => 'a6744379a426207b214748b2532b1159',
+      'user_permission' => 'ebe8267031c74d22725b6125a4ebdc6e',
     ),
     'i18n_settings' => array(
       'variable' => '4e6c9964eee34c3e94d798d2d6256b1b',
@@ -207,7 +210,6 @@ $realm_variables = array();
     1 => 'sites/all/modules/contrib/jquery_update/replace/jquery/1.10/jquery.min.js',
     2 => 'misc/jquery.once.js',
     3 => 'profiles/howest_newsletter/themes/howest_newsletter/js/script.js',
-    'refresh:nl' => 'waiting',
     4 => 'sites/all/modules/contrib/jquery_update/replace/ui/external/jquery.cookie.js',
     5 => 'modules/toolbar/toolbar.js',
     6 => 'misc/tableheader.js',
@@ -237,6 +239,12 @@ $realm_variables = array();
     30 => 'sites/all/modules/contrib/jquery_update/replace/ui/ui/minified/jquery.ui.position.min.js',
     31 => 'sites/all/modules/contrib/jquery_update/replace/ui/ui/minified/jquery.ui.resizable.min.js',
     32 => 'sites/all/modules/contrib/jquery_update/replace/ui/ui/minified/jquery.ui.dialog.min.js',
+    33 => 'modules/user/user.js',
+    34 => 'modules/file/file.js',
+    35 => 'sites/all/modules/contrib/ckeditor/includes/ckeditor.utils.js',
+    36 => 'modules/field/modules/text/text.js',
+    37 => 'modules/filter/filter.js',
+    38 => 'modules/node/node.js',
   ),
   'l10n_update_check_disabled' => 0,
   'l10n_update_check_frequency' => 0,
@@ -409,6 +417,113 @@ $realm_variables = array();
   'update_notify_emails' => array(
     0 => 'admin@example.com',
   ),
+  'user_admin_role' => 0,
+  'user_cancel_method' => 'user_cancel_block',
+  'user_email_verification' => 1,
+  'user_mail_cancel_confirm_body' => '[user:name],
+
+A request to cancel your account has been made at [site:name].
+
+You may now cancel your account on [site:url-brief] by clicking this link or copying and pasting it into your browser:
+
+[user:cancel-url]
+
+NOTE: The cancellation of your account is not reversible.
+
+This link expires in one day and nothing will happen if it is not used.
+
+--  [site:name] team',
+  'user_mail_cancel_confirm_subject' => 'Account cancellation request for [user:name] at [site:name]',
+  'user_mail_password_reset_body' => '[user:name],
+
+A request to reset the password for your account has been made at [site:name].
+
+You may now log in by clicking this link or copying and pasting it to your browser:
+
+[user:one-time-login-url]
+
+This link can only be used once to log in and will lead you to a page where you can set your password. It expires after one day and nothing will happen if it\'s not used.
+
+--  [site:name] team',
+  'user_mail_password_reset_subject' => 'Replacement login information for [user:name] at [site:name]',
+  'user_mail_register_admin_created_body' => '[user:name],
+
+A site administrator at [site:name] has created an account for you. You may now log in by clicking this link or copying and pasting it to your browser:
+
+[user:one-time-login-url]
+
+This link can only be used once to log in and will lead you to a page where you can set your password.
+
+After setting your password, you will be able to log in at [site:login-url] in the future using:
+
+username: [user:name]
+password: Your password
+
+--  [site:name] team',
+  'user_mail_register_admin_created_subject' => 'An administrator created an account for you at [site:name]',
+  'user_mail_register_no_approval_required_body' => '[user:name],
+
+Thank you for registering at [site:name]. You may now log in by clicking this link or copying and pasting it to your browser:
+
+[user:one-time-login-url]
+
+This link can only be used once to log in and will lead you to a page where you can set your password.
+
+After setting your password, you will be able to log in at [site:login-url] in the future using:
+
+username: [user:name]
+password: Your password
+
+--  [site:name] team',
+  'user_mail_register_no_approval_required_subject' => 'Account details for [user:name] at [site:name]',
+  'user_mail_register_pending_approval_body' => '[user:name],
+
+Thank you for registering at [site:name]. Your application for an account is currently pending approval. Once it has been approved, you will receive another e-mail containing information about how to log in, set your password, and other details.
+
+
+--  [site:name] team',
+  'user_mail_register_pending_approval_subject' => 'Account details for [user:name] at [site:name] (pending admin approval)',
+  'user_mail_status_activated_body' => '[user:name],
+
+Your account at [site:name] has been activated.
+
+You may now log in by clicking this link or copying and pasting it into your browser:
+
+[user:one-time-login-url]
+
+This link can only be used once to log in and will lead you to a page where you can set your password.
+
+After setting your password, you will be able to log in at [site:login-url] in the future using:
+
+username: [user:name]
+password: Your password
+
+--  [site:name] team',
+  'user_mail_status_activated_notify' => 1,
+  'user_mail_status_activated_subject' => 'Account details for [user:name] at [site:name] (approved)',
+  'user_mail_status_blocked_body' => '[user:name],
+
+Your account on [site:name] has been blocked.
+
+--  [site:name] team',
+  'user_mail_status_blocked_notify' => 0,
+  'user_mail_status_blocked_subject' => 'Account details for [user:name] at [site:name] (blocked)',
+  'user_mail_status_canceled_body' => '[user:name],
+
+Your account on [site:name] has been canceled.
+
+--  [site:name] team',
+  'user_mail_status_canceled_notify' => 0,
+  'user_mail_status_canceled_subject' => 'Account details for [user:name] at [site:name] (canceled)',
+  'user_pictures' => 0,
+  'user_picture_default' => '',
+  'user_picture_dimensions' => '85x85',
+  'user_picture_file_size' => 30,
+  'user_picture_guidelines' => '',
+  'user_picture_path' => 'pictures',
+  'user_picture_style' => '',
+  'user_register' => 0,
+  'user_signatures' => 0,
   'variable_realm_list_language' => array(
     0 => 'howest_newsletter_settings_access_denied_msg',
     1 => 'site_name',
