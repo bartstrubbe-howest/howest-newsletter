@@ -87,7 +87,7 @@ function howest_blog_items_strongarm() {
     'extra_fields' => array(
       'form' => array(
         'title' => array(
-          'weight' => '0',
+          'weight' => 0,
         ),
       ),
       'display' => array(),
@@ -123,8 +123,7 @@ function howest_blog_items_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'node_options_blog_item';
   $strongarm->value = array(
-    0 => 'status',
-    1 => 'promote',
+    0 => 'promote',
   );
   $export['node_options_blog_item'] = $strongarm;
 
