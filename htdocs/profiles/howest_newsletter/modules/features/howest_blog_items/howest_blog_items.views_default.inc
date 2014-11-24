@@ -205,11 +205,26 @@ function howest_blog_items_views_default_views() {
   $handler->display->display_options['filters']['machine_name']['field'] = 'machine_name';
   $handler->display->display_options['filters']['machine_name']['value'] = array(
     'location' => 'location',
-    'content' => 'content',
   );
 
   /* Display: Block */
   $handler = $view->new_display('block', 'Block', 'block');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Lees over locatie';
+  $handler->display->display_options['block_description'] = 'Tag cloud location';
+
+  /* Display: Block */
+  $handler = $view->new_display('block', 'Block', 'block_1');
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Taxonomy vocabulary: Machine name */
+  $handler->display->display_options['filters']['machine_name']['id'] = 'machine_name';
+  $handler->display->display_options['filters']['machine_name']['table'] = 'taxonomy_vocabulary';
+  $handler->display->display_options['filters']['machine_name']['field'] = 'machine_name';
+  $handler->display->display_options['filters']['machine_name']['value'] = array(
+    'content' => 'content',
+  );
+  $handler->display->display_options['block_description'] = 'Tag cloud tag';
   $translatables['tag_cloud'] = array(
     t('Master'),
     t('Lees over'),
@@ -221,6 +236,9 @@ function howest_blog_items_views_default_views() {
     t('Desc'),
     t('node'),
     t('Block'),
+    t('Lees over locatie'),
+    t('Tag cloud location'),
+    t('Tag cloud tag'),
   );
   $export['tag_cloud'] = $view;
 
