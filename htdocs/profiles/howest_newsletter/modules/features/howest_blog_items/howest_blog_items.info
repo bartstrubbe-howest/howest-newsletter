@@ -3,6 +3,7 @@ core = 7.x
 package = Features
 dependencies[] = comment
 dependencies[] = date
+dependencies[] = date_views
 dependencies[] = features
 dependencies[] = image
 dependencies[] = list
