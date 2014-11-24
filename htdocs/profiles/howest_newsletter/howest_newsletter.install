@@ -115,7 +115,8 @@ function howest_newsletter_update_7008() {
     ->fields(
       array(
         'region' => 'sidebar_first',
-        'weight' => -15
+        'weight' => -15,
+        'status' => 1
       )
     )
     ->condition('theme', 'howest_newsletter')
