@@ -25,7 +25,7 @@ function howest_blog_items_views_default_views() {
   $handler->display->display_options['title'] = '<none>';
   $handler->display->display_options['css_class'] = 'view-blog-list';
   $handler->display->display_options['use_more_always'] = FALSE;
-  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['access']['type'] = 'none';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
@@ -88,6 +88,8 @@ function howest_blog_items_views_default_views() {
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
+  $handler->display->display_options['defaults']['access'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['path'] = 'blog-items';
 
   /* Display: Feed */
