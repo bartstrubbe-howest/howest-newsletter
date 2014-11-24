@@ -27,6 +27,7 @@ projects[] = ckeditor
 projects[] = diff
 projects[] = variable
 projects[] = imce
+projects[] = date
 
 ; themes
 projects[] = "bootstrap"

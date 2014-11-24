@@ -24,6 +24,9 @@ dependencies[] = search
 dependencies[] = jquery_update
 dependencies[] = imce
 dependencies[] = diff
+dependencies[] = date
+dependencies[] = date_popup
+dependencies[] = list
 
 ;features
 dependencies[] = howest_blog_items

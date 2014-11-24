@@ -21,7 +21,7 @@ function howest_blog_items_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'comment_blog_item';
-  $strongarm->value = '2';
+  $strongarm->value = '1';
   $export['comment_blog_item'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -87,7 +87,7 @@ function howest_blog_items_strongarm() {
     'extra_fields' => array(
       'form' => array(
         'title' => array(
-          'weight' => 0,
+          'weight' => '0',
         ),
       ),
       'display' => array(),
