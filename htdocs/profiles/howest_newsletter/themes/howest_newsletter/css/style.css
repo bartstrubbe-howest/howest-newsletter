@@ -308,3 +308,7 @@ ul.language-switcher-locale-url{
     color: white;
   }
 }
+
+.region-navigation .block-menu h2 {
+  display: none;
+}
