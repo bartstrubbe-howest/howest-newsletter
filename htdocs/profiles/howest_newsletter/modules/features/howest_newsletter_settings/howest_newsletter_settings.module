@@ -12,16 +12,17 @@ include_once 'howest_newsletter_settings.features.inc';
 function howest_newsletter_settings_menu()
 {
   $items['access-denied'] = array(
-      'title' => 'Access denied',
-      'description' => t('Access denied'),
-      'page callback' => 'howest_newsletter_settings_access_denied',
-      'access callback' => TRUE
+    'title' => 'Access denied',
+    'description' => t('Access denied'),
+    'page callback' => 'howest_newsletter_settings_access_denied',
+    'access callback' => TRUE
   );
 
   return $items;
 }
 
 function howest_newsletter_settings_access_denied() {
+  drupal_set_title(howest_newsletter_settings_get_access_denied_title()); 
   return howest_newsletter_settings_get_access_denied_msg();
 }
 
@@ -39,12 +40,28 @@ function howest_newsletter_settings_variable_info($options) {
     'group' => 'site_information',
   );
 
+  $variables['howest_newsletter_settings_access_denied_title'] = array(
+    'type' => 'array',
+    'title' => t('Access denied title'),
+    'default' => array('*' => 0),
+    'description' => t('Access denied title'),
+    'required' => TRUE,
+    'localize' => TRUE,
+    'group' => 'site_information',
+  );
+
   return $variables;
 }
 
 function howest_newsletter_settings_form_alter(&$form, &$form_state, $form_id) {
 
   if ($form_id == 'system_site_information_settings') {
+    $form['howest_newsletter_settings_access_denied_title'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Access denied title'),
+      '#default_value' => howest_newsletter_settings_get_access_denied_title(TRUE),
+    );
+
     $form['howest_newsletter_settings_access_denied_msg'] = array(
       '#type' => 'text_format',
       '#format' => 'full_html',
@@ -62,6 +79,21 @@ function howest_newsletter_settings_form_submit($form, &$form_state){
     if (!empty($values['howest_newsletter_settings_access_denied_msg']['value'])) {
       variable_set('howest_newsletter_settings_access_denied_msg', $values['howest_newsletter_settings_access_denied_msg']['value']);
     }
+}
+
+function howest_newsletter_settings_get_access_denied_title($settings = FALSE) {
+  global $language;
+
+  if ($settings && array_key_exists('variable_realm_key_language', $_GET)) {
+    $language_var = $_GET['variable_realm_key_language'];
+  }
+  else {
+    $language_var = $language->language;
+  }
+
+  $msg = i18n_variable_get('howest_newsletter_settings_access_denied_title', $language_var, 'Howest newsletter');
+
+  return $msg;
 }
 
 function howest_newsletter_settings_get_access_denied_msg($settings = FALSE) {
