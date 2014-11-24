@@ -95,6 +95,44 @@ function howest_newsletter_add_taxonomy_term($machine_name, $term_name) {
   taxonomy_term_save($term);
 }
 
+function howest_newsletter_suggestions_menu() {
+  menu_save(
+    array(
+      'menu_name' => 'howest_suggestions',
+      'title' => 'Contact&Suggestions',
+      'description' => 'This is a menu that holds some links'
+    )
+  );
+  
+  $suggestion = array(
+      'link_path' => 'mailto:inside@howest.be',
+      'link_title' => 'Suggesties',
+      'menu_name' => 'howest_suggestions'
+  );
+
+  $contact = array(
+      'link_path' => 'mailto:inside@howest.be',
+      'link_title' => 'Contact',
+      'menu_name' => 'howest_suggestions'
+  );
+ 
+  menu_link_save($suggestion);
+  menu_link_save($contact);
+ 
+  db_update('block')
+    ->fields(
+      array(
+        'region' => 'navigation',
+        'weight' => -5,
+        'status' => 1
+      )
+    )
+    ->condition('theme', 'howest_newsletter')
+    ->condition('delta', 'howest_suggestions')
+    ->condition('module', 'menu')
+    ->execute();
+}
+
 function howest_newsletter_update_7000() {
   howest_newsletter_add_taxonomy_term('location', 'Kortrijk');
 }
@@ -123,4 +161,11 @@ function howest_newsletter_update_7008() {
     ->condition('delta', 'blog_items-block_1')
     ->condition('module', 'views')
     ->execute();
+}
+
+/**
+ * Create a new menu and put in the navigation region
+ */
+function howest_newsletter_update_7009() {
+  howest_newsletter_suggestions_menu();
 }
