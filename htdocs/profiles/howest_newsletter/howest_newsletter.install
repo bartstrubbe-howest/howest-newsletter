@@ -110,26 +110,16 @@ function howest_newsletter_update_7002() {
 /**
  * Put the archive block in the right region
  */
-function howest_newsletter_update_7005() {
-  $default_theme = 'howest_newsletter';
-  $blocks = array(
-    array(
-      'module' => 'views',
-      'delta' => 'blog_items-block_1',
-      'theme' => $default_theme,
-      'status' => 1,
-      'weight' => -10,
-      'region' => 'sidebar_first',
-      'pages' => '',
-      'cache' => -1,
-    ),
-  ); 
-
-  $query = db_insert('block')->fields(array('module', 'delta', 'theme', 'status', 'weight', 'region', 'pages', 'cache'));
-
-  foreach ($blocks as $block) {
-    $query->values($block);
-  }
-
-  $query->execute();
+function howest_newsletter_update_7008() {
+  db_update('block')
+    ->fields(
+      array(
+        'region' => 'sidebar_first',
+        'weight' => -15
+      )
+    )
+    ->condition('theme', 'howest_newsletter')
+    ->condition('delta', 'blog_items-block_1')
+    ->condition('module', 'views')
+    ->execute();
 }
