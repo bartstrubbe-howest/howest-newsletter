@@ -110,7 +110,8 @@ function howest_newsletter_update_7002() {
 /**
  * Put the archive block in the right region
  */
-function howest_newsletter_update_7003() {
+function howest_newsletter_update_7004() {
+  $default_theme = 'howest_newsletter';
   $blocks = array(
     array(
       'module' => 'views',
