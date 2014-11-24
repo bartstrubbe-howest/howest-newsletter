@@ -128,7 +128,7 @@ function howest_newsletter_settings_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'site_name';
-  $strongarm->value = 'Site-Install';
+  $strongarm->value = 'Howest Blog';
   $export['site_name'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -486,8 +486,9 @@ Your account on [site:name] has been canceled.
   $strongarm->name = 'variable_realm_list_language';
   $strongarm->value = array(
     0 => 'howest_newsletter_settings_access_denied_msg',
-    1 => 'site_name',
-    2 => 'site_slogan',
+    1 => 'howest_newsletter_settings_access_denied_title',
+    2 => 'site_name',
+    3 => 'site_slogan',
   );
   $export['variable_realm_list_language'] = $strongarm;
 
