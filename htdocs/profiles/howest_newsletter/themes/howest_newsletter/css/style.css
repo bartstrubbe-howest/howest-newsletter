@@ -309,6 +309,27 @@ ul.language-switcher-locale-url{
   }
 }
 
-.region-navigation .block-menu h2 {
+.region-navigation .block-menu h2,
+.region-navigation .block-locale h2 {
   display: none;
+}
+
+.region-navigation .block-menu ul li,
+.region-navigation .block-locale ul li {
+  display: inline-block;
+  border: none;
+  list-style: none outside none;
+  margin-top: -1px;
+  padding: 5px;
+}
+
+.region-navigation .block-menu ul li a,
+.region-navigation .block-locale ul li a{
+  display: inline-block;
+}
+
+.region-navigation .block-menu ul li a:hover,
+.region-navigation .block-locale ul li a:hover {
+  color: #2a6496;
+  text-decoration: underline;
 }
