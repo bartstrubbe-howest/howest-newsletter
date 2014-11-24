@@ -88,8 +88,6 @@ function howest_blog_items_views_default_views() {
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
-  $handler->display->display_options['defaults']['access'] = FALSE;
-  $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['path'] = 'blog-items';
 
   /* Display: Feed */
@@ -99,6 +97,35 @@ function howest_blog_items_views_default_views() {
   $handler->display->display_options['row_plugin'] = 'node_rss';
   $handler->display->display_options['row_options']['item_length'] = 'rss';
   $handler->display->display_options['path'] = 'rss';
+
+  /* Display: Block */
+  $handler = $view->new_display('block', 'Block', 'block_1');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Berichten per maand';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'node';
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sort criterion: Content: Date (field_date) */
+  $handler->display->display_options['sorts']['field_date_value']['id'] = 'field_date_value';
+  $handler->display->display_options['sorts']['field_date_value']['table'] = 'field_data_field_date';
+  $handler->display->display_options['sorts']['field_date_value']['field'] = 'field_date_value';
+  $handler->display->display_options['sorts']['field_date_value']['order'] = 'DESC';
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Contextual filter: Content: Date (field_date) */
+  $handler->display->display_options['arguments']['field_date_value']['id'] = 'field_date_value';
+  $handler->display->display_options['arguments']['field_date_value']['table'] = 'field_data_field_date';
+  $handler->display->display_options['arguments']['field_date_value']['field'] = 'field_date_value';
+  $handler->display->display_options['arguments']['field_date_value']['default_action'] = 'summary';
+  $handler->display->display_options['arguments']['field_date_value']['default_argument_type'] = 'date';
+  $handler->display->display_options['arguments']['field_date_value']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_date_value']['summary']['format'] = 'unformatted_summary';
+  $handler->display->display_options['arguments']['field_date_value']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['block_description'] = 'Archive per month';
   $translatables['blog_items'] = array(
     t('Master'),
     t('<none>'),
@@ -118,6 +145,9 @@ function howest_blog_items_views_default_views() {
     t('All'),
     t('Page'),
     t('Feed'),
+    t('Block'),
+    t('Berichten per maand'),
+    t('Archive per month'),
   );
   $export['blog_items'] = $view;
 
