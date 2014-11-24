@@ -53,6 +53,16 @@ function howest_blog_items_views_default_views() {
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+  /* Contextual filter: Content: Date (field_date) */
+  $handler->display->display_options['arguments']['field_date_value']['id'] = 'field_date_value';
+  $handler->display->display_options['arguments']['field_date_value']['table'] = 'field_data_field_date';
+  $handler->display->display_options['arguments']['field_date_value']['field'] = 'field_date_value';
+  $handler->display->display_options['arguments']['field_date_value']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['field_date_value']['default_argument_type'] = 'date';
+  $handler->display->display_options['arguments']['field_date_value']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_date_value']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_date_value']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['field_date_value']['granularity'] = 'week';
   /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
@@ -103,6 +113,7 @@ function howest_blog_items_views_default_views() {
     t('‹ previous'),
     t('next ›'),
     t('last »'),
+    t('All'),
     t('Page'),
     t('Feed'),
   );

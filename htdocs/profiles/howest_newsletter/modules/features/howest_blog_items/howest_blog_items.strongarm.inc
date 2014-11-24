@@ -141,5 +141,75 @@ function howest_blog_items_strongarm() {
   $strongarm->value = 1;
   $export['node_submitted_blog_item'] = $strongarm;
 
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'scheduler_expand_fieldset_blog_item';
+  $strongarm->value = '0';
+  $export['scheduler_expand_fieldset_blog_item'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'scheduler_publish_enable_blog_item';
+  $strongarm->value = 1;
+  $export['scheduler_publish_enable_blog_item'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'scheduler_publish_past_date_blog_item';
+  $strongarm->value = 'error';
+  $export['scheduler_publish_past_date_blog_item'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'scheduler_publish_required_blog_item';
+  $strongarm->value = 0;
+  $export['scheduler_publish_required_blog_item'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'scheduler_publish_revision_blog_item';
+  $strongarm->value = 0;
+  $export['scheduler_publish_revision_blog_item'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'scheduler_publish_touch_blog_item';
+  $strongarm->value = 0;
+  $export['scheduler_publish_touch_blog_item'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'scheduler_unpublish_enable_blog_item';
+  $strongarm->value = 1;
+  $export['scheduler_unpublish_enable_blog_item'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'scheduler_unpublish_required_blog_item';
+  $strongarm->value = 0;
+  $export['scheduler_unpublish_required_blog_item'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'scheduler_unpublish_revision_blog_item';
+  $strongarm->value = 0;
+  $export['scheduler_unpublish_revision_blog_item'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'scheduler_use_vertical_tabs_blog_item';
+  $strongarm->value = '1';
+  $export['scheduler_use_vertical_tabs_blog_item'] = $strongarm;
+
   return $export;
 }
