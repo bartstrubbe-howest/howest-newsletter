@@ -130,8 +130,8 @@ function howest_newsletter_settings_ckeditor_profile_defaults() {
         'forcePasteAsPlainText' => 'f',
         'html_entities' => 'f',
         'scayt_autoStartup' => 'f',
-        'theme_config_js' => 'f',
-        'js_conf' => '',
+        'theme_config_js' => 't',
+        'js_conf' => 'config.toolbar = [[\'Bold\',\'Italic\',\'Underline\'], [\'Format\',\'Font\',\'FontSize\'],[\'Image\', \'Link\', \'Unlink\']];',
         'loadPlugins' => array(
           'drupalbreaks' => array(
             'name' => 'drupalbreaks',
