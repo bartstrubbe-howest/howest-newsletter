@@ -362,9 +362,9 @@ ul.language-switcher-locale-url{
   width: 32px;
   height: 32px;
   display: block;
-  position: absolute;
+  position: relative;
   right: 30px;
-  top: 12px;
+  top: 52px;
   background: url('../img/clock.png') no-repeat center center;
 }
 
