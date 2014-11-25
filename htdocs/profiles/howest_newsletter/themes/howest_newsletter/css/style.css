@@ -40,8 +40,33 @@ header#navbar{
 }
 
 .region.region-navigation{
+  width: auto;
+  float: right;
+  overflow: hidden;
+}
+
+.region.region-navigation .block-search{
   max-width: 300px;
   float: right;
+}
+
+.region.region-navigation section{
+  display: inline-block;
+}
+
+.region.region-navigation a{
+  color: white;
+  line-height: 30px;
+  padding: 5px 15px;
+}
+
+.region.region-navigation a:hover{
+  background: white;
+  text-decoration: none;
+}
+
+#block-menu-howest-suggestions, #block-locale-language{
+  margin-top: 15px;
 }
 
 .main-container.container{
@@ -303,10 +328,10 @@ ul.language-switcher-locale-url{
   color: white;
   font-size: 16px;
   margin-top: 10px;
+}
 
-  &:hover{
-    color: white;
-  }
+.show-all-tags:hover{
+  color: white;
 }
 
 .region-navigation .block-menu h2,
