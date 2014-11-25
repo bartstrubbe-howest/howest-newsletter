@@ -51,6 +51,7 @@ function howest_newsletter_field__taxonomy_term_reference($variables) {
   // Render the items.
   $output .= ($variables['element']['#label_display'] == 'inline') ? '<div class="links inline">' : '<div class="links">';
   foreach ($variables['items'] as $delta => $item) {
+    $item['#title'] = t($item['#title']);
     $output .= '<div class="taxonomy-term-reference-' . $delta . '"' . $variables['item_attributes'][$delta] . '>' . drupal_render($item) . '</div>';
   }
   $output .= '</div>';
