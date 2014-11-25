@@ -367,3 +367,14 @@ ul.language-switcher-locale-url{
   top: 12px;
   background: url('../img/clock.png') no-repeat center center;
 }
+
+.node-teaser .has-deadline + h2{
+  padding-left: 60px;
+}
+
+.node-teaser .has-deadline{
+  background-color: rgb(67,199,244);
+  left: 15px;
+  padding: 20px;
+  border-radius: 100%;
+}
