@@ -357,3 +357,13 @@ ul.language-switcher-locale-url{
   color: #2a6496;
   text-decoration: underline;
 }
+
+.has-deadline{
+  width: 32px;
+  height: 32px;
+  display: block;
+  position: absolute;
+  right: 30px;
+  top: 12px;
+  background: url('../img/clock.png') no-repeat center center;
+}
