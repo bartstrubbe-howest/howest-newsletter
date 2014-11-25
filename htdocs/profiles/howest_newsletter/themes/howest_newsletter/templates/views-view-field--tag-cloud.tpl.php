@@ -1,1 +1,1 @@
-?php print t($output); ?>
+<?php print t($output); ?>
