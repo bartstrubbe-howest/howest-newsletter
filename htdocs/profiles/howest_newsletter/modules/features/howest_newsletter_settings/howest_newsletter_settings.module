@@ -114,3 +114,29 @@ function howest_newsletter_settings_get_access_denied_msg($settings = FALSE) {
 
   return 'Access denied';
 }
+
+function howest_newsletter_settings_block_info() {
+  $blocks['deadline'] = array(
+    'info' => t('Deadline'),
+    'region' => 'sidebar_first',
+  );
+
+  return $blocks;
+}
+
+function howest_newsletter_settings_block_view($delta = '') {
+  $block = array();
+
+  switch ($delta) {
+    case 'deadline':
+      $block['subject'] = l('Deadlines', 'deadlines');
+      $block['content'] = array(
+        '#type' => 'markup',
+        '#markup' => '',
+      );
+
+      break;
+  }
+
+  return $block;
+}
