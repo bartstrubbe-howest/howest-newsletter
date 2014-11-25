@@ -28,6 +28,7 @@ projects[] = diff
 projects[] = variable
 projects[] = imce
 projects[] = date
+projects[] = rules
 
 ; themes
 projects[] = "bootstrap"
