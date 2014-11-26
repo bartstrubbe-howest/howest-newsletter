@@ -23,7 +23,11 @@ function howest_newsletter_settings_menu()
 
 function howest_newsletter_settings_access_denied() {
   drupal_set_title(howest_newsletter_settings_get_access_denied_title()); 
-  return howest_newsletter_settings_get_access_denied_msg();
+  
+  return array(
+    'type' => 'markup',
+    '#markup' => howest_newsletter_settings_get_access_denied_msg()
+  );
 }
 
 /**
