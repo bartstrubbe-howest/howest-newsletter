@@ -133,11 +133,14 @@ function howest_newsletter_settings_block_view($delta = '') {
 
   switch ($delta) {
     case 'deadline':
-      $block['subject'] = l('Deadlines', 'deadlines');
-      $block['content'] = array(
-        '#type' => 'markup',
-        '#markup' => '',
-      );
+      
+      if (user_access('access content')) {
+        $block['subject'] = l('Deadlines', 'deadlines');
+        $block['content'] = array(
+          '#type' => 'markup',
+          '#markup' => '',
+        );
+      }
 
       break;
   }
