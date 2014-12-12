@@ -31,6 +31,13 @@ function howest_blog_items_field_default_field_instances() {
         'type' => 'text_default',
         'weight' => 0,
       ),
+      'ical' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 0,
+      ),
       'rss' => array(
         'label' => 'hidden',
         'module' => 'text',
@@ -87,6 +94,13 @@ function howest_blog_items_field_default_field_instances() {
         'type' => 'taxonomy_term_reference_link',
         'weight' => 2,
       ),
+      'ical' => array(
+        'label' => 'hidden',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 2,
+      ),
       'rss' => array(
         'label' => 'above',
         'settings' => array(),
@@ -128,6 +142,12 @@ function howest_blog_items_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 4,
+      ),
+      'ical' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 5,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -180,6 +200,12 @@ function howest_blog_items_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 5,
       ),
+      'ical' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 4,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -210,6 +236,16 @@ function howest_blog_items_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'hidden',
+        'module' => 'image',
+        'settings' => array(
+          'image_link' => '',
+          'image_style' => 'blog_inline',
+        ),
+        'type' => 'image',
+        'weight' => 3,
+      ),
+      'ical' => array(
         'label' => 'hidden',
         'module' => 'image',
         'settings' => array(
@@ -269,6 +305,13 @@ function howest_blog_items_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'hidden',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 1,
+      ),
+      'ical' => array(
         'label' => 'hidden',
         'module' => 'taxonomy',
         'settings' => array(),
