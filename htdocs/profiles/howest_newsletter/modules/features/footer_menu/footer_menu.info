@@ -1,0 +1,11 @@
+name = Footer menu
+core = 7.x
+package = Features
+dependencies[] = fe_block
+dependencies[] = features
+dependencies[] = menu
+features[fe_block_settings][] = menu-menu-footer
+features[features_api][] = api:2
+features[menu_custom][] = menu-footer
+features[menu_links][] = menu-footer_contact:mailto:inside@howest.be
+project path = profiles/howest_newsletter/modules/features
