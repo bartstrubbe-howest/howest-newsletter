@@ -15,9 +15,10 @@ function howest_blog_items_field_default_field_instances() {
     'bundle' => 'blog_item',
     'default_value' => array(
       0 => array(
-        'value' => '',
-        'summary' => '<p><span style="font-size:12px; line-height:19.2000007629395px">&nbsp</span></p>
+        'summary' => ' 
 ',
+        'value' => '',
+        'format' => 'full_html',
       ),
     ),
     'deleted' => 0,

@@ -154,3 +154,7 @@ function howest_newsletter_settings_views_pre_render(&$view) {
     }
   }
 }
+
+function howest_newsletter_settings_field_widget_text_textarea_with_summary_form_alter(&$element, &$form_state, $context) {
+  if (isset($element['summary']) && !isset($element['summary']['#wysiwyg'])) $element['summary']['#wysiwyg'] = false;
+}
