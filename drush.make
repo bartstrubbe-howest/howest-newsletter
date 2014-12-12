@@ -29,6 +29,7 @@ projects[] = variable
 projects[] = imce
 projects[] = date
 projects[] = rules
+projects[] = views_load_more
 
 ; themes
 projects[] = "bootstrap"
