@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the iCal feature.
+ */
+
+include_once 'ical.features.inc';

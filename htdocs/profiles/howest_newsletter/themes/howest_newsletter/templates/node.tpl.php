@@ -78,10 +78,11 @@
  * @see template_process()
  */
 ?>
-<div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
-  <?php if(isset($field_deadline[LANGUAGE_NONE][0]['value']) && $field_deadline[LANGUAGE_NONE][0]['value'] == 1):?>
+<div id="node-<?php print $node->nid; ?>"
+     class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
+  <?php if (isset($field_deadline[LANGUAGE_NONE][0]['value']) && $field_deadline[LANGUAGE_NONE][0]['value'] == 1): ?>
     <div class="has-deadline"></div>
-  <?php endif;?>
+  <?php endif; ?>
   <?php print render($title_prefix); ?>
   <?php if (!$page): ?>
     <h2<?php print $title_attributes; ?>>
@@ -103,6 +104,21 @@
     hide($content['comments']);
     hide($content['links']);
     print render($content);
+
+    if ($node->type === "blog_item") {
+      print l(
+        t("iCal"),
+        "ical/" . $node->nid . "/export.ics",
+        array(
+          "absolute" => TRUE,
+          "attributes" => array(
+            "class" => array(
+              "ical"
+            )
+          )
+        )
+      );
+    }
     ?>
   </div>
 

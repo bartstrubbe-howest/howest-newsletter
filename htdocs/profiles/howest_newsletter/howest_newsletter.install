@@ -167,5 +167,5 @@ function howest_newsletter_update_7008() {
  * Create a new menu and put in the navigation region
  */
 function howest_newsletter_update_7009() {
-  howest_newsletter_suggestions_menu();
+//  howest_newsletter_suggestions_menu();
 }

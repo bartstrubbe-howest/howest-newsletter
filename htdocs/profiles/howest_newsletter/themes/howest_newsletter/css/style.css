@@ -384,3 +384,30 @@ ul.language-switcher-locale-url{
 .node-teaser h2 a {
     display: block;
 }
+
+#block-menu-menu-footer li{
+    display: inline-block;
+    border: none;
+    list-style: none outside none;
+    margin-top: -1px;
+    padding: 5px;
+}
+
+#block-menu-menu-footer a{
+    color: white;
+    line-height: 30px;
+    padding: 5px 15px;
+}
+
+a.ical{
+    display: block;
+    background: #f00088;
+    color: white;
+    padding: 8px;
+    margin: 10px 0 0 0;
+    clear: both;
+    font-weight: bold;
+    margin-right: 10px;
+    font-size: 16px;
+    float: right;
+}
