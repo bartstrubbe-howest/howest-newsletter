@@ -13,7 +13,13 @@ function howest_blog_items_field_default_field_instances() {
   // Exported field_instance: 'node-blog_item-body'
   $field_instances['node-blog_item-body'] = array(
     'bundle' => 'blog_item',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => '',
+        'summary' => '<p><span style="font-size:12px; line-height:19.2000007629395px">&nbsp</span></p>
+',
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
