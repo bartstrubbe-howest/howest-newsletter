@@ -77,7 +77,7 @@ function howest_blog_items_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'blog_item' => 'blog_item',
   );
-  /* Filter criterion: Content: Language */
+  /* Filter criterion: Content: Taal */
   $handler->display->display_options['filters']['language']['id'] = 'language';
   $handler->display->display_options['filters']['language']['table'] = 'node';
   $handler->display->display_options['filters']['language']['field'] = 'language';
@@ -125,7 +125,7 @@ function howest_blog_items_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'blog_item' => 'blog_item',
   );
-  /* Filter criterion: Content: Language */
+  /* Filter criterion: Content: Taal */
   $handler->display->display_options['filters']['language']['id'] = 'language';
   $handler->display->display_options['filters']['language']['table'] = 'node';
   $handler->display->display_options['filters']['language']['field'] = 'language';
@@ -194,7 +194,7 @@ function howest_blog_items_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'blog_item' => 'blog_item',
   );
-  /* Filter criterion: Content: Language */
+  /* Filter criterion: Content: Taal */
   $handler->display->display_options['filters']['language']['id'] = 'language';
   $handler->display->display_options['filters']['language']['table'] = 'node';
   $handler->display->display_options['filters']['language']['field'] = 'language';
@@ -294,7 +294,7 @@ function howest_blog_items_views_default_views() {
   $handler->display->display_options['filters']['machine_name']['value'] = array(
     'location' => 'location',
   );
-  /* Filter criterion: Content: Language */
+  /* Filter criterion: Content: Taal */
   $handler->display->display_options['filters']['language']['id'] = 'language';
   $handler->display->display_options['filters']['language']['table'] = 'node';
   $handler->display->display_options['filters']['language']['field'] = 'language';
@@ -321,7 +321,7 @@ function howest_blog_items_views_default_views() {
   $handler->display->display_options['filters']['machine_name']['value'] = array(
     'content' => 'content',
   );
-  /* Filter criterion: Content: Language */
+  /* Filter criterion: Content: Taal */
   $handler->display->display_options['filters']['language']['id'] = 'language';
   $handler->display->display_options['filters']['language']['table'] = 'node';
   $handler->display->display_options['filters']['language']['field'] = 'language';
