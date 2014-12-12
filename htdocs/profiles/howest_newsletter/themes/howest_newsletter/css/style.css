@@ -378,3 +378,9 @@ ul.language-switcher-locale-url{
   padding: 20px;
   border-radius: 100%;
 }
+
+
+
+.node-teaser h2 a {
+    display: block;
+}
