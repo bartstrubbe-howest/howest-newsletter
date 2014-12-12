@@ -57,7 +57,6 @@ function howest_blog_items_views_default_views() {
   $handler->display->display_options['arguments']['field_date_value']['id'] = 'field_date_value';
   $handler->display->display_options['arguments']['field_date_value']['table'] = 'field_data_field_date';
   $handler->display->display_options['arguments']['field_date_value']['field'] = 'field_date_value';
-  $handler->display->display_options['arguments']['field_date_value']['default_action'] = 'default';
   $handler->display->display_options['arguments']['field_date_value']['default_argument_type'] = 'date';
   $handler->display->display_options['arguments']['field_date_value']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['field_date_value']['summary']['format'] = 'default_summary';
@@ -88,6 +87,8 @@ function howest_blog_items_views_default_views() {
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'INSIDE Howest';
   $handler->display->display_options['path'] = 'blog-items';
 
   /* Display: Feed */
@@ -188,6 +189,7 @@ function howest_blog_items_views_default_views() {
     t('last »'),
     t('All'),
     t('Page'),
+    t('INSIDE Howest'),
     t('Feed'),
     t('Howest newsletter'),
     t('Block'),
@@ -259,6 +261,7 @@ function howest_blog_items_views_default_views() {
   $handler->display->display_options['filters']['language']['relationship'] = 'nid';
   $handler->display->display_options['filters']['language']['value'] = array(
     '***CURRENT_LANGUAGE***' => '***CURRENT_LANGUAGE***',
+    'und' => 'und',
   );
 
   /* Display: Block */
