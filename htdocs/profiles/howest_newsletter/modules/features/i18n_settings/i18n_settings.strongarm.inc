@@ -21,14 +21,14 @@ function i18n_settings_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'l10n_update_check_frequency';
-  $strongarm->value = '0';
+  $strongarm->value = 0;
   $export['l10n_update_check_frequency'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'l10n_update_check_mode';
-  $strongarm->value = '2';
+  $strongarm->value = 2;
   $export['l10n_update_check_mode'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -42,7 +42,7 @@ function i18n_settings_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'l10n_update_import_mode';
-  $strongarm->value = '1';
+  $strongarm->value = 1;
   $export['l10n_update_import_mode'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -61,13 +61,13 @@ function i18n_settings_strongarm() {
     'name' => 'Dutch',
     'native' => 'Nederlands',
     'direction' => '0',
-    'enabled' => '1',
+    'enabled' => 1,
     'plurals' => '2',
     'formula' => '($n!=1)',
     'domain' => '',
     'prefix' => 'nl',
     'weight' => '0',
-    'javascript' => '40LItYRa56vUcqemTo3QjLwpOeqYtB9GmrELQ_OKfUw',
+    'javascript' => 'yOWGFd2GfCbJBFJ7OYnzCLkIwfILqvapICaEcJ4jSlw',
   );
   $export['language_default'] = $strongarm;
 
@@ -157,11 +157,11 @@ function i18n_settings_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'locale_language_providers_weight_language';
   $strongarm->value = array(
-    'locale-url' => '-8',
-    'locale-session' => '-6',
-    'locale-user' => '-4',
-    'locale-browser' => '-2',
-    'language-default' => '10',
+    'locale-url' => -8,
+    'locale-session' => -6,
+    'locale-user' => -4,
+    'locale-browser' => -2,
+    'language-default' => 10,
   );
   $export['locale_language_providers_weight_language'] = $strongarm;
 
