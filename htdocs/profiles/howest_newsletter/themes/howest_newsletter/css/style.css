@@ -413,3 +413,7 @@ a.ical{
 .region-footer .block-menu h2 {
   display: none;
 }
+
+.footer {
+  border: 0px;
+}
