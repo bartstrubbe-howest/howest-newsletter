@@ -334,11 +334,13 @@ ul.language-switcher-locale-url{
 }
 
 .region-navigation .block-menu h2,
+.region-footer .block-menu h2,
 .region-navigation .block-locale h2 {
   display: none;
 }
 
 .region-navigation .block-menu ul li,
+.region-footer .block-menu ul li,
 .region-navigation .block-locale ul li {
   display: inline-block;
   border: none;
@@ -348,11 +350,13 @@ ul.language-switcher-locale-url{
 }
 
 .region-navigation .block-menu ul li a,
+.region-footer .block-menu ul li a,
 .region-navigation .block-locale ul li a{
   display: inline-block;
 }
 
 .region-navigation .block-menu ul li a:hover,
+.region-footer .block-menu ul li a:hover,
 .region-navigation .block-locale ul li a:hover {
   color: #2a6496;
   text-decoration: underline;
@@ -383,20 +387,6 @@ ul.language-switcher-locale-url{
     display: block;
 }
 
-#block-menu-menu-footer li{
-    display: inline-block;
-    border: none;
-    list-style: none outside none;
-    margin-top: -1px;
-    padding: 5px;
-}
-
-#block-menu-menu-footer a{
-    color: white;
-    line-height: 30px;
-    padding: 5px 15px;
-}
-
 a.ical{
     display: block;
     background: #f00088;
@@ -408,10 +398,6 @@ a.ical{
     margin-right: 10px;
     font-size: 16px;
     float: right;
-}
-
-.region-footer .block-menu h2 {
-  display: none;
 }
 
 .footer {
