@@ -54,7 +54,8 @@ header#navbar{
   display: inline-block;
 }
 
-.region.region-navigation a{
+.region.region-navigation a,
+.region.region-footer a{
   color: white;
   line-height: 30px;
   padding: 5px 15px;
