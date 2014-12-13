@@ -379,8 +379,6 @@ ul.language-switcher-locale-url{
   border-radius: 100%;
 }
 
-
-
 .node-teaser h2 a {
     display: block;
 }
@@ -410,4 +408,8 @@ a.ical{
     margin-right: 10px;
     font-size: 16px;
     float: right;
+}
+
+.region-footer .block-menu h2 {
+  display: none;
 }
