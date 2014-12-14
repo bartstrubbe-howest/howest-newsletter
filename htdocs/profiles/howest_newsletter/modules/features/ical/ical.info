@@ -7,4 +7,5 @@ features[ctools][] = views:views_default:3.0
 features[features_api][] = api:2
 features[views_view][] = ical
 features_exclude[dependencies][ctools] = ctools
+mtime = 1418491341
 project path = profiles/howest_newsletter/modules/features
