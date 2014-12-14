@@ -30,6 +30,9 @@ projects[] = imce
 projects[] = date
 projects[] = rules
 projects[] = views_load_more
+projects[] = date_ical
+projects[] = file_entity
+projects[media][version] = 2.x-dev
 
 ; themes
 projects[] = "bootstrap"
