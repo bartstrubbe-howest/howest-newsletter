@@ -60,6 +60,25 @@ function howest_newsletter_settings_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'access media browser'.
+  $permissions['access media browser'] = array(
+    'name' => 'access media browser',
+    'roles' => array(
+      'admin' => 'admin',
+      'editor' => 'editor',
+      'publisher' => 'publisher',
+      'reader' => 'reader',
+    ),
+    'module' => 'media',
+  );
+
+  // Exported permission: 'access rules debug'.
+  $permissions['access rules debug'] = array(
+    'name' => 'access rules debug',
+    'roles' => array(),
+    'module' => 'rules',
+  );
+
   // Exported permission: 'access site in maintenance mode'.
   $permissions['access site in maintenance mode'] = array(
     'name' => 'access site in maintenance mode',
@@ -153,6 +172,24 @@ function howest_newsletter_settings_user_default_permissions() {
     'module' => 'features',
   );
 
+  // Exported permission: 'administer file types'.
+  $permissions['administer file types'] = array(
+    'name' => 'administer file types',
+    'roles' => array(
+      'admin' => 'admin',
+    ),
+    'module' => 'file_entity',
+  );
+
+  // Exported permission: 'administer files'.
+  $permissions['administer files'] = array(
+    'name' => 'administer files',
+    'roles' => array(
+      'admin' => 'admin',
+    ),
+    'module' => 'file_entity',
+  );
+
   // Exported permission: 'administer filters'.
   $permissions['administer filters'] = array(
     'name' => 'administer filters',
@@ -187,6 +224,15 @@ function howest_newsletter_settings_user_default_permissions() {
       'admin' => 'admin',
     ),
     'module' => 'locale',
+  );
+
+  // Exported permission: 'administer media browser'.
+  $permissions['administer media browser'] = array(
+    'name' => 'administer media browser',
+    'roles' => array(
+      'admin' => 'admin',
+    ),
+    'module' => 'media',
   );
 
   // Exported permission: 'administer menu'.
@@ -224,6 +270,13 @@ function howest_newsletter_settings_user_default_permissions() {
       'admin' => 'admin',
     ),
     'module' => 'user',
+  );
+
+  // Exported permission: 'administer rules'.
+  $permissions['administer rules'] = array(
+    'name' => 'administer rules',
+    'roles' => array(),
+    'module' => 'rules',
   );
 
   // Exported permission: 'administer scheduler'.
@@ -307,6 +360,15 @@ function howest_newsletter_settings_user_default_permissions() {
     'module' => 'system',
   );
 
+  // Exported permission: 'bypass file access'.
+  $permissions['bypass file access'] = array(
+    'name' => 'bypass file access',
+    'roles' => array(
+      'admin' => 'admin',
+    ),
+    'module' => 'file_entity',
+  );
+
   // Exported permission: 'bypass node access'.
   $permissions['bypass node access'] = array(
     'name' => 'bypass node access',
@@ -315,6 +377,13 @@ function howest_newsletter_settings_user_default_permissions() {
       'publisher' => 'publisher',
     ),
     'module' => 'node',
+  );
+
+  // Exported permission: 'bypass rules access'.
+  $permissions['bypass rules access'] = array(
+    'name' => 'bypass rules access',
+    'roles' => array(),
+    'module' => 'rules',
   );
 
   // Exported permission: 'cancel account'.
@@ -345,6 +414,13 @@ function howest_newsletter_settings_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'create basic_page content'.
+  $permissions['create basic_page content'] = array(
+    'name' => 'create basic_page content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
   // Exported permission: 'create blog_item content'.
   $permissions['create blog_item content'] = array(
     'name' => 'create blog_item content',
@@ -356,6 +432,18 @@ function howest_newsletter_settings_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'create files'.
+  $permissions['create files'] = array(
+    'name' => 'create files',
+    'roles' => array(
+      'admin' => 'admin',
+      'editor' => 'editor',
+      'publisher' => 'publisher',
+      'reader' => 'reader',
+    ),
+    'module' => 'file_entity',
+  );
+
   // Exported permission: 'customize ckeditor'.
   $permissions['customize ckeditor'] = array(
     'name' => 'customize ckeditor',
@@ -365,6 +453,15 @@ function howest_newsletter_settings_user_default_permissions() {
     'module' => 'ckeditor',
   );
 
+  // Exported permission: 'delete any audio files'.
+  $permissions['delete any audio files'] = array(
+    'name' => 'delete any audio files',
+    'roles' => array(
+      'admin' => 'admin',
+    ),
+    'module' => 'file_entity',
+  );
+
   // Exported permission: 'delete any banner content'.
   $permissions['delete any banner content'] = array(
     'name' => 'delete any banner content',
@@ -372,6 +469,13 @@ function howest_newsletter_settings_user_default_permissions() {
       'admin' => 'admin',
       'publisher' => 'publisher',
     ),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'delete any basic_page content'.
+  $permissions['delete any basic_page content'] = array(
+    'name' => 'delete any basic_page content',
+    'roles' => array(),
     'module' => 'node',
   );
 
@@ -385,6 +489,44 @@ function howest_newsletter_settings_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'delete any document files'.
+  $permissions['delete any document files'] = array(
+    'name' => 'delete any document files',
+    'roles' => array(
+      'admin' => 'admin',
+    ),
+    'module' => 'file_entity',
+  );
+
+  // Exported permission: 'delete any image files'.
+  $permissions['delete any image files'] = array(
+    'name' => 'delete any image files',
+    'roles' => array(
+      'admin' => 'admin',
+      'editor' => 'editor',
+      'publisher' => 'publisher',
+    ),
+    'module' => 'file_entity',
+  );
+
+  // Exported permission: 'delete any video files'.
+  $permissions['delete any video files'] = array(
+    'name' => 'delete any video files',
+    'roles' => array(
+      'admin' => 'admin',
+    ),
+    'module' => 'file_entity',
+  );
+
+  // Exported permission: 'delete own audio files'.
+  $permissions['delete own audio files'] = array(
+    'name' => 'delete own audio files',
+    'roles' => array(
+      'admin' => 'admin',
+    ),
+    'module' => 'file_entity',
+  );
+
   // Exported permission: 'delete own banner content'.
   $permissions['delete own banner content'] = array(
     'name' => 'delete own banner content',
@@ -392,6 +534,13 @@ function howest_newsletter_settings_user_default_permissions() {
       'admin' => 'admin',
       'publisher' => 'publisher',
     ),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'delete own basic_page content'.
+  $permissions['delete own basic_page content'] = array(
+    'name' => 'delete own basic_page content',
+    'roles' => array(),
     'module' => 'node',
   );
 
@@ -404,6 +553,36 @@ function howest_newsletter_settings_user_default_permissions() {
       'reader' => 'reader',
     ),
     'module' => 'node',
+  );
+
+  // Exported permission: 'delete own document files'.
+  $permissions['delete own document files'] = array(
+    'name' => 'delete own document files',
+    'roles' => array(
+      'admin' => 'admin',
+    ),
+    'module' => 'file_entity',
+  );
+
+  // Exported permission: 'delete own image files'.
+  $permissions['delete own image files'] = array(
+    'name' => 'delete own image files',
+    'roles' => array(
+      'admin' => 'admin',
+      'editor' => 'editor',
+      'publisher' => 'publisher',
+      'reader' => 'reader',
+    ),
+    'module' => 'file_entity',
+  );
+
+  // Exported permission: 'delete own video files'.
+  $permissions['delete own video files'] = array(
+    'name' => 'delete own video files',
+    'roles' => array(
+      'admin' => 'admin',
+    ),
+    'module' => 'file_entity',
   );
 
   // Exported permission: 'delete revisions'.
@@ -433,6 +612,93 @@ function howest_newsletter_settings_user_default_permissions() {
     'module' => 'taxonomy',
   );
 
+  // Exported permission: 'download any audio files'.
+  $permissions['download any audio files'] = array(
+    'name' => 'download any audio files',
+    'roles' => array(
+      'admin' => 'admin',
+    ),
+    'module' => 'file_entity',
+  );
+
+  // Exported permission: 'download any document files'.
+  $permissions['download any document files'] = array(
+    'name' => 'download any document files',
+    'roles' => array(
+      'admin' => 'admin',
+    ),
+    'module' => 'file_entity',
+  );
+
+  // Exported permission: 'download any image files'.
+  $permissions['download any image files'] = array(
+    'name' => 'download any image files',
+    'roles' => array(
+      'admin' => 'admin',
+      'editor' => 'editor',
+      'publisher' => 'publisher',
+      'reader' => 'reader',
+    ),
+    'module' => 'file_entity',
+  );
+
+  // Exported permission: 'download any video files'.
+  $permissions['download any video files'] = array(
+    'name' => 'download any video files',
+    'roles' => array(
+      'admin' => 'admin',
+    ),
+    'module' => 'file_entity',
+  );
+
+  // Exported permission: 'download own audio files'.
+  $permissions['download own audio files'] = array(
+    'name' => 'download own audio files',
+    'roles' => array(
+      'admin' => 'admin',
+    ),
+    'module' => 'file_entity',
+  );
+
+  // Exported permission: 'download own document files'.
+  $permissions['download own document files'] = array(
+    'name' => 'download own document files',
+    'roles' => array(
+      'admin' => 'admin',
+    ),
+    'module' => 'file_entity',
+  );
+
+  // Exported permission: 'download own image files'.
+  $permissions['download own image files'] = array(
+    'name' => 'download own image files',
+    'roles' => array(
+      'admin' => 'admin',
+      'editor' => 'editor',
+      'publisher' => 'publisher',
+      'reader' => 'reader',
+    ),
+    'module' => 'file_entity',
+  );
+
+  // Exported permission: 'download own video files'.
+  $permissions['download own video files'] = array(
+    'name' => 'download own video files',
+    'roles' => array(
+      'admin' => 'admin',
+    ),
+    'module' => 'file_entity',
+  );
+
+  // Exported permission: 'edit any audio files'.
+  $permissions['edit any audio files'] = array(
+    'name' => 'edit any audio files',
+    'roles' => array(
+      'admin' => 'admin',
+    ),
+    'module' => 'file_entity',
+  );
+
   // Exported permission: 'edit any banner content'.
   $permissions['edit any banner content'] = array(
     'name' => 'edit any banner content',
@@ -440,6 +706,13 @@ function howest_newsletter_settings_user_default_permissions() {
       'admin' => 'admin',
       'editor' => 'editor',
     ),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'edit any basic_page content'.
+  $permissions['edit any basic_page content'] = array(
+    'name' => 'edit any basic_page content',
+    'roles' => array(),
     'module' => 'node',
   );
 
@@ -453,6 +726,44 @@ function howest_newsletter_settings_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'edit any document files'.
+  $permissions['edit any document files'] = array(
+    'name' => 'edit any document files',
+    'roles' => array(
+      'admin' => 'admin',
+    ),
+    'module' => 'file_entity',
+  );
+
+  // Exported permission: 'edit any image files'.
+  $permissions['edit any image files'] = array(
+    'name' => 'edit any image files',
+    'roles' => array(
+      'admin' => 'admin',
+      'editor' => 'editor',
+      'publisher' => 'publisher',
+    ),
+    'module' => 'file_entity',
+  );
+
+  // Exported permission: 'edit any video files'.
+  $permissions['edit any video files'] = array(
+    'name' => 'edit any video files',
+    'roles' => array(
+      'admin' => 'admin',
+    ),
+    'module' => 'file_entity',
+  );
+
+  // Exported permission: 'edit own audio files'.
+  $permissions['edit own audio files'] = array(
+    'name' => 'edit own audio files',
+    'roles' => array(
+      'admin' => 'admin',
+    ),
+    'module' => 'file_entity',
+  );
+
   // Exported permission: 'edit own banner content'.
   $permissions['edit own banner content'] = array(
     'name' => 'edit own banner content',
@@ -460,6 +771,13 @@ function howest_newsletter_settings_user_default_permissions() {
       'admin' => 'admin',
       'editor' => 'editor',
     ),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'edit own basic_page content'.
+  $permissions['edit own basic_page content'] = array(
+    'name' => 'edit own basic_page content',
+    'roles' => array(),
     'module' => 'node',
   );
 
@@ -481,6 +799,36 @@ function howest_newsletter_settings_user_default_permissions() {
       'admin' => 'admin',
     ),
     'module' => 'comment',
+  );
+
+  // Exported permission: 'edit own document files'.
+  $permissions['edit own document files'] = array(
+    'name' => 'edit own document files',
+    'roles' => array(
+      'admin' => 'admin',
+    ),
+    'module' => 'file_entity',
+  );
+
+  // Exported permission: 'edit own image files'.
+  $permissions['edit own image files'] = array(
+    'name' => 'edit own image files',
+    'roles' => array(
+      'admin' => 'admin',
+      'editor' => 'editor',
+      'publisher' => 'publisher',
+      'reader' => 'reader',
+    ),
+    'module' => 'file_entity',
+  );
+
+  // Exported permission: 'edit own video files'.
+  $permissions['edit own video files'] = array(
+    'name' => 'edit own video files',
+    'roles' => array(
+      'admin' => 'admin',
+    ),
+    'module' => 'file_entity',
   );
 
   // Exported permission: 'edit terms in content'.
@@ -585,6 +933,13 @@ function howest_newsletter_settings_user_default_permissions() {
     'module' => 'comment',
   );
 
+  // Exported permission: 'translate admin strings'.
+  $permissions['translate admin strings'] = array(
+    'name' => 'translate admin strings',
+    'roles' => array(),
+    'module' => 'i18n_string',
+  );
+
   // Exported permission: 'translate content'.
   $permissions['translate content'] = array(
     'name' => 'translate content',
@@ -603,6 +958,13 @@ function howest_newsletter_settings_user_default_permissions() {
       'admin' => 'admin',
     ),
     'module' => 'locale',
+  );
+
+  // Exported permission: 'translate user-defined strings'.
+  $permissions['translate user-defined strings'] = array(
+    'name' => 'translate user-defined strings',
+    'roles' => array(),
+    'module' => 'i18n_string',
   );
 
   // Exported permission: 'use advanced search'.
@@ -626,6 +988,44 @@ function howest_newsletter_settings_user_default_permissions() {
     'module' => 'filter',
   );
 
+  // Exported permission: 'view files'.
+  $permissions['view files'] = array(
+    'name' => 'view files',
+    'roles' => array(
+      'admin' => 'admin',
+      'anonymous user' => 'anonymous user',
+      'authenticated user' => 'authenticated user',
+      'editor' => 'editor',
+      'publisher' => 'publisher',
+      'reader' => 'reader',
+    ),
+    'module' => 'file_entity',
+  );
+
+  // Exported permission: 'view own files'.
+  $permissions['view own files'] = array(
+    'name' => 'view own files',
+    'roles' => array(
+      'admin' => 'admin',
+      'editor' => 'editor',
+      'publisher' => 'publisher',
+      'reader' => 'reader',
+    ),
+    'module' => 'file_entity',
+  );
+
+  // Exported permission: 'view own private files'.
+  $permissions['view own private files'] = array(
+    'name' => 'view own private files',
+    'roles' => array(
+      'admin' => 'admin',
+      'editor' => 'editor',
+      'publisher' => 'publisher',
+      'reader' => 'reader',
+    ),
+    'module' => 'file_entity',
+  );
+
   // Exported permission: 'view own unpublished content'.
   $permissions['view own unpublished content'] = array(
     'name' => 'view own unpublished content',
@@ -636,6 +1036,15 @@ function howest_newsletter_settings_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'view private files'.
+  $permissions['view private files'] = array(
+    'name' => 'view private files',
+    'roles' => array(
+      'admin' => 'admin',
+    ),
+    'module' => 'file_entity',
+  );
+
   // Exported permission: 'view revisions'.
   $permissions['view revisions'] = array(
     'name' => 'view revisions',
@@ -643,6 +1052,16 @@ function howest_newsletter_settings_user_default_permissions() {
       'admin' => 'admin',
     ),
     'module' => 'node',
+  );
+
+  // Exported permission: 'view scheduled content'.
+  $permissions['view scheduled content'] = array(
+    'name' => 'view scheduled content',
+    'roles' => array(
+      'admin' => 'admin',
+      'publisher' => 'publisher',
+    ),
+    'module' => 'scheduler',
   );
 
   // Exported permission: 'view the administration theme'.
