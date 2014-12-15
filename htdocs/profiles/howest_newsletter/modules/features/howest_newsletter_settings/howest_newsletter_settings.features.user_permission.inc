@@ -55,6 +55,7 @@ function howest_newsletter_settings_user_default_permissions() {
       'admin' => 'admin',
       'editor' => 'editor',
       'publisher' => 'publisher',
+      'reader' => 'reader',
     ),
     'module' => 'node',
   );
@@ -84,6 +85,7 @@ function howest_newsletter_settings_user_default_permissions() {
       'admin' => 'admin',
       'editor' => 'editor',
       'publisher' => 'publisher',
+      'reader' => 'reader',
     ),
     'module' => 'toolbar',
   );
@@ -349,6 +351,7 @@ function howest_newsletter_settings_user_default_permissions() {
     'roles' => array(
       'admin' => 'admin',
       'editor' => 'editor',
+      'reader' => 'reader',
     ),
     'module' => 'node',
   );
@@ -398,6 +401,7 @@ function howest_newsletter_settings_user_default_permissions() {
     'roles' => array(
       'admin' => 'admin',
       'publisher' => 'publisher',
+      'reader' => 'reader',
     ),
     'module' => 'node',
   );
@@ -465,6 +469,7 @@ function howest_newsletter_settings_user_default_permissions() {
     'roles' => array(
       'admin' => 'admin',
       'editor' => 'editor',
+      'reader' => 'reader',
     ),
     'module' => 'node',
   );
@@ -616,6 +621,7 @@ function howest_newsletter_settings_user_default_permissions() {
       'admin' => 'admin',
       'editor' => 'editor',
       'publisher' => 'publisher',
+      'reader' => 'reader',
     ),
     'module' => 'filter',
   );
