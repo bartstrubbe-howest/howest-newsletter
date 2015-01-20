@@ -169,3 +169,8 @@ function howest_newsletter_update_7008() {
 function howest_newsletter_update_7009() {
 //  howest_newsletter_suggestions_menu();
 }
+
+function howest_newsletter_update_7010(){
+  module_enable('admin_menu');
+  module_disable('toolbar');
+}
