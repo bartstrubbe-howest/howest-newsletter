@@ -8,13 +8,15 @@ base theme = bootstrap
 ;; Regions
 ;;;;;;;;;;;;;;;;;;;;;
 
+
+regions[top_navigation] = 'Top navigation'
 regions[navigation]     = 'Navigation'
-regions[header]         = 'Top Bar'
+regions[header]         = 'Header'
 regions[highlighted]    = 'Highlighted'
 regions[help]           = 'Help'
 regions[content]        = 'Content'
-regions[sidebar_first]  = 'Primary'
-regions[sidebar_second] = 'Secondary'
+regions[sidebar_first]  = 'Sidebar left'
+regions[sidebar_second] = 'Sidebar right'
 regions[footer]         = 'Footer'
 regions[page_top]       = 'Page top'
 regions[page_bottom]    = 'Page bottom'

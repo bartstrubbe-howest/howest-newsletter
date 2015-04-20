@@ -73,6 +73,26 @@
  * @ingroup themeable
  */
 ?>
+<div class="region region-top-navigation container">
+  <strong>Powered by:</strong> <a href="http://howest.be" target="_blank">howest.be</a>
+  <?php print render($page['top_navigation']); ?>
+  <ul class="social-links">
+    <li>
+      <a href="https://www.facebook.com/howestbe" target="_blank" title="Volg Howest op Facebook" class="icon">
+        <i class="fa fa-facebook-official">FA</i>
+      </a>
+    </li>
+    <li>
+      <a href="https://twitter.com/HowestNieuws" target="_blank" title="Volg Howest op Twitter" class="icon">
+        <i class="fa fa-twitter">TW</i>
+      </a>
+    </li>
+    <li><a href="https://www.linkedin.com/company/hogeschool-west-vlaanderen" target="_blank" title="Volg Howest op LinkedIn" class="icon">
+        <i class="fa fa-linkedin-square">LI</i>
+      </a>
+    </li>
+  </ul>
+</div>
 <header id="navbar" role="banner" class="<?php print $navbar_classes; ?>">
   <div class="container">
     <div class="navbar-header">
@@ -166,5 +186,6 @@
   </div>
 </div>
 <footer class="footer container">
+  &copy; <a href="http://howest.be" target="_blank">howest.be</a> <?php echo date('Y'); ?>
   <?php print render($page['footer']); ?>
 </footer>

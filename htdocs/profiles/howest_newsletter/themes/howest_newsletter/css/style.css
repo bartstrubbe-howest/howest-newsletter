@@ -242,7 +242,8 @@ ul.language-switcher-locale-url{
   transition: box-shadow 0.2s;
 }
 
-.field-name-field-location a:hover, .field-name-field-content a:hover{
+.field-name-field-location a:hover,
+.field-name-field-content a:hover {
   box-shadow: 0px 0px 4px #cbcbcb;
 }
 
@@ -260,14 +261,7 @@ ul.language-switcher-locale-url{
   margin-right: 30px;
 }
 
-.view-blog-list .views-row img, .field-name-field-image img{
-  max-width: 100%;
-  height: auto;
-  width: 40%;
-  float: left;
-  margin-right: 20px;
-  margin-bottom: 20px;
-}
+
 
 .node .links{
   clear: both;
