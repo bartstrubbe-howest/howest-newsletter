@@ -1,5 +1,5 @@
 // Bootstrap variables.
-@import 'variables.less';
+@import 'variables';
 
 // Media query variables.
 @tablet:  ~"screen and (min-width: @{screen-sm-min})";
@@ -90,7 +90,7 @@ body {
 }
 
 // Default navbar.
-.navbar.container {
+.navbar > .container {
   @media @tablet {
     max-width: ((@container-sm - 30px));
   }
@@ -102,9 +102,9 @@ body {
   }
   margin-top: 20px;
   > .container {
-    margin: 0;
-    padding: 0;
-    width: auto;
+ //   margin: 0;
+ //   padding: 0;
+ //   width: auto;
   }
 }
 

@@ -73,25 +73,44 @@
  * @ingroup themeable
  */
 ?>
-<div class="region region-top-navigation container">
-  <strong>Powered by:</strong> <a href="http://howest.be" target="_blank">howest.be</a>
-  <?php print render($page['top_navigation']); ?>
-  <ul class="social-links">
-    <li>
-      <a href="https://www.facebook.com/howestbe" target="_blank" title="Volg Howest op Facebook" class="icon">
-        <i class="fa fa-facebook-official">FA</i>
-      </a>
-    </li>
-    <li>
-      <a href="https://twitter.com/HowestNieuws" target="_blank" title="Volg Howest op Twitter" class="icon">
-        <i class="fa fa-twitter">TW</i>
-      </a>
-    </li>
-    <li><a href="https://www.linkedin.com/company/hogeschool-west-vlaanderen" target="_blank" title="Volg Howest op LinkedIn" class="icon">
-        <i class="fa fa-linkedin-square">LI</i>
-      </a>
-    </li>
-  </ul>
+<div class="region region-top">
+  <div class="container">
+    <div class="powered-by">
+      <strong>Powered by:</strong> <a href="http://howest.be" target="_blank">howest.be</a>
+    </div>
+    <div class="links">
+      <span class="user">
+        <?php print $user->name; ?>
+      </span>
+
+      <span class="logout">
+        <?php echo l(t('Logout'), '/user/logout'); ?>
+      </span>
+
+      <?php print render($page['top_navigation']); ?>
+
+      <ul class="social-links">
+        <li>
+          <a href="https://www.facebook.com/howestbe" target="_blank" title="Volg Howest op Facebook" class="icon">
+            <i class="fa fa-facebook-official">FA</i>
+          </a>
+        </li>
+        <li>
+          <a href="https://twitter.com/HowestNieuws" target="_blank" title="Volg Howest op Twitter" class="icon">
+            <i class="fa fa-twitter">TW</i>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/company/hogeschool-west-vlaanderen" target="_blank" title="Volg Howest op LinkedIn" class="icon">
+            <i class="fa fa-linkedin-square">LI</i>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+
+  </div>
+
 </div>
 <header id="navbar" role="banner" class="<?php print $navbar_classes; ?>">
   <div class="container">

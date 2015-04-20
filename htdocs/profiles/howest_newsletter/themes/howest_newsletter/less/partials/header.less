@@ -1,0 +1,77 @@
+// Top region: powered by, username, logout link, language selector, social links.
+
+
+.region-top {
+  padding: 10px 0;
+  font-size: .9em;
+  background: @_black;
+  color: @_white;
+
+  .powered-by {
+    width: 25%;
+    float: left;
+    strong {
+      font-family: 'VAGRoundedStdBold', 'PT Sans', sans-serif;
+    }
+
+    a {
+      color: @_white;
+    }
+  }
+
+
+  .links {
+    width: 75%;
+    //text-align: right;
+    float: right;
+    display: inline-block;
+
+    .user,
+    .logout,
+    #block-locale-language {
+      padding: 0 10px;
+      float: left;
+      display: inline-block;
+
+      a {
+        color: @_grey_3;
+      }
+
+      a:hover {
+        color: @_white;
+        text-decoration: none;
+      }
+
+      .language-switcher-locale-url {
+        padding: 0;
+      }
+    }
+
+
+
+    ul li {
+      display: inline-block;
+      border-left: 1px solid #646464;
+      padding: 0 10px;
+      list-style: none;
+
+      a {
+        color: @_grey_3;
+      }
+
+      a:hover {
+        color: @_white;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+// Header: logo and search field.
+header.navbar {
+  background: @_light_blue;
+  border-bottom: 3px solid @_blue;
+  padding: 20px 0;
+  position: relative;
+  padding-top: 60px;
+}
