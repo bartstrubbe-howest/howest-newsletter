@@ -21,6 +21,30 @@ function howest_blog_items_views_api($module = NULL, $api = NULL) {
 }
 
 /**
+ * Implements hook_image_default_styles().
+ */
+function howest_blog_items_image_default_styles() {
+  $styles = array();
+
+  // Exported image style: blog_overview_750x280.
+  $styles['blog_overview_750x280'] = array(
+    'label' => 'Blog overview 750x280',
+    'effects' => array(
+      2 => array(
+        'name' => 'image_scale_and_crop',
+        'data' => array(
+          'width' => 750,
+          'height' => 280,
+        ),
+        'weight' => 1,
+      ),
+    ),
+  );
+
+  return $styles;
+}
+
+/**
  * Implements hook_node_info().
  */
 function howest_blog_items_node_info() {

@@ -5,3 +5,6 @@ htdocs/sites/*/settings*.php
 htdocs/sites/*/files
 htdocs/sites/*/private
 .idea/*
+assets
+logs
+.gitignore

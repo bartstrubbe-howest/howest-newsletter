@@ -151,7 +151,7 @@ function howest_newsletter_settings_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'tagclouds_display_type';
-  $strongarm->value = 'style';
+  $strongarm->value = 'count';
   $export['tagclouds_display_type'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -165,14 +165,14 @@ function howest_newsletter_settings_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'tagclouds_levels';
-  $strongarm->value = 6;
+  $strongarm->value = '6';
   $export['tagclouds_levels'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'tagclouds_page_amount';
-  $strongarm->value = 60;
+  $strongarm->value = '60';
   $export['tagclouds_page_amount'] = $strongarm;
 
   $strongarm = new stdClass();

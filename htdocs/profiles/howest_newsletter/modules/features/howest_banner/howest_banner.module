@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the howest_banner feature.
- */
-
-include_once 'howest_banner.features.inc';

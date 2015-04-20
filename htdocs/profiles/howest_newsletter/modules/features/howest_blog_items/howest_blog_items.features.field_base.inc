@@ -19,14 +19,6 @@ function howest_blog_items_field_default_field_bases() {
       0 => 'node',
     ),
     'field_name' => 'body',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -46,14 +38,6 @@ function howest_blog_items_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_content',
-    'foreign keys' => array(
-      'tid' => array(
-        'columns' => array(
-          'tid' => 'tid',
-        ),
-        'table' => 'taxonomy_term_data',
-      ),
-    ),
     'indexes' => array(
       'tid' => array(
         0 => 'tid',
@@ -68,7 +52,7 @@ function howest_blog_items_field_default_field_bases() {
           'parent' => 0,
         ),
       ),
-      'options_list_callback' => NULL,
+      'options_list_callback' => 'i18n_taxonomy_allowed_values',
     ),
     'translatable' => 0,
     'type' => 'taxonomy_term_reference',
@@ -81,7 +65,6 @@ function howest_blog_items_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_date',
-    'foreign keys' => array(),
     'indexes' => array(),
     'locked' => 0,
     'module' => 'date',
@@ -111,7 +94,6 @@ function howest_blog_items_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_deadline',
-    'foreign keys' => array(),
     'indexes' => array(
       'value' => array(
         0 => 'value',
@@ -137,14 +119,6 @@ function howest_blog_items_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_image',
-    'foreign keys' => array(
-      'fid' => array(
-        'columns' => array(
-          'fid' => 'fid',
-        ),
-        'table' => 'file_managed',
-      ),
-    ),
     'indexes' => array(
       'fid' => array(
         0 => 'fid',
@@ -167,14 +141,6 @@ function howest_blog_items_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_location',
-    'foreign keys' => array(
-      'tid' => array(
-        'columns' => array(
-          'tid' => 'tid',
-        ),
-        'table' => 'taxonomy_term_data',
-      ),
-    ),
     'indexes' => array(
       'tid' => array(
         0 => 'tid',
@@ -189,7 +155,7 @@ function howest_blog_items_field_default_field_bases() {
           'parent' => 0,
         ),
       ),
-      'options_list_callback' => NULL,
+      'options_list_callback' => 'i18n_taxonomy_allowed_values',
     ),
     'translatable' => 0,
     'type' => 'taxonomy_term_reference',
