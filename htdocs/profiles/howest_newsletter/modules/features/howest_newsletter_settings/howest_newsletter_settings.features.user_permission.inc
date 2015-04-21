@@ -97,18 +97,6 @@ function howest_newsletter_settings_user_default_permissions() {
     'module' => 'system',
   );
 
-  // Exported permission: 'access toolbar'.
-  $permissions['access toolbar'] = array(
-    'name' => 'access toolbar',
-    'roles' => array(
-      'admin' => 'admin',
-      'editor' => 'editor',
-      'publisher' => 'publisher',
-      'reader' => 'reader',
-    ),
-    'module' => 'toolbar',
-  );
-
   // Exported permission: 'access user profiles'.
   $permissions['access user profiles'] = array(
     'name' => 'access user profiles',
