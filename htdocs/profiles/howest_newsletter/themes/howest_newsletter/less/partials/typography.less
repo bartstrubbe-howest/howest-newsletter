@@ -27,18 +27,24 @@ body {
   color: #838383;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+.bold,
+strong {
+  font-family: 'VAGRoundedStdBold', 'PT Sans', sans-serif;
+  font-weight: bold;
+}
+
+h1,h2,h3,h4,h5,h6,
+h1 a,h2 a,h3 a,h4 a,h5 a,h6 a {
+  color: @_grey_5;
   font-family: 'VAGRoundedStdBold', 'PT Sans', sans-serif;
   font-weight: normal;
   margin: 0;
   padding: 0;
 
-
+  &:hover {
+    text-decoration: none;
+    color: @_light_blue;
+  }
 }
 
 
@@ -50,7 +56,14 @@ h6 {
 
   }
   h2 {
+    padding: 0;
+    margin: 0;
     font-size: 1.9em;
+    line-height: 1.2em;
+    margin-bottom: .75em;
+    display: block;
+
+
   }
   h3 {
     font-size: 1.8em;

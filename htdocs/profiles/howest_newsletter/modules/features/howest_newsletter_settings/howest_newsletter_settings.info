@@ -27,7 +27,6 @@ dependencies[] = strongarm
 dependencies[] = system
 dependencies[] = tagclouds
 dependencies[] = taxonomy
-dependencies[] = toolbar
 dependencies[] = translation
 dependencies[] = user
 dependencies[] = variable_realm

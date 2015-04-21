@@ -1,1 +1,42 @@
 // Insert your styling here.
+
+
+.main-container {
+  background: @_content;
+
+  .container {
+    padding: 45px 0;
+  }
+
+}
+
+
+.read-more {
+  border: 2px solid @_grey_5 !important;
+  background: @_white;
+  padding: 0;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+  text-transform: uppercase;
+  .bold;
+  clear: left;
+
+  &:hover {
+    border: 2px solid @_pink !important;
+    color: @_pink;
+  }
+
+  a {
+    padding: 8px 15px 6px 15px;
+    color: @_grey_5;
+    font-weight: 700;
+    text-decoration: none;
+    display: block;
+
+
+    &:hover {
+      color: @_pink;
+    }
+  }
+}

@@ -1,4 +1,4 @@
-// Basic layout here: header, footer, regions, containers and so on.
+// Basic layout here: header, footer, regions, sidebar blocks and so on.
 
 body {
   background: @_grey_6;
@@ -6,20 +6,142 @@ body {
   color: @_grey_4;
 }
 
-.navbar .container {
-/*  width: 50px;
-  height: 25px;
-  display: block; */
-  background:url(../../img/arrow_blue_down.png) no-repeat 0 0;
- /* position: absolute;
-  bottom: -40px;
-  left: 2.5em; */
-}
-
-
 
 .main-container .container {
   background: @_content;
 }
 
+.sidebar {
 
+  .block {
+    font-family: 'PT Sans', sans-serif;
+    background: @_white;
+    -webkit-box-shadow: 2px 2px 0px 0px (@_grey_3 - #050505);
+    -moz-box-shadow: 2px 2px 0px 0px (@_grey_3 - #050505);
+    box-shadow: 2px 2px 0px 0px (@_grey_3 - #050505);
+    margin-bottom: 30px;
+    padding: 20px 18px;
+  }
+
+  h2.block-title {
+    font-size: 18px;
+    color: @_grey_5;
+  }
+
+  a {
+    color: @_light_blue;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+}
+
+#block-views-tag-cloud-block-blog-categories {
+
+  h2.block-title {
+    // TODO add icon
+  }
+
+  .category {
+    border: none;
+    border-bottom: 1px dotted @_grey_2;
+    display: block;
+    padding: 8px 0;
+    font-size: 1.1em;
+    border-radius: 0;
+
+    .views-field-nid {
+      background-color: @_yellow;
+      font-weight: bold;
+      color: @_white;
+      display: inline-block;
+      min-width: 10px;
+      padding: 3px 7px;
+      font-size: 12px;
+      line-height: 1;
+      text-align: center;
+      white-space: nowrap;
+      vertical-align: baseline;
+      border-radius: 10px;
+      float: right;
+    }
+  }
+
+  .views-row-last {
+    border-bottom: 0;
+  }
+}
+
+
+#block-views-popular-block {
+
+  h2.block-title {
+    // TODO add icon
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  .views-row {
+    border: none;
+    border-bottom: 1px dotted @_grey_2;
+    display: block;
+    padding: 8px 0;
+    font-size: 1.1em;
+    border-radius: 0;
+
+    &.views-row-last {
+      border-bottom: 0;
+    }
+  }
+}
+
+#block-views-blog-items-block-blog-archive {
+
+  h2.block-title {
+    // TODO add icon
+  }
+
+  .views-summary {
+    border: none;
+    border-bottom: 1px dotted @_grey_2;
+    display: block;
+    padding: 8px 0;
+    font-size: 1.1em;
+    border-radius: 0;
+
+    &:last-child {
+      border-bottom: 0;
+    }
+
+  }
+
+  // TODO add bullet
+
+}
+
+// Contacteer de redactie.
+#block-block-3 {
+  a:hover {
+    text-decoration: underline;
+  }
+}
+
+
+
+.footer {
+  margin-top: 0;
+  border-top: (@_grey_4 - #101010) 3px solid;
+  padding-top: 20px;
+  padding-bottom: 30px;
+  font-size: .9em;
+  color: @_grey_3;
+
+  a {
+    color: @_grey_3;
+  }
+}
