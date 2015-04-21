@@ -77,6 +77,16 @@
  * @see template_preprocess_node()
  * @see template_process()
  */
+// image
+// titel
+// submitted, tags
+// body
+// hr
+// tags
+// flippy pager
+
+
+
 ?>
 
 <div id="node-<?php print $node->nid; ?>"

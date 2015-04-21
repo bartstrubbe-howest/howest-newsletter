@@ -63,9 +63,6 @@ function howest_newsletter_field__taxonomy_term_reference($variables) {
 }
 
 function howest_newsletter_preprocess_node(&$variables){
-  $variables['date'] = format_date($variables['node']->created, 'submitted');
-
-  $variables['submitted'] = t('Submitted by !username on !datetime', array('!username' => $variables['name'], '!datetime' => $variables['date']));
-
-
+  $variables['date'] = format_date($variables['node']->created, 'blog_posted');
+  $variables['submitted'] = t('Submitted on: !datetime', array('!username' => $variables['name'], '!datetime' => $variables['date']));
 }
