@@ -260,7 +260,7 @@ function howest_blog_items_field_default_field_instances() {
         'module' => 'image',
         'settings' => array(
           'image_link' => '',
-          'image_style' => '',
+          'image_style' => 'blog_overview_750x280',
         ),
         'type' => 'image',
         'weight' => 0,

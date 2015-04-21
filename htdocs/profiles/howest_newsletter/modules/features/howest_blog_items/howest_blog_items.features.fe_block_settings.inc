@@ -12,6 +12,34 @@ function howest_blog_items_default_fe_block_settings() {
 
   $export['version'] = '2.0';
 
+  $export['block-contact_us_block'] = array(
+    'cache' => -1,
+    'custom' => 0,
+    'i18n_block_language' => array(),
+    'i18n_mode' => 1,
+    'machine_name' => 'contact_us_block',
+    'module' => 'block',
+    'node_types' => array(),
+    'pages' => '',
+    'roles' => array(),
+    'themes' => array(
+      'bartik' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'bartik',
+        'weight' => 0,
+      ),
+      'howest_newsletter' => array(
+        'region' => 'sidebar_second',
+        'status' => 1,
+        'theme' => 'howest_newsletter',
+        'weight' => 0,
+      ),
+    ),
+    'title' => 'Zelf nieuws te melden?',
+    'visibility' => 0,
+  );
+
   $export['locale-language'] = array(
     'cache' => -1,
     'custom' => 0,
@@ -58,8 +86,8 @@ function howest_blog_items_default_fe_block_settings() {
         'weight' => 0,
       ),
       'howest_newsletter' => array(
-        'region' => 'top_navigation',
-        'status' => 1,
+        'region' => '',
+        'status' => 0,
         'theme' => 'howest_newsletter',
         'weight' => -14,
       ),
@@ -89,7 +117,7 @@ function howest_blog_items_default_fe_block_settings() {
         'region' => 'sidebar_second',
         'status' => 1,
         'theme' => 'howest_newsletter',
-        'weight' => -11,
+        'weight' => -13,
       ),
     ),
     'title' => 'Archief',
@@ -114,10 +142,10 @@ function howest_blog_items_default_fe_block_settings() {
         'weight' => 0,
       ),
       'howest_newsletter' => array(
-        'region' => '',
-        'status' => 0,
+        'region' => 'sidebar_second',
+        'status' => 1,
         'theme' => 'howest_newsletter',
-        'weight' => 0,
+        'weight' => -14,
       ),
     ),
     'title' => '',
@@ -145,7 +173,7 @@ function howest_blog_items_default_fe_block_settings() {
         'region' => 'sidebar_second',
         'status' => 1,
         'theme' => 'howest_newsletter',
-        'weight' => -13,
+        'weight' => -15,
       ),
     ),
     'title' => '',

@@ -93,6 +93,9 @@ function howest_blog_items_strongarm() {
       'ical' => array(
         'custom_settings' => TRUE,
       ),
+      'token' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
