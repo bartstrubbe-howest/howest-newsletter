@@ -1,0 +1,22 @@
+diff --git a/search_api_page.pages.inc b/search_api_page.pages.inc
+index f4f50dc..e98e569 100644
+--- a/search_api_page.pages.inc
++++ b/search_api_page.pages.inc
+@@ -289,11 +289,15 @@ function template_preprocess_search_api_page_results(array &$variables) {
+ 
+   // Distinguish between the native search_api_page_result "view mode" and
+   // proper entity view modes (e.g., Teaser, Full content, RSS and so forth).
++  $variables['search_results'] = array();
+   if ($variables['view_mode'] != 'search_api_page_result') {
+-    $variables['search_results'] = entity_view($variables['index']->getEntityType(), $variables['items'], $variables['view_mode']);
++
++    // Check if we have eny entity on result, if yes try to show it.
++    if (!empty($variables['items'])) {
++      $variables['search_results'] = entity_view($variables['index']->getEntityType(), $variables['items'], $variables['view_mode']);
++    }
+   }
+   else {
+-    $variables['search_results'] = array();
+     foreach ($results['results'] as $item) {
+       if(!empty($variables['items'][$item['id']])) {
+         $variables['search_results'][] = array(

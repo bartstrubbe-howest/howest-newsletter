@@ -20,3 +20,5 @@ rm htdocs
 ln -s /vagrant/howest-newsletter/htdocs/ htdocs
 ```
 
+
+Deployment: install Drupal using an empty database, git pull, import database export.
