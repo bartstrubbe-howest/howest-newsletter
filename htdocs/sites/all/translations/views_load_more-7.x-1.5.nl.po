@@ -1,0 +1,28 @@
+# Dutch translation of Views Load More (7.x-1.5)
+# Copyright (c) 2014 by the Dutch translation team
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Views Load More (7.x-1.5)\n"
+"POT-Creation-Date: 2014-10-09 10:05+0000\n"
+"PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
+"Language-Team: Dutch\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+msgid "None"
+msgstr "Geen"
+msgid "Views"
+msgstr "Overzichten"
+msgid "Fade"
+msgstr "Vervaag"
+msgid "Slow"
+msgstr "Langzaam"
+msgid "Fast"
+msgstr "Snel"
+msgid "Advanced Options"
+msgstr "Geavanceerde opties"
+msgid "More link text"
+msgstr "Tekst meer-link"
