@@ -115,13 +115,6 @@ function howest_newsletter_settings_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'less_dir';
-  $strongarm->value = 'k73daRmKJVH217sFZl7wdkAk2dsu0EqGhmTIrFx1OoI';
-  $export['less_dir'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
   $strongarm->name = 'less_engine';
   $strongarm->value = 'less.php';
   $export['less_engine'] = $strongarm;

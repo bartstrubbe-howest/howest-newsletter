@@ -157,7 +157,6 @@ features[variable][] = admin_theme
 features[variable][] = clean_url
 features[variable][] = howest_newsletter_settings_access_denied_msg
 features[variable][] = imce_profiles
-features[variable][] = less_dir
 features[variable][] = less_engine
 features[variable][] = less_source_maps
 features[variable][] = less_watch

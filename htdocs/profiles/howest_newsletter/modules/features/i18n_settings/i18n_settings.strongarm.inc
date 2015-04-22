@@ -21,28 +21,28 @@ function i18n_settings_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'l10n_update_check_frequency';
-  $strongarm->value = 0;
+  $strongarm->value = '0';
   $export['l10n_update_check_frequency'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'l10n_update_check_mode';
-  $strongarm->value = 2;
+  $strongarm->value = '3';
   $export['l10n_update_check_mode'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'l10n_update_download_store';
-  $strongarm->value = '';
+  $strongarm->value = 'sites/all/translations';
   $export['l10n_update_download_store'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'l10n_update_import_mode';
-  $strongarm->value = 1;
+  $strongarm->value = '2';
   $export['l10n_update_import_mode'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -61,13 +61,13 @@ function i18n_settings_strongarm() {
     'name' => 'Dutch',
     'native' => 'Nederlands',
     'direction' => '0',
-    'enabled' => 1,
+    'enabled' => '1',
     'plurals' => '2',
     'formula' => '($n!=1)',
     'domain' => '',
     'prefix' => 'nl',
     'weight' => '0',
-    'javascript' => 'yOWGFd2GfCbJBFJ7OYnzCLkIwfILqvapICaEcJ4jSlw',
+    'javascript' => 'Ne3LAPs-U1HOQ8hD5dOcvjYzc-5vilakHdKg5nJOfmw',
   );
   $export['language_default'] = $strongarm;
 
