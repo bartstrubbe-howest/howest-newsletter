@@ -79,30 +79,35 @@
       <strong>Powered by:</strong> <a href="http://howest.be" target="_blank">howest.be</a>
     </div>
     <div class="links">
-      <span class="user">
-        <?php print $user->name; ?>
-      </span>
 
-      <span class="logout">
-        <?php echo l(t('Logout'), '/user/logout'); ?>
-      </span>
+      <?php if ($user->uid > 0): ?>
+
+        <span class="user">
+          <?php echo l($user->name, '/user/'.$user->uid); ?>
+        </span>
+
+        <span class="logout">
+          <?php echo l(t('Logout'), '/user/logout'); ?>
+        </span>
+
+      <?php endif; ?>
 
       <?php print render($page['top_navigation']); ?>
 
       <ul class="social-links">
         <li>
-          <a href="https://www.facebook.com/howestbe" target="_blank" title="Volg Howest op Facebook" class="icon">
-            <i class="fa fa-facebook-official">FA</i>
+          <a href="https://www.facebook.com/howestbe" target="_blank" title="Volg Howest op Facebook" class="facebook">
+            <i class="fa fa-facebook"></i>
           </a>
         </li>
         <li>
-          <a href="https://twitter.com/HowestNieuws" target="_blank" title="Volg Howest op Twitter" class="icon">
-            <i class="fa fa-twitter">TW</i>
+          <a href="https://twitter.com/HowestNieuws" target="_blank" title="Volg Howest op Twitter" class="twitter">
+            <i class="fa fa-twitter"></i>
           </a>
         </li>
         <li>
-          <a href="https://www.linkedin.com/company/hogeschool-west-vlaanderen" target="_blank" title="Volg Howest op LinkedIn" class="icon">
-            <i class="fa fa-linkedin-square">LI</i>
+          <a href="https://www.linkedin.com/company/hogeschool-west-vlaanderen" target="_blank" title="Volg Howest op LinkedIn" class="linkedin">
+            <i class="fa fa-linkedin"></i>
           </a>
         </li>
       </ul>

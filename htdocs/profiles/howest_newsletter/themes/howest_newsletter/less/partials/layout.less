@@ -41,7 +41,11 @@ body {
 #block-views-tag-cloud-block-blog-categories {
 
   h2.block-title {
-    // TODO add icon
+    &:before {
+      .fa;
+      .fa-list-alt;
+      padding-right: 4px;
+    }
   }
 
   .category {
@@ -84,7 +88,11 @@ body {
 #block-views-popular-block {
 
   h2.block-title {
-
+    &:before {
+      .fa;
+      .fa-eye;
+      padding-right: 4px;
+    }
   }
 
   ul {
@@ -109,7 +117,11 @@ body {
 #block-views-blog-items-block-blog-archive {
 
   h2.block-title {
-    // TODO add icon
+    &:before {
+      .fa;
+      .fa-archive;
+      padding-right: 4px;
+    }
   }
 
   .views-summary {
@@ -132,6 +144,15 @@ body {
 
 // Contacteer de redactie.
 #block-block-3 {
+
+  h2.block-title {
+    &:before {
+      .fa;
+      .fa-comment-o;
+      padding-right: 4px;
+    }
+  }
+
   a:hover {
     text-decoration: underline;
   }

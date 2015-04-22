@@ -10,8 +10,9 @@
   left: 0;
   right: 0;
   z-index: 100;
-  height: 28px;
+  height: 38px;
   line-height: 2.3em;
+  padding-top: 7px;
 
   .powered-by {
     width: 25%;
@@ -25,41 +26,96 @@
     }
   }
 
-
   .links {
-    width: 75%;
-    //text-align: right;
     float: right;
-    display: inline-block;
+    display: table;
+    height: 18px;
 
     .user,
     .logout,
     #block-locale-language {
-      padding: 0 10px;
-      float: left;
-      display: inline-block;
+      position: relative;
+      display: table-cell;
+
+      &:after {
+        content: "";
+        border-right: 1px solid (@_grey_5 + #141414);
+        height: 18px;
+        position: absolute;
+        top: 4px;
+        right: 0;
+      }
 
       a {
         color: @_grey_3;
       }
 
-      a:hover {
+      a:hover,
+      a:active {
         color: @_white;
         text-decoration: none;
       }
 
       .language-switcher-locale-url {
         padding: 0;
+
+        .language-link:before {
+          .fa;
+          .fa-language;
+          padding-right: 3px;
+        }
+      }
+
+      // Don't display the active language link.
+      .language-switcher-locale-url .active {
+        display: none;
       }
     }
 
+    .user {
+      position: relative;
+      padding-right: 10px;
 
+      &:before {
+        .fa;
+        .fa-user;
+      }
+    }
+
+    .logout {
+      padding: 0 10px;
+
+      a:before {
+        .fa;
+        .fa-sign-out;
+        padding-right: 3px;
+      }
+    }
+
+    ul.social-links {
+      display: table-cell;
+      padding: 0;
+      position: relative;
+
+      li:last-child:after {
+        border: 0;
+      }
+    }
 
     ul li {
       display: inline-block;
-      border-left: 1px solid #646464;
       padding: 0 10px;
       list-style: none;
+      position: relative;
+
+      &:after {
+        content: "";
+        border-right: 1px solid (@_grey_5 + #141414);
+        height: 18px;
+        position: absolute;
+        top: 4px;
+        right: 0;
+      }
 
       a {
         color: @_grey_3;
@@ -68,6 +124,21 @@
       a:hover {
         color: @_white;
         text-decoration: none;
+      }
+
+      a.facebook:before {
+        .fa;
+        .fa-facebook;
+      }
+
+      a.linkedin:before {
+        .fa;
+        .fa-linkedin;
+      }
+
+      a.twitter:before {
+        .fa;
+        .fa-twitter;
       }
     }
   }
