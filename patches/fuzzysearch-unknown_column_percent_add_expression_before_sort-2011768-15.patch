@@ -1,0 +1,43 @@
+diff --git a/includes/service.inc b/includes/service.inc
+index d680352..a7f1c2c 100644
+--- a/includes/service.inc
++++ b/includes/service.inc
+@@ -703,16 +703,34 @@ class FuzzySearchService extends SearchApiAbstractService {
+         }
+       }
+       else {
+-        if ($fuzzy['sort_score']) {
+-          $db_query->orderBy('score', 'DESC');
+-          $db_query->orderBy('percent', 'DESC');
++
++        //if there isn't a "percent" alias already, see if we can find the completeness field to add the expression.
++        if ( ($expressions = $db_query->getExpressions()) != FALSE && !array_key_exists('percent', $expressions ) ) {
++          foreach( $db_query->getTables() as $alias => $tdata ) {
++            if ( isset($tdata['table']) && is_string($tdata['table']) && db_field_exists($tdata['table'], 'completeness') ) {
++              $db_query->addExpression('SUM(t.completeness)', 'percent');
++            }
++          }
++        }
++
++        //check for the expression before attempting to sort by it
++        if ( ($expressions = $db_query->getExpressions()) != FALSE && array_key_exists('percent', $expressions ) ) {
++          if ($fuzzy['sort_score']) {//if "sort by score" is selected, score before percent
++            $db_query->orderBy('score', 'DESC');
++            $db_query->orderBy('percent', 'DESC');
++          }
++          // This is the default sort, by percent completeness.
++          else {
++            $db_query->orderBy('percent', 'DESC');
++            $db_query->orderBy('score', 'DESC');
++          }
+         }
+-        // This is the default sort, by percent completeness.
++        // If there is a failure to find a percent expression to sort by, don't try!
+         else {
+-          $db_query->orderBy('percent', 'DESC');
+           $db_query->orderBy('score', 'DESC');
+         }
+       }
++
+       $result = $db_query->execute();
+       $time_queries_done = microtime(TRUE);
