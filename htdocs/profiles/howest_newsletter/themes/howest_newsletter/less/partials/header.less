@@ -30,20 +30,25 @@
     float: right;
     display: table;
     height: 18px;
+    table-layout: auto;
+
+    .region-top-navigation {
+      display: inline-block;
+      float: left;
+    }
 
     .user,
     .logout,
     #block-locale-language {
       position: relative;
-      display: table-cell;
+      display: inline-block;
+      float: left;
 
-      &:after {
+      a:after {
         content: "";
         border-right: 1px solid (@_grey_5 + #141414);
+        padding-right: 10px;
         height: 18px;
-        position: absolute;
-        top: 4px;
-        right: 0;
       }
 
       a {
@@ -74,7 +79,6 @@
 
     .user {
       position: relative;
-      padding-right: 10px;
 
       &:before {
         .fa;
@@ -83,7 +87,7 @@
     }
 
     .logout {
-      padding: 0 10px;
+      padding-left: 10px;
 
       a:before {
         .fa;
@@ -93,7 +97,7 @@
     }
 
     ul.social-links {
-      display: table-cell;
+      display: inline-block;
       padding: 0;
       position: relative;
 
@@ -108,9 +112,10 @@
       list-style: none;
       position: relative;
 
-      &:after {
+      a:after {
         content: "";
         border-right: 1px solid (@_grey_5 + #141414);
+        padding-right: 10px;
         height: 18px;
         position: absolute;
         top: 4px;
@@ -131,9 +136,16 @@
         .fa-facebook;
       }
 
-      a.linkedin:before {
-        .fa;
-        .fa-linkedin;
+      a.linkedin {
+
+        &:before {
+          .fa;
+          .fa-linkedin;
+        }
+
+        &:after {
+          border: 0;
+        }
       }
 
       a.twitter:before {
