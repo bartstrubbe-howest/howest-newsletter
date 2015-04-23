@@ -76,7 +76,7 @@ function howest_blog_items_strongarm() {
         'custom_settings' => TRUE,
       ),
       'full' => array(
-        'custom_settings' => FALSE,
+        'custom_settings' => TRUE,
       ),
       'rss' => array(
         'custom_settings' => TRUE,
@@ -115,6 +115,10 @@ function howest_blog_items_strongarm() {
           'search_result' => array(
             'weight' => '5',
             'visible' => FALSE,
+          ),
+          'full' => array(
+            'weight' => '5',
+            'visible' => TRUE,
           ),
         ),
       ),

@@ -77,31 +77,17 @@ function howest_newsletter_settings_ckeditor_profile_defaults() {
       'settings' => array(
         'ss' => 2,
         'toolbar' => '[
-    [\'Source\'],
-    [\'Cut\',\'Copy\',\'Paste\',\'PasteText\',\'PasteFromWord\',\'-\',\'SpellChecker\', \'Scayt\'],
-    [\'Undo\',\'Redo\',\'Find\',\'Replace\',\'-\',\'SelectAll\'],
-    [\'Image\',\'Media\',\'Flash\',\'Table\',\'HorizontalRule\',\'Smiley\',\'SpecialChar\',\'Iframe\'],
-    \'/\',
-    [\'Bold\',\'Italic\',\'Underline\',\'Strike\',\'-\',\'Subscript\',\'Superscript\',\'-\',\'RemoveFormat\'],
-    [\'NumberedList\',\'BulletedList\',\'-\',\'Outdent\',\'Indent\',\'Blockquote\',\'CreateDiv\'],
-    [\'JustifyLeft\',\'JustifyCenter\',\'JustifyRight\',\'JustifyBlock\',\'-\',\'BidiLtr\',\'BidiRtl\',\'-\',\'Language\'],
-    [\'Link\',\'Unlink\',\'Anchor\',\'Linkit\'],
-    [\'DrupalBreak\'],
-    \'/\',
-    [\'Format\',\'Font\',\'FontSize\'],
-    [\'TextColor\',\'BGColor\'],
-    [\'Maximize\', \'ShowBlocks\']
-]
-    ',
+    [\'Bold\',\'Italic\',\'-\',\'NumberedList\',\'BulletedList\',\'-\',\'Image\',\'Link\',\'Unlink\',\'Format\',\'Styles\']
+]',
         'expand' => 't',
         'default' => 't',
         'show_toggle' => 't',
         'uicolor' => 'default',
         'uicolor_user' => 'default',
         'width' => '100%',
-        'lang' => 'en',
+        'lang' => 'nl',
         'auto_lang' => 't',
-        'language_direction' => 'default',
+        'language_direction' => 'ltr',
         'allowed_content' => 't',
         'extraAllowedContent' => '',
         'enter_mode' => 'p',
@@ -154,9 +140,7 @@ function howest_newsletter_settings_ckeditor_profile_defaults() {
           ),
         ),
       ),
-      'input_formats' => array(
-        'full_html' => 'Full HTML',
-      ),
+      'input_formats' => array(),
     ),
   );
   return $data;

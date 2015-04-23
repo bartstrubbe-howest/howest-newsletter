@@ -31,6 +31,13 @@ function howest_blog_items_field_default_field_instances() {
         'type' => 'text_default',
         'weight' => 2,
       ),
+      'full' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 1,
+      ),
       'ical' => array(
         'label' => 'hidden',
         'module' => 'text',
@@ -100,6 +107,13 @@ function howest_blog_items_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'hidden',
+        'module' => 'i18n_taxonomy',
+        'settings' => array(),
+        'type' => 'i18n_taxonomy_term_reference_link',
+        'weight' => 4,
+      ),
+      'full' => array(
+        'label' => 'hidden',
         'module' => 'taxonomy',
         'settings' => array(),
         'type' => 'taxonomy_term_reference_link',
@@ -165,6 +179,19 @@ function howest_blog_items_field_default_field_instances() {
         ),
         'type' => 'date_default',
         'weight' => 3,
+      ),
+      'full' => array(
+        'label' => 'hidden',
+        'module' => 'date',
+        'settings' => array(
+          'format_type' => 'long',
+          'fromto' => 'both',
+          'multiple_from' => '',
+          'multiple_number' => '',
+          'multiple_to' => '',
+        ),
+        'type' => 'date_default',
+        'weight' => 2,
       ),
       'ical' => array(
         'label' => 'hidden',
@@ -235,6 +262,12 @@ function howest_blog_items_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 6,
       ),
+      'full' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 6,
+      ),
       'ical' => array(
         'label' => 'above',
         'settings' => array(),
@@ -283,6 +316,16 @@ function howest_blog_items_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'hidden',
+        'module' => 'image',
+        'settings' => array(
+          'image_link' => '',
+          'image_style' => 'blog_overview_750x280',
+        ),
+        'type' => 'image',
+        'weight' => 0,
+      ),
+      'full' => array(
         'label' => 'hidden',
         'module' => 'image',
         'settings' => array(
@@ -372,10 +415,17 @@ function howest_blog_items_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'hidden',
+        'module' => 'i18n_taxonomy',
+        'settings' => array(),
+        'type' => 'i18n_taxonomy_term_reference_link',
+        'weight' => 5,
+      ),
+      'full' => array(
+        'label' => 'hidden',
         'module' => 'taxonomy',
         'settings' => array(),
         'type' => 'taxonomy_term_reference_link',
-        'weight' => 5,
+        'weight' => 3,
       ),
       'ical' => array(
         'label' => 'hidden',
