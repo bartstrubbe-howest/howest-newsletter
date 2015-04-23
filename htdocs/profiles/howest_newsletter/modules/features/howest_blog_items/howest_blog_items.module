@@ -65,15 +65,16 @@ function _howest_blog_items_form() {
   $content_tree = taxonomy_get_tree($content_voc->vid);
   $content_tags = array();
   foreach ($content_tree as $tid => $term) {
-    $content_tags[$tid] = $term->name;
+    $content_tags[$term->tid] = $term->name;
   }
 
   $location_voc = taxonomy_vocabulary_machine_name_load('location');
   $location_tree = taxonomy_get_tree($location_voc->vid);
   $location_tags = array();
   foreach ($location_tree as $tid => $term) {
-    $location_tags[$tid] = $term->name;
+    $location_tags[$term->tid] = $term->name;
   }
+
 
   $form['title'] = array(
     '#type' => 'textfield',
@@ -81,7 +82,7 @@ function _howest_blog_items_form() {
     '#description' => '',
   );
 
-  $form['location_tags'] = array(
+  $form['location_tag'] = array(
     '#type' => 'select',
     '#title' => t('Locatie'),
     '#options' => $location_tags,
@@ -89,7 +90,7 @@ function _howest_blog_items_form() {
     '#description' => '',
   );
 
-  $form['content_tags'] = array(
+  $form['content_tag'] = array(
     '#type' => 'select',
     '#title' => t('Categorie'),
     '#options' => $content_tags,
@@ -115,33 +116,29 @@ function _howest_blog_items_form() {
 
 
 /**
- * _MODULE_form() submit handler
+ * submit handler
  *
  */
 function _howest_blog_items_form_submit($form, &$form_state) {
-  dpm($form_state, 'submitted node form');
   global $user;
   global $language;
 
   $node = new stdClass();
-  $node->title = "YOUR TITLE";
+  $node->title = $form_state['values']['title'];
   $node->type = "blog_item";
   node_object_prepare($node);
   $node->language = $language->language;
+  $node->body[LANGUAGE_NONE][0]['value']   = $form_state['values']['body']['value'];
+  $node->body[LANGUAGE_NONE][0]['format']  = 'full_html';
   $node->uid = $user->uid;
   $node->status = 0;
   $node->promote = 0;
   $node->comment = 0;
-
-  // Set content tag
-  //$node->field_content[$node->language][]['tid'] = $form_state['values']['a taxonomy term id'];
-  // Set location tag
-  //$node->field_location[$node->language][]['tid'] = $form_state['values']['a taxonomy term id'];
-
- dpm($node, 'node');
+  $node->field_content[LANGUAGE_NONE][]['tid'] = $form_state['values']['content_tag'];
+  $node->field_location[LANGUAGE_NONE][]['tid'] = $form_state['values']['location_tag'];
 
   $node = node_submit($node); // Prepare node for saving
-  //node_save($node);
+  node_save($node);
 
  // watchdog('info', $watchdog);
   drupal_set_message(t('Your news item has been submitted. Thanks!'));

@@ -170,8 +170,8 @@ function howest_blog_items_default_fe_block_settings() {
         'weight' => 0,
       ),
       'howest_newsletter' => array(
-        'region' => 'sidebar_second',
-        'status' => 1,
+        'region' => '',
+        'status' => 0,
         'theme' => 'howest_newsletter',
         'weight' => -16,
       ),

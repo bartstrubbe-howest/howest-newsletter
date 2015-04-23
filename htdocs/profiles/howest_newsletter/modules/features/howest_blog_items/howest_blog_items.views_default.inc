@@ -177,8 +177,9 @@ function howest_blog_items_views_default_views() {
   $handler->display->display_options['fields']['fieldset']['label'] = 'Inhoud';
   $handler->display->display_options['fields']['fieldset']['children'] = array(
     0 => 'title',
-    1 => 'body',
-    2 => 'view_node',
+    1 => 'created',
+    2 => 'body',
+    3 => 'view_node',
   );
   $handler->display->display_options['fields']['fieldset']['fieldset']['type'] = 'div';
   $handler->display->display_options['fields']['fieldset']['fieldset']['classes'] = 'content';
@@ -191,6 +192,15 @@ function howest_blog_items_views_default_views() {
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_type'] = 'h2';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  /* Veld: Inhoud: Datum van inzending */
+  $handler->display->display_options['fields']['created']['id'] = 'created';
+  $handler->display->display_options['fields']['created']['table'] = 'node';
+  $handler->display->display_options['fields']['created']['field'] = 'created';
+  $handler->display->display_options['fields']['created']['label'] = 'Gepubliceerd op';
+  $handler->display->display_options['fields']['created']['element_type'] = 'span';
+  $handler->display->display_options['fields']['created']['element_label_type'] = 'span';
+  $handler->display->display_options['fields']['created']['date_format'] = 'blog_posted';
+  $handler->display->display_options['fields']['created']['second_date_format'] = 'long';
   /* Veld: Inhoud: Body */
   $handler->display->display_options['fields']['body']['id'] = 'body';
   $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
@@ -287,21 +297,9 @@ function howest_blog_items_views_default_views() {
   /* Display: Archief */
   $handler = $view->new_display('block', 'Archief', 'block_blog_archive');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['defaults']['access'] = FALSE;
-  $handler->display->display_options['access']['type'] = 'perm';
-  $handler->display->display_options['defaults']['pager'] = FALSE;
-  $handler->display->display_options['pager']['type'] = 'full';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '12';
-  $handler->display->display_options['pager']['options']['offset'] = '0';
-  $handler->display->display_options['pager']['options']['id'] = '0';
-  $handler->display->display_options['pager']['options']['quantity'] = '9';
-  $handler->display->display_options['pager']['options']['expose']['items_per_page_label'] = 'Items per pagina';
-  $handler->display->display_options['pager']['options']['expose']['items_per_page_options_all_label'] = '- Alle -';
-  $handler->display->display_options['pager']['options']['expose']['offset_label'] = 'Startpunt';
-  $handler->display->display_options['pager']['options']['tags']['first'] = '« eerste';
-  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ vorige';
-  $handler->display->display_options['pager']['options']['tags']['next'] = 'volgende ›';
-  $handler->display->display_options['pager']['options']['tags']['last'] = 'laatste »';
+  $handler->display->display_options['title'] = 'Berichten per maand';
+  $handler->display->display_options['defaults']['group_by'] = FALSE;
+  $handler->display->display_options['group_by'] = TRUE;
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
@@ -309,16 +307,12 @@ function howest_blog_items_views_default_views() {
   $handler->display->display_options['row_plugin'] = 'node';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Veld: Inhoud: Wijzigingsdatum */
-  $handler->display->display_options['fields']['changed']['id'] = 'changed';
-  $handler->display->display_options['fields']['changed']['table'] = 'node';
-  $handler->display->display_options['fields']['changed']['field'] = 'changed';
   $handler->display->display_options['defaults']['sorts'] = FALSE;
-  /* Sort criterion: Inhoud: Wijzigingsdatum */
-  $handler->display->display_options['sorts']['changed']['id'] = 'changed';
-  $handler->display->display_options['sorts']['changed']['table'] = 'node';
-  $handler->display->display_options['sorts']['changed']['field'] = 'changed';
-  $handler->display->display_options['sorts']['changed']['granularity'] = 'month';
+  /* Sort criterion: Inhoud: Date (field_date) */
+  $handler->display->display_options['sorts']['field_date_value']['id'] = 'field_date_value';
+  $handler->display->display_options['sorts']['field_date_value']['table'] = 'field_data_field_date';
+  $handler->display->display_options['sorts']['field_date_value']['field'] = 'field_date_value';
+  $handler->display->display_options['sorts']['field_date_value']['order'] = 'DESC';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   /* Contextual filter: Inhoud: Date (field_date) */
   $handler->display->display_options['arguments']['field_date_value']['id'] = 'field_date_value';
@@ -330,11 +324,7 @@ function howest_blog_items_views_default_views() {
   $handler->display->display_options['arguments']['field_date_value']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['field_date_value']['summary']['format'] = 'unformatted_summary';
   $handler->display->display_options['arguments']['field_date_value']['summary_options']['items_per_page'] = '25';
-  $handler->display->display_options['block_description'] = 'Archive ';
-
-  /* Display: Pagina */
-  $handler = $view->new_display('page', 'Pagina', 'page_1');
-  $handler->display->display_options['path'] = 'blog';
+  $handler->display->display_options['block_description'] = 'Archive per month';
   $translatables['blog_items'] = array(
     t('Master'),
     t('<none>'),
@@ -355,13 +345,13 @@ function howest_blog_items_views_default_views() {
     t('Alle'),
     t('Blog overview'),
     t('Inhoud'),
+    t('Gepubliceerd op'),
     t('Nothing to show.'),
     t('Feed'),
     t('Howest newsletter'),
     t('Archief'),
-    t('Wijzigingsdatum'),
-    t('Archive '),
-    t('Pagina'),
+    t('Berichten per maand'),
+    t('Archive per month'),
   );
   $export['blog_items'] = $view;
 
@@ -875,7 +865,7 @@ function howest_blog_items_views_default_views() {
     t('Oplopend'),
     t('Aflopend'),
     t('Uitgebreide opties'),
-    t('Select any filter and click on Apply to see results'),
+    t('Selecteer een van de filters en klik op \'Toepassen\' om het resultaat te zien'),
     t('Items per pagina'),
     t('- Alle -'),
     t('Startpunt'),
