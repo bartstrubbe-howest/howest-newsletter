@@ -7,6 +7,23 @@
 include_once 'howest_blog_items.features.inc';
 
 
+/*
+ * Implementation of hook_views_pre_render(&$view)
+ */
+function howest_blog_items_views_pre_render(&$view) {
+  global $language;
+
+  // Localize taxonomy terms in views
+  foreach($view->result as $delta => $term ){
+    if(isset($term->tid)) {
+      i18n_string_translate_langcode( $language->language );
+      $localized_term = i18n_taxonomy_localize_terms( taxonomy_term_load( $term->tid ));
+      $term->tid = $localized_term->tid;
+      $term->taxonomy_term_data_name = $localized_term->name;
+    }
+  }
+}
+
 /**
  * Implements hook_menu()
  *
