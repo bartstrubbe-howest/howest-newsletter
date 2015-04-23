@@ -40,7 +40,7 @@
 
 body {
   font-family: 'PT Sans', sans-serif;
-  color: #838383;
+  color: @_grey_3;
 }
 
 .bold,
@@ -63,14 +63,28 @@ h1 a,h2 a,h3 a,h4 a,h5 a,h6 a {
   }
 }
 
+a {
+  color: @_light_blue;
 
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+p {
+  font-size: 1.2em;
+  line-height: 1.8em;
+  margin-bottom: 2rem;
+}
 
 
 // Blog overview
 .page-blog-items {
+
   h1 {
 
   }
+
   h2 {
     padding: 0;
     margin: 0;
@@ -78,20 +92,18 @@ h1 a,h2 a,h3 a,h4 a,h5 a,h6 a {
     line-height: 1.2em;
     margin-bottom: .75em;
     display: block;
-
-
   }
+
   h3 {
     font-size: 1.8em;
   }
+
   h4 {
     font-size: 1.5em;
   }
-  h5 {
-    font-size: 1.2em;
-  }
-  h6 {
 
+  h5, h6 {
+    font-size: 1.2em;
   }
 }
 
@@ -120,13 +132,7 @@ h1 a,h2 a,h3 a,h4 a,h5 a,h6 a {
   h4, h4 a {
     font-size: 1.5em;
   }
-  h5, h5 a {
+  h5, h5 a, h6, h6 a {
     font-size: 1.2em;
   }
-  h6, h6 a {
-
-  }
 }
-
-
-

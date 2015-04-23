@@ -100,25 +100,10 @@
 
   <div class="content clearfix"<?php print $content_attributes; ?>>
     <?php
-    // We hide the comments and links now so that we can render them later.
-    hide($content['comments']);
-    hide($content['links']);
-    print render($content);
-
-    if ($node->type === "blog_item") {
-      print l(
-        t("iCal"),
-        "ical/" . $node->nid . "/export.ics",
-        array(
-          "absolute" => TRUE,
-          "attributes" => array(
-            "class" => array(
-              "ical"
-            )
-          )
-        )
-      );
-    }
+      // We hide the comments and links now so that we can render them later.
+      hide($content['comments']);
+      hide($content['links']);
+      print render($content);
     ?>
   </div>
 

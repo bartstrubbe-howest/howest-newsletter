@@ -5,3 +5,127 @@
  */
 
 include_once 'howest_blog_items.features.inc';
+
+
+/**
+ * Implements hook_menu()
+ *
+ */
+function howest_blog_items_menu() {
+  $items['contact-us'] = array(
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('_howest_blog_items_form'),
+    'access callback' => 'howest_blog_items_permission',
+    'access arguments' => array(array('administrator', 'Content beheerder')),
+    'title' => t('Send us your news!'),
+    'type' => MENU_NORMAL_ITEM,
+  );
+
+  return $items;
+}
+
+/**
+ *  Implements hook_permission()
+ *
+ */
+function howest_blog_items_permission() {
+  return array(
+    'submit user generated blog item' => array(
+      'title' => t('Submit a blog post'),
+      'description' => t('Allows authorised users to submit unpublished blog items.'),
+    ),
+  );
+}
+
+/**
+ * Provide a form to do things.
+ *
+ */
+function _howest_blog_items_form() {
+  $form = array();
+
+  $content_voc = taxonomy_vocabulary_machine_name_load('content');
+  $content_tree = taxonomy_get_tree($content_voc->vid);
+  $content_tags = array();
+  foreach ($content_tree as $tid => $term) {
+    $content_tags[$tid] = $term->name;
+  }
+
+  $location_voc = taxonomy_vocabulary_machine_name_load('location');
+  $location_tree = taxonomy_get_tree($location_voc->vid);
+  $location_tags = array();
+  foreach ($location_tree as $tid => $term) {
+    $location_tags[$tid] = $term->name;
+  }
+
+  $form['title'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Title'),
+    '#description' => '',
+  );
+
+  $form['location_tags'] = array(
+    '#type' => 'select',
+    '#title' => t('Locatie'),
+    '#options' => $location_tags,
+    '#required' => TRUE,
+    '#description' => '',
+  );
+
+  $form['content_tags'] = array(
+    '#type' => 'select',
+    '#title' => t('Categorie'),
+    '#options' => $content_tags,
+    '#required' => TRUE,
+    '#description' => '',
+  );
+
+  $form['body'] = array(
+    '#title' => t('Content'),
+    '#type' => 'text_format',
+    '#default_value' => '',
+    '#format' => 'full_html',
+    '#required' => TRUE,
+  );
+
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => t('Submit this form'),
+  );
+
+  return $form;
+}
+
+
+/**
+ * _MODULE_form() submit handler
+ *
+ */
+function _howest_blog_items_form_submit($form, &$form_state) {
+  dpm($form_state, 'submitted node form');
+  global $user;
+  global $language;
+
+  $node = new stdClass();
+  $node->title = "YOUR TITLE";
+  $node->type = "blog_item";
+  node_object_prepare($node);
+  $node->language = $language->language;
+  $node->uid = $user->uid;
+  $node->status = 0;
+  $node->promote = 0;
+  $node->comment = 0;
+
+  // Set content tag
+  //$node->field_content[$node->language][]['tid'] = $form_state['values']['a taxonomy term id'];
+  // Set location tag
+  //$node->field_location[$node->language][]['tid'] = $form_state['values']['a taxonomy term id'];
+
+ dpm($node, 'node');
+
+  $node = node_submit($node); // Prepare node for saving
+  //node_save($node);
+
+ // watchdog('info', $watchdog);
+  drupal_set_message(t('Your news item has been submitted. Thanks!'));
+}

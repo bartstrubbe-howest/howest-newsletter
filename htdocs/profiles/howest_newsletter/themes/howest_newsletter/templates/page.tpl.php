@@ -123,8 +123,6 @@
       <?php if ($logo): ?>
         <a href="<?php print $front_page; ?>" title="Inside Howest" id="brandingLogo">inside <strong>howest</strong></a>
         <i class="triangle"></i>
-
-
       <?php endif; ?>
 
       <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
@@ -173,12 +171,12 @@
     <div class="row">
 
       <?php if (!empty($page['sidebar_first'])): ?>
-        <aside class="col-sm-3 sidebar_first" role="complementary">
+        <aside class="col-sm-12 col-md-4 col-lg-4 sidebar_first" role="complementary">
           <?php print render($page['sidebar_first']); ?>
         </aside>  <!-- /#sidebar-first -->
       <?php endif; ?>
 
-      <section<?php print $content_column_class; ?>>
+      <section class="col-md-8">
         <?php if (!empty($page['highlighted'])): ?>
           <div class="highlighted jumbotron"><?php print render($page['highlighted']); ?></div>
         <?php endif; ?>
@@ -203,7 +201,7 @@
       </section>
 
       <?php if (!empty($page['sidebar_second'])): ?>
-        <aside class="col-sm-3 sidebar" role="complementary">
+        <aside class="col-sm-12 col-md-4 col-lg-4 sidebar" role="complementary">
           <?php print render($page['sidebar_second']); ?>
         </aside>  <!-- /#sidebar-second -->
       <?php endif; ?>

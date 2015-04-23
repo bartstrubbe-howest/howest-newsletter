@@ -7,6 +7,11 @@
   .container {
     padding: 45px 0;
   }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
 }
 
 .button {
@@ -53,7 +58,6 @@ ul.pagination {
     color: @_grey_5;
     font-size: 1.1em;
     margin: 0 3px;
-    border-radius: 0;
     background: @_white;
     -webkit-box-shadow: 2px 2px 0px 0px @_grey_3;
     -moz-box-shadow: 2px 2px 0px 0px @_grey_3;
@@ -82,4 +86,16 @@ a.ical {
     border: 2px solid @_pink !important;
     color: @_pink;
   }
+
+  &:before {
+    .fa;
+    .fa-calendar;
+    padding-right: 8px;
+  }
+}
+
+// Node edit form.
+.cke_editable {
+  font-family: 'VAGRoundedStdThin', 'PT Sans', sans-serif;
+  color: #838383;
 }
