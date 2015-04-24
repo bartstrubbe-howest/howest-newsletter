@@ -113,11 +113,15 @@ function howest_blog_items_strongarm() {
             'visible' => TRUE,
           ),
           'search_result' => array(
-            'weight' => '5',
+            'weight' => '4',
             'visible' => FALSE,
           ),
           'full' => array(
             'weight' => '5',
+            'visible' => TRUE,
+          ),
+          'teaser' => array(
+            'weight' => '2',
             'visible' => TRUE,
           ),
         ),

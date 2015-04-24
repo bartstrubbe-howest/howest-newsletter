@@ -216,7 +216,7 @@ function howest_blog_items_default_search_api_page() {
     "path" : "search\\/",
     "name" : "Blog search",
     "machine_name" : "blog_search",
-    "description" : "",
+    "description" : "Search through blog posts. Use keywords of at least four characters.",
     "options" : {
       "mode" : "terms",
       "fields" : [],
@@ -243,7 +243,7 @@ function howest_blog_items_default_search_api_server() {
     "class" : "fuzzysearch_service",
     "options" : {
       "database" : "default:default",
-      "min_chars" : "3",
+      "min_chars" : "2",
       "indexes" : { "default_fuzzysearch_index" : {
           "title" : {
             "table" : "fuzzysearch_default_fuzzysearch_index_title",

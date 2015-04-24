@@ -33,7 +33,7 @@ function howest_blog_items_default_fe_block_settings() {
         'region' => 'sidebar_second',
         'status' => 1,
         'theme' => 'howest_newsletter',
-        'weight' => -17,
+        'weight' => -16,
       ),
     ),
     'title' => 'Zelf nieuws te melden?',
@@ -149,34 +149,6 @@ function howest_blog_items_default_fe_block_settings() {
       ),
     ),
     'title' => '<none>',
-    'visibility' => 0,
-  );
-
-  $export['views-blog_items-block_blog_archive'] = array(
-    'cache' => -1,
-    'custom' => 0,
-    'delta' => 'blog_items-block_blog_archive',
-    'i18n_block_language' => array(),
-    'i18n_mode' => 1,
-    'module' => 'views',
-    'node_types' => array(),
-    'pages' => '',
-    'roles' => array(),
-    'themes' => array(
-      'bartik' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'bartik',
-        'weight' => 0,
-      ),
-      'howest_newsletter' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'howest_newsletter',
-        'weight' => -16,
-      ),
-    ),
-    'title' => 'Archief',
     'visibility' => 0,
   );
 
