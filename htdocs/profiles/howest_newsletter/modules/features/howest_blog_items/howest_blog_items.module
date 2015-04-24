@@ -84,7 +84,7 @@ function _howest_blog_items_form() {
 
   $form['location_tag'] = array(
     '#type' => 'select',
-    '#title' => t('Locatie'),
+    '#title' => t('Location'),
     '#options' => $location_tags,
     '#required' => TRUE,
     '#description' => '',
@@ -92,7 +92,7 @@ function _howest_blog_items_form() {
 
   $form['content_tag'] = array(
     '#type' => 'select',
-    '#title' => t('Categorie'),
+    '#title' => t('Category'),
     '#options' => $content_tags,
     '#required' => TRUE,
     '#description' => '',
@@ -108,7 +108,7 @@ function _howest_blog_items_form() {
 
   $form['submit'] = array(
     '#type' => 'submit',
-    '#value' => t('Submit this form'),
+    '#value' => t('Submit your news'),
   );
 
   return $form;
@@ -140,6 +140,5 @@ function _howest_blog_items_form_submit($form, &$form_state) {
   $node = node_submit($node); // Prepare node for saving
   node_save($node);
 
- // watchdog('info', $watchdog);
   drupal_set_message(t('Your news item has been submitted. Thanks!'));
 }

@@ -121,7 +121,7 @@
   <div class="container">
     <div class="navbar-header">
       <?php if ($logo): ?>
-        <a href="<?php print $front_page; ?>" title="Inside Howest" id="brandingLogo">inside <strong>howest</strong></a>
+        <a href="<?php print $front_page; ?>" title="Blog Howest" id="brandingLogo">blog <strong>howest</strong></a>
         <i class="triangle"></i>
       <?php endif; ?>
 

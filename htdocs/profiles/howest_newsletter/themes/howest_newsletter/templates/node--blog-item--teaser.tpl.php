@@ -80,19 +80,9 @@
 
   //dpm($content, 'content');
 
-  $ical_link = l(t("Add date to your calendar"), "ical/" . $node->nid . "/export.ics",
-    array("absolute" => TRUE,
-      "attributes" => array("class" => array("ical"))
-    )
-  );
-
-  hide($content['flippy_pager']);
-  hide($content['comments']);
-  hide($content['links']);
 ?>
 
-<div id="node-<?php print $node->nid; ?>"
-     class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
+<div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
   <?php if (isset($field_deadline[LANGUAGE_NONE][0]['value']) && $field_deadline[LANGUAGE_NONE][0]['value'] == 1): ?>
     <div class="has-deadline"></div>
   <?php endif; ?>
@@ -102,7 +92,7 @@
   <div class="content clearfix"<?php print $content_attributes; ?>>
 
       <h1>
-        <?php print $title; ?>
+        <a href="<?php print $node_url; ?>"><?php print $title; ?></a>
       </h1>
 
       <div class="meta submitted">
@@ -120,21 +110,11 @@
     <hr>
 
     <?php
-        print render($content['body']);
-        print $ical_link;
-        print render($content['links']);
+        print render($content['body'][0]['#markup']);
       ?>
-    <hr>
 
-    <div class="tags categories">
-      <label>Labels:</label>
-      <?php
-      print render($content['field_content']);
-      print render($content['field_location']);
-      ?>
-    </div>
+    <span class="read-more btn">
+      <a href="<?php print $node_url; ?>"><?php echo t('Read more'); ?></a>
+    </span>
   </div>
-
 </div>
-
-<?php print render($content['flippy_pager']); ?>

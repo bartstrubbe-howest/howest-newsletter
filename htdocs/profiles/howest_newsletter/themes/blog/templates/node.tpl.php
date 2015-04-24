@@ -77,64 +77,51 @@
  * @see template_preprocess_node()
  * @see template_process()
  */
-
-  //dpm($content, 'content');
-
-  $ical_link = l(t("Add date to your calendar"), "ical/" . $node->nid . "/export.ics",
-    array("absolute" => TRUE,
-      "attributes" => array("class" => array("ical"))
-    )
-  );
-
-  hide($content['flippy_pager']);
-  hide($content['comments']);
-  hide($content['links']);
 ?>
-
 <div id="node-<?php print $node->nid; ?>"
      class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
   <?php if (isset($field_deadline[LANGUAGE_NONE][0]['value']) && $field_deadline[LANGUAGE_NONE][0]['value'] == 1): ?>
     <div class="has-deadline"></div>
   <?php endif; ?>
+  <?php print render($title_prefix); ?>
+  <?php if (!$page): ?>
+    <h2<?php print $title_attributes; ?>>
+      <a href="<?php print $node_url; ?>"><?php print $title; ?></a>
+    </h2>
+  <?php endif; ?>
+  <?php print render($title_suffix); ?>
 
-  <?php print render($content['field_image']); ?>
+  <?php if ($display_submitted): ?>
+    <div class="meta submitted">
+      <?php print $user_picture; ?>
+      <?php print $submitted; ?>
+    </div>
+  <?php endif; ?>
 
   <div class="content clearfix"<?php print $content_attributes; ?>>
-
-      <h1>
-        <?php print $title; ?>
-      </h1>
-
-      <div class="meta submitted">
-        <label><?php print (t('Published on')); ?>:</label> <?php print $date; ?>
-      </div>
-
-
-    <div class="tags categories">
-      <label>Labels:</label>
-      <?php
-        print render($content['field_content']);
-        print render($content['field_location']);
-      ?>
-    </div>
-    <hr>
-
     <?php
-        print render($content['body']);
-        print $ical_link;
-        print render($content['links']);
-      ?>
-    <hr>
-
-    <div class="tags categories">
-      <label>Labels:</label>
-      <?php
-      print render($content['field_content']);
-      print render($content['field_location']);
-      ?>
-    </div>
+      // We hide the comments and links now so that we can render them later.
+      hide($content['comments']);
+      hide($content['links']);
+      print render($content);
+    ?>
   </div>
 
-</div>
+  <?php
+  // Remove the "Add new comment" link on the teaser page or if the comment
+  // form is being displayed on the same page.
+  if ($teaser || !empty($content['comments']['comment_form'])) {
+    unset($content['links']['comment']['#links']['comment-add']);
+  }
+  // Only display the wrapper div if there are links.
+  $links = render($content['links']);
+  if ($links):
+    ?>
+    <div class="link-wrapper">
+      <?php print $links; ?>
+    </div>
+  <?php endif; ?>
 
-<?php print render($content['flippy_pager']); ?>
+  <?php print render($content['comments']); ?>
+
+</div>

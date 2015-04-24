@@ -1,0 +1,401 @@
+/**
+* Import the typo
+*/
+
+/* #Site Styles
+================================================== */
+@font-face {
+  font-family: 'vagRoundedStdBold';
+  src: url('../fonts/vagroundedstd-bold-webfont.eot');
+  src: url('../fonts/vagroundedstd-bold-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/vagroundedstd-bold-webfont.woff') format('woff'), url('../fonts/vagroundedstd-bold-webfont.ttf') format('truetype'), url('../fonts/vagroundedstd-bold-webfont.svg#../fonts/vagRoundedStdBold') format('svg');
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'vagRoundedStdThin';
+  src: url('../fonts/vagroundedstd-thin-webfont.eot');
+  src: url('../fonts/vagroundedstd-thin-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/vagroundedstd-thin-webfont.woff') format('woff'), url('../fonts/vagroundedstd-thin-webfont.ttf') format('truetype'), url('../fonts/vagroundedstd-thin-webfont.svg#../fonts/vagRoundedStdThin') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+/**
+* Basic styling of basic layout stuff
+*/
+
+body {
+  background: rgb(67, 199, 244);
+  font-family: 'vagRoundedStdThin', Calibri, Arial, sans-serif;
+  font-weight: normal;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: "vagRoundedStdBold", Calibri, Arial, sans-serif;
+}
+
+header#navbar{
+ background: transparent;
+  border: none;
+  margin-top: 0;
+}
+
+.region.region-navigation{
+  width: auto;
+  float: right;
+  overflow: hidden;
+}
+
+.region.region-navigation .block-search{
+  max-width: 300px;
+  float: right;
+}
+
+.region.region-navigation section{
+  display: inline-block;
+}
+
+.region.region-navigation a,
+.region.region-footer a{
+  color: white;
+  line-height: 30px;
+  padding: 5px 15px;
+}
+
+.region.region-navigation a:hover{
+  background: white;
+  text-decoration: none;
+}
+
+#block-menu-howest-suggestions, #block-locale-language{
+  margin-top: 15px;
+}
+
+.main-container.container{
+  padding: 10px 10px 20px 10px;
+  background: white;
+  overflow: hidden;
+}
+
+h1.page-header{
+  background: #f00088;
+  color: white;
+  border: none;
+  padding: 10px;
+  margin: 0;
+}
+
+h2 a{
+  color: rgb(67,199,244);
+}
+
+/**
+* Overriding default boostrap stuff
+*/
+
+.well{
+  border-radius: 0;
+  box-shadow: none;
+  border: none;
+}
+
+.nav-tabs{
+  margin-top: 15px;
+}
+
+p{
+  font-size: 1.1em;
+  line-height: 1.4215;
+}
+
+p>a{
+  color: rgb(67, 199, 244) !important;
+}
+
+.breadcrumb{
+  border-radius: 0;
+  margin-bottom: 0;
+}
+
+.nav-tabs>li>a{
+  border-radius: 0;
+}
+
+input[type="text"], input[type="password"], input[type="email"]{
+  border-radius: 0;
+  border: solid 1px rgb(67,199,244);
+  background: white;
+}
+
+.alert{
+  border-radius: 0;
+}
+
+.navbar #block-search-form{
+  margin-top: 20px;
+}
+
+#block-search-form input[type="text"]{
+  height: 40px;
+  border: none;
+}
+
+#block-search-form button[type="submit"]{
+ background: #f00088;
+  color: white;
+  border: none;
+  border-radius: 0;
+  width: 40px;
+  height: 40px;
+}
+
+#block-search-form .input-group{
+  -webkit-transition: box-shadow 0.3s;
+  -moz-transition: box-shadow 0.3s;
+  transition: box-shadow 0.3s;
+}
+
+#block-search-form .input-group:hover{
+  box-shadow: 0px 0px 12px #6C6B9C
+}
+
+#block-search-form button[type="submit"] .glyphicon{
+  top: 3px;
+  font-size: 15px;
+}
+
+.pagination a{
+  border-radius: 0 !important;
+}
+
+.bnt{
+  border-radius: 0;
+}
+
+/**
+* Navigation
+*/
+
+.navbar-nav.secondary{
+  color: white;
+  font-weight: bold;
+}
+
+.sidebar_first h2{
+  background: black;
+  color: white;
+  font-family: 'vagRoundedStdThin', Calibri, Arial, sans-serif;
+  font-size: 18px;
+  padding: 8px 10px;
+  text-transform: uppercase;
+}
+
+.sidebar_first .well{
+  padding: 0px;
+  background: transparent;
+}
+
+.sidebar_first .well .views-row, .language-switcher-locale-url li{
+  border: solid 2px #efefef;
+  border-collapse: collapse;
+  padding: 5px;
+  margin-top: -1px;
+  list-style: none;
+}
+
+ul.language-switcher-locale-url{
+  padding-left: 0;
+}
+
+.sidebar_first .well .views-row a{
+}
+
+.sidebar_first .views-field-nid span{
+  float: right;
+}
+
+/**
+* Node stuff
+*/
+
+.field-name-field-location{
+  float: right;
+}
+
+.field-name-field-content{
+  float: right;
+}
+
+
+.field-name-field-location a, .field-name-field-content a{
+  display: block;
+  background: #f00088;
+  color: white;
+  padding: 8px;
+  clear: both;
+  font-weight: bold;
+  margin-right: 10px;
+  font-size: 16px;
+
+  -webkit-transition: box-shadow 0.2s;
+  -moz-transition: box-shadow 0.2s;
+  transition: box-shadow 0.2s;
+}
+
+.field-name-field-location a:hover,
+.field-name-field-content a:hover {
+  box-shadow: 0px 0px 4px #cbcbcb;
+}
+
+.node-readmore a{
+  background: rgb(67,199,244);
+  color: white;
+  padding: 8px;
+  margin-top: 10px;
+  display: block;
+}
+
+.view-blog-list .views-row{
+  padding-bottom: 15px;
+  border-bottom: dotted 1px gray;
+  margin-right: 30px;
+}
+
+
+
+.node .links{
+  clear: both;
+}
+
+.howest-banner{
+  margin-bottom: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.howest-banner img{
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+
+.howest-banner::before{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255,255,255,0.3);
+  content: '';
+  -webkit-transition: -webkit-transform 0.6s;
+  transition: transform 0.6s;
+  -webkit-transform: scale3d(2,2,1) rotate3d(0,0,1,45deg) translate3d(0,-100%,0);
+  transform: scale3d(1.9,1.4,1) rotate3d(0,0,1,45deg) translate3d(0,-100%,0);
+}
+
+.comment{
+  background: #F8F8F8;
+  padding: 0 20px 10px 20px;
+  margin-bottom: 10px;
+}
+
+.comment a{
+  color: rgb(67,199,244);
+}
+
+.comment .submitted a.permalink{
+  display: none;
+}
+
+.field-name-field-image{
+  clear: both;
+}
+
+.comment .new{
+  display: none;
+}
+
+.show-all-tags{
+  display: block;
+  text-align: center;
+  padding: 10px;
+  background: rgb(67,199,244);;
+  color: white;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.show-all-tags:hover{
+  color: white;
+}
+
+.region-navigation .block-menu h2,
+.region-footer .block-menu h2,
+.region-navigation .block-locale h2 {
+  display: none;
+}
+
+.region-navigation .block-menu ul li,
+.region-footer .block-menu ul li,
+.region-navigation .block-locale ul li {
+  display: inline-block;
+  border: none;
+  list-style: none outside none;
+  margin-top: -1px;
+  padding: 5px;
+}
+
+.region-navigation .block-menu ul li a,
+.region-footer .block-menu ul li a,
+.region-navigation .block-locale ul li a{
+  display: inline-block;
+}
+
+.region-navigation .block-menu ul li a:hover,
+.region-footer .block-menu ul li a:hover,
+.region-navigation .block-locale ul li a:hover {
+  color: #2a6496;
+  text-decoration: underline;
+}
+
+.has-deadline{
+  width: 32px;
+  height: 32px;
+  display: block;
+  position: relative;
+  right: 30px;
+  top: 52px;
+  background: url('../img/clock.png') no-repeat center center;
+}
+
+.node-teaser .has-deadline + h2{
+  padding-left: 60px;
+}
+
+.node-teaser .has-deadline{
+  background-color: rgb(67,199,244);
+  left: 15px;
+  padding: 20px;
+  border-radius: 100%;
+}
+
+.node-teaser h2 a {
+    display: block;
+}
+
+a.ical{
+    display: block;
+    background: #f00088;
+    color: white;
+    padding: 8px;
+    margin: 10px 0 0 0;
+    clear: both;
+    font-weight: bold;
+    margin-right: 10px;
+    font-size: 16px;
+    float: right;
+}
+
+.footer {
+  border: 0px;
+}
