@@ -18,6 +18,23 @@ body {
   background: @_content;
 }
 
+.badge {
+  background-color: @_yellow;
+  font-weight: bold;
+  color: @_white;
+  display: inline-block;
+  min-width: 10px;
+  padding: 3px 7px;
+  font-size: 12px;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 10px;
+  float: right;
+}
+
+
 .sidebar {
 
   .block {
@@ -33,6 +50,7 @@ body {
   h2.block-title {
     font-size: 18px;
     color: @_grey_5;
+    margin-bottom: 1em;
   }
 
   a {
@@ -64,19 +82,7 @@ body {
     border-radius: 0;
 
     .views-field-nid {
-      background-color: @_yellow;
-      font-weight: bold;
-      color: @_white;
-      display: inline-block;
-      min-width: 10px;
-      padding: 3px 7px;
-      font-size: 12px;
-      line-height: 1;
-      text-align: center;
-      white-space: nowrap;
-      vertical-align: baseline;
-      border-radius: 10px;
-      float: right;
+      .badge
     }
   }
 
@@ -144,9 +150,6 @@ body {
     }
 
   }
-
-  // TODO add bullet
-
 }
 
 // Contacteer de redactie.
