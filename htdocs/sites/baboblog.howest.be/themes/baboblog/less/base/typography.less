@@ -1,0 +1,147 @@
+// Fonts and font sizes.
+
+// Thin
+@font-face {
+  font-family: 'VAGRoundedStdThin';
+  src: url('../fonts/vagroundedstd-thin-webfont.eot');
+  src: url('../fonts/vagroundedstd-thin-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/vagroundedstd-thin-webfont.woff') format('woff'),
+  url('../fonts/vagroundedstd-thin-webfont.ttf') format('truetype'),
+  url('../fonts/vagroundedstd-thin-webfont.svg#VAGRoundedStdThin') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+// Fat
+@font-face {
+  font-family: 'VAGRoundedStdBold';
+  src: url('../fonts/vagroundedstd-bold-webfont.eot');
+  src: url('../fonts/vagroundedstd-bold-webfont.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/vagroundedstd-bold-webfont.woff') format('woff'),
+        url('../fonts/vagroundedstd-bold-webfont.ttf') format('truetype'),
+        url('../fonts/vagroundedstd-bold-webfont.svg#VAGRoundedStdBold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
+// Icons
+@font-face {
+  font-family: 'FontAwesome';
+  src: url('../fonts/fontawesome-webfont.eot?v=4.3.0');
+  src: url('../fonts/fontawesome-webfont.eot?#iefix&v=4.3.0') format('embedded-opentype'),
+  url('../fonts/fontawesome-webfont.woff2?v=4.3.0') format('woff2'),
+  url('../fonts/fontawesome-webfont.woff?v=4.3.0') format('woff'),
+  url('../fonts/fontawesome-webfont.ttf?v=4.3.0') format('truetype'),
+  url('../fonts/fontawesome-webfont.svg?v=4.3.0#fontawesomeregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+body {
+  font-family: 'PT Sans', sans-serif;
+  color: @_grey_3;
+}
+
+.bold,
+strong {
+  font-family: 'VAGRoundedStdBold', 'PT Sans', sans-serif;
+  font-weight: bold;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  color: @_grey_5;
+  font-family: 'VAGRoundedStdBold', 'PT Sans', sans-serif;
+  font-weight: normal;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+h1 a,h2 a,h3 a,h4 a,h5 a,h6 a {
+  color: @_grey_5;
+
+  &:active,
+  &:hover {
+    text-decoration: none;
+    color: @_light_blue;
+  }
+}
+
+
+a {
+  color: @_light_blue;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+p {
+  font-size: 1.2em;
+  line-height: 1.8em;
+  margin-bottom: 2rem;
+}
+
+
+// Blog overview
+.page-blog-items {
+
+  h1, h2 {
+    padding: 0;
+    margin: 0;
+    font-size: 1.9em;
+    line-height: 1.2em;
+    margin-bottom: .75em;
+    display: block;
+  }
+
+  h3 {
+    font-size: 1.8em;
+  }
+
+  h4 {
+    font-size: 1.5em;
+  }
+
+  h5, h6 {
+    font-size: 1.2em;
+  }
+}
+
+// Blog item node page
+.node-type-blog-item {
+
+  h1 {
+    font-size: 1.9em;
+    line-height: 1.2em;
+    margin-bottom: .5em;
+  }
+
+  h2, h3, h4, h5,
+  h2 a, h3 a, h4 a, h5 a {
+    line-height: 1.2em;
+    margin-bottom: .3em;
+  }
+
+  h1, h1 a, h2, h2 a {
+    font-size: 1.9em;
+  }
+  h3, h3 a {
+    font-size: 1.8em;
+  }
+  h4, h4 a {
+    font-size: 1.5em;
+  }
+  h5, h5 a, h6, h6 a {
+    font-size: 1.2em;
+  }
+
+  li,
+  p {
+    font-size: 1.2em;
+    line-height: 1.8em;
+  }
+}

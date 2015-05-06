@@ -1,0 +1,188 @@
+// Styling specific to blog posts
+
+.node-teaser,
+.blog-post-teaser {
+  margin-bottom: 50px;
+  background: @_white;
+  max-width: 750px;
+
+  h1 {
+    font-size: 1.9em;
+    line-height: 1.2em;
+    margin-bottom: .75em;
+  }
+
+  .content {
+    padding: 27px 40px 27px 20px;
+  }
+}
+
+.blog-post-teaser {
+  .views-label-created {
+    font-weight: bold;
+    font-size: .9em;
+
+    &:before {
+      .fa;
+      .fa-clock-o;
+      padding-right: 4px;
+    }
+  }
+}
+
+// Blog node page
+.node-type-blog-item {
+  .page-header {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    display: none;
+  }
+}
+
+
+// Blog node
+.node-blog-item {
+  max-width: 750px;
+  background: @_white;
+  -webkit-box-shadow: 2px 2px 0px 0px @_grey_3;
+  -moz-box-shadow: 2px 2px 0px 0px @_grey_3;
+  box-shadow: 2px 2px 0px 0px @_grey_3;
+  margin-bottom: 50px;
+
+  .content {
+    padding: 27px 40px 27px 20px;
+  }
+
+  h2 {
+    margin-bottom: .75em;
+  }
+
+  p a {
+    text-decoration: underline;
+  }
+
+  .submitted {
+    display: inline-block;
+    font-style: normal;
+    font-size: .9em;
+    margin: 0;
+    padding: 0;
+    padding-right: 7px;
+    margin-right: 7px;
+    border-right: 1px solid @_grey_4;
+    height: 14px;
+
+    label {
+      &:before {
+        .fa;
+        .fa-clock-o;
+        padding-right: 4px;
+      }
+    }
+  }
+
+  .categories {
+    display: inline-block;
+    clear: both;
+    font-size: .9em;
+    margin: 0;
+    padding: 0;
+
+    label {
+      color: @_grey_4;
+      margin: 0;
+      padding: 0;
+      margin-right: 3px;
+
+      &:before {
+        .fa;
+        .fa-tags;
+        padding-right: 4px;
+      }
+
+      &:hover {
+        color: @_grey_4;
+      }
+    }
+
+    .field-type-taxonomy-term-reference {
+      display: inline-block;
+      margin-right: 5px;
+    }
+    
+    .field-type-taxonomy-term-reference a {
+      display: inline;
+      padding: .2em .6em .2em;
+      line-height: 1;
+      text-align: center;
+      white-space: nowrap;
+      vertical-align: baseline;
+      border-radius: .25em;
+      background: @_grey_1;
+      font-size: 1em;
+      color: @_white;
+      text-decoration: none;
+      font-weight: 400;
+
+      &:hover {
+        background: (@_grey_4 - #131313);
+      }
+    }
+  }
+
+  .field-name-body {
+    clear: both;
+  }
+}
+
+// Pager under a blog node
+.flippy {
+  display: block;
+  clear: both;
+  height: 5em;
+  padding: 0 !important;
+  margin: 0 !important;
+  max-width: 750px;
+
+  .prev {
+    float: left;
+    padding-left: 0;
+  }
+
+  .next {
+    float: right;
+    padding-right: 0;
+  }
+
+  .empty {
+    display: none;
+  }
+
+  li a {
+    display: inline-block;
+    padding: 5px 8px;
+    text-decoration: none;
+    color: @_grey_5;
+    font-size: 1.1em;
+    margin: 0 3px;
+    border-radius: 0;
+    background: @_white;
+    border: 1px solid @_grey_2;
+    -webkit-box-shadow: 2px 2px 0px 0px @_grey_2;
+    -moz-box-shadow: 2px 2px 0px 0px @_grey_2;
+    box-shadow: 2px 2px 0px 0px @_grey_2;
+
+    &:hover {
+      background: @_pink;
+      color: @_white;
+    }
+  }
+}
+
+// Red accent for "To Do" posts
+body.page-blog-items .blog-post-teaser.term-11 .content,
+.page-taxonomy-term-11 .views-row .node-teaser .content,
+body.tagged-todo .node-blog-item .content {
+  border-left: 5px solid @_red;
+}

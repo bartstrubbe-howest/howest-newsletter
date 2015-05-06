@@ -1,0 +1,200 @@
+// Basic layout here: header, footer, regions, sidebar blocks and so on.
+
+body {
+  background: @_grey_6;
+  font-family: 'VAGRoundedStdThin', 'PT Sans', sans-serif;
+  color: @_grey_4;
+}
+
+#admin-menu {
+  font-size: 0.9em;
+}
+
+.container {
+  padding: 0;
+}
+
+.main-container .container {
+  background: @_content;
+}
+
+.badge {
+  background-color: @_yellow;
+  font-weight: bold;
+  color: @_white;
+  display: inline-block;
+  min-width: 10px;
+  padding: 3px 7px;
+  font-size: 12px;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 10px;
+  float: right;
+}
+
+
+.sidebar {
+
+  .block {
+    font-family: 'PT Sans', sans-serif;
+    background: @_white;
+    -webkit-box-shadow: 2px 2px 0px 0px (@_grey_3 - #050505);
+    -moz-box-shadow: 2px 2px 0px 0px (@_grey_3 - #050505);
+    box-shadow: 2px 2px 0px 0px (@_grey_3 - #050505);
+    margin-bottom: 30px;
+    padding: 20px 18px;
+  }
+
+  h2.block-title {
+    font-size: 18px;
+    color: @_grey_5;
+    margin-bottom: 1em;
+  }
+
+  a {
+    color: @_light_blue;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+#block-views-tag-cloud-block-blog-categories {
+
+  h2.block-title {
+    &:before {
+      .fa;
+      .fa-list-alt;
+      padding-right: 4px;
+    }
+  }
+
+  .category {
+    border: none;
+    border-bottom: 1px dotted @_grey_2;
+    display: block;
+    padding: 8px 0;
+    font-size: 1.1em;
+    border-radius: 0;
+
+    .views-field-nid {
+      .badge
+    }
+  }
+
+  // "To do" category needs a red border.
+  .term-11 {
+    border-left: 5px solid @_red;
+    padding-left: 10px;
+  }
+
+  .views-row-last {
+    border-bottom: 0;
+  }
+}
+
+
+#block-views-popular-block {
+
+  h2.block-title {
+    &:before {
+      .fa;
+      .fa-eye;
+      padding-right: 4px;
+    }
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  .views-row {
+    border: none;
+    border-bottom: 1px dotted @_grey_2;
+    display: block;
+    padding: 8px 0;
+    font-size: 1.1em;
+    border-radius: 0;
+
+    &.views-row-last {
+      border-bottom: 0;
+    }
+  }
+}
+
+#block-views-archive-block,
+#block-views-blog-items-block-blog-archive {
+
+  h2.block-title {
+    &:before {
+      .fa;
+      .fa-archive;
+      padding-right: 4px;
+    }
+  }
+
+  .views-summary {
+    border: none;
+    border-bottom: 1px dotted @_grey_2;
+    display: block;
+    padding: 8px 0;
+    font-size: 1.1em;
+    border-radius: 0;
+
+    &:last-child {
+      border-bottom: 0;
+    }
+  }
+}
+
+// Contacteer de redactie.
+#block-block-3 {
+
+  h2.block-title {
+    &:before {
+      .fa;
+      .fa-comment-o;
+      padding-right: 4px;
+    }
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+}
+
+// Send us your news form on contact-us
+.page-contact-us {
+  .form-item-location-tag {
+    width: 40%;
+    float: left;
+    display: block;
+  }
+
+  .form-item-content-tag {
+    width: 40%;
+    float: right;
+    display: block;
+  }
+
+  .text-format-wrapper {
+    clear: both;
+  }
+}
+
+.footer {
+  margin-top: 0;
+  border-top: (@_grey_4 - #101010) 3px solid;
+  padding-top: 20px;
+  padding-bottom: 30px;
+  font-size: .9em;
+  color: @_grey_3;
+
+  a {
+    color: @_grey_3;
+  }
+}

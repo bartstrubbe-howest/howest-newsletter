@@ -1,0 +1,251 @@
+// Top region: powered by, username, logout link, language selector, social links.
+
+
+.region-top {
+  font-size: .9em;
+  background: @_black;
+  color: @_white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  height: 38px;
+  line-height: 2.3em;
+  padding-top: 7px;
+
+  .powered-by {
+    width: 25%;
+    float: left;
+    strong {
+      font-family: 'VAGRoundedStdBold', 'PT Sans', sans-serif;
+    }
+
+    a {
+      color: @_white;
+    }
+  }
+
+  .links {
+    float: right;
+    display: table;
+    height: 18px;
+    table-layout: auto;
+
+    .region-top-navigation {
+      display: inline-block;
+      float: left;
+    }
+
+    .user,
+    .logout,
+    #block-locale-language {
+      position: relative;
+      display: inline-block;
+      float: left;
+
+      a:after {
+        content: "";
+        border-right: 1px solid (@_grey_5 + #141414);
+        padding-right: 10px;
+        height: 18px;
+      }
+
+      a {
+        color: @_grey_3;
+      }
+
+      a:hover,
+      a:active {
+        color: @_white;
+        text-decoration: none;
+      }
+
+      .language-switcher-locale-url {
+        padding: 0;
+
+        .language-link:before {
+          .fa;
+          .fa-language;
+          padding-right: 3px;
+        }
+      }
+
+      // Don't display the active language link.
+      .language-switcher-locale-url .active {
+        display: none;
+      }
+    }
+
+    .user {
+      position: relative;
+
+      &:before {
+        .fa;
+        .fa-user;
+      }
+    }
+
+    .logout {
+      padding-left: 10px;
+
+      a:before {
+        .fa;
+        .fa-sign-out;
+        padding-right: 3px;
+      }
+    }
+
+    ul.social-links {
+      display: inline-block;
+      padding: 0;
+      position: relative;
+
+      li:last-child:after {
+        border: 0;
+      }
+    }
+
+    ul li {
+      display: inline-block;
+      padding: 0 10px;
+      list-style: none;
+      position: relative;
+
+      a:after {
+        content: "";
+        border-right: 1px solid (@_grey_5 + #141414);
+        padding-right: 10px;
+        height: 18px;
+        position: absolute;
+        top: 4px;
+        right: 0;
+      }
+
+      a {
+        color: @_grey_3;
+      }
+
+      a:hover {
+        color: @_white;
+        text-decoration: none;
+      }
+
+      a.facebook:before {
+        .fa;
+        .fa-facebook;
+      }
+
+      a.linkedin {
+
+        &:before {
+          .fa;
+          .fa-linkedin;
+        }
+
+        &:after {
+          border: 0;
+        }
+      }
+
+      a.twitter:before {
+        .fa;
+        .fa-twitter;
+      }
+    }
+  }
+}
+
+body.admin-menu .region-top {
+  top: 20px;
+}
+
+// Header: logo and search field.
+header.navbar {
+  background: #67B859;
+  border: 0;
+  border-bottom: 3px solid (#67B859 - #222);
+  padding: 20px 0;
+  position: relative;
+  padding-top: 60px;
+  border-radius: 0;
+  margin-bottom: 0;
+  z-index: 90;
+
+  .container > .navbar-header,
+  .container > .navbar-collapse {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .container {
+    margin: 0 auto;
+    padding-left: 0;
+
+    @media @tablet {
+      max-width: ((@container-sm - 30px));
+    }
+    @media @normal {
+      max-width: ((@container-md - 30px));
+    }
+    @media @wide {
+      max-width: ((@container-lg - 30px));
+    }
+  }
+
+  #brandingLogo {
+    color: #FFF;
+    font-family: 'VAGRoundedStdThin', 'PT Sans', sans-serif;
+    font-size: 3em;
+    text-decoration: none;
+    line-height: 1em;
+    outline: none;
+  }
+
+  .triangle {
+    width: 50px;
+    height: 25px;
+    display: block;
+    background:url(../img/arrow_blue_down.png) no-repeat 0 0;
+    position: absolute;
+    bottom: -20px;
+    margin-left: 1.7em;
+  }
+
+  #block-search-form {
+    float: right;
+
+    #edit-search-block-form--2 {
+      width: 335px;
+      padding: 8px 12px 6px 12px;
+      border: 1px solid @_white;
+      border-radius: 0;
+      display: inline-block;
+      box-shadow: none;
+    }
+
+    .input-group-btn {
+      width: 33px;
+    }
+
+    button {
+      background: @_pink;
+      border-radius: 0;
+      border: 0;
+      padding: 4px 0 0 0;
+      width: 33px;
+      height: 34px;
+    }
+
+    button i.glyphicon-search {
+      color: @_white;
+      font-weight: bold;
+      text-shadow: 0px 1px 0px @_white;
+    }
+  }
+
+  .navbar-collapse {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}
