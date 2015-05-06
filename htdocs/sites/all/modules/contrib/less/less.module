@@ -10,46 +10,31 @@
 
 define('LESS_PERMISSION', 'administer less');
 
-define('LESS_AUTOPREFIXER', 'less_autoprefixer');
-
-define('LESS_DEVEL', 'less_devel');
-define('LESS_WATCH', 'less_watch');
-define('LESS_SOURCE_MAPS', 'less_source_maps');
-
-define('LESS_DIRECTORY', 'public://less');
-
-require_once dirname(__FILE__) . '/includes/less.libraries.inc';
-require_once dirname(__FILE__) . '/includes/less.wysiwyg.inc';
-require_once dirname(__FILE__) . '/includes/less.theme.inc';
-
 /**
  * Implements hook_hook_info().
  */
 function less_hook_info() {
-
-  $less_hooks = array(
-    'engines',
-    'variables',
-    'paths',
-    'functions',
-  );
-
   $hooks = array();
-
-  /**
-   * We don't have to worry about less_HOOK_SYSTEM_NAME_alter variations here
-   * as less_HOOK_alter is run immediately before and should include the
-   * MODULE.less.inc file containing any
-   * less_HOOK_SYSTEM_NAME_alter() implementations.
-   */
-  foreach ($less_hooks as $hook) {
-    $hooks[] = 'less_' . $hook;
-    $hooks[] = 'less_' . $hook . '_alter';
-  }
-
-  return array_fill_keys($hooks, array(
-    'group' => 'less',
-  ));
+  
+  $hooks['form_system_theme_settings_alter'] = array(
+    'group' => 'theme',
+  );
+  
+  $hooks['wysiwyg_editor_settings_alter'] = array(
+    'group' => 'wysiwyg',
+  );
+  $hooks['form_wysiwyg_profile_form_alter'] = array(
+    'group' => 'wysiwyg',
+  );
+  
+  $hooks['cron_queue_info'] = array(
+    'group' => 'cron',
+  );
+  $hooks['cron'] = array(
+    'group' => 'cron',
+  );
+  
+  return $hooks;
 }
 
 /**
@@ -59,17 +44,17 @@ function less_menu() {
   $items = array();
 
   $items['admin/config/development/less'] = array(
-    'title' => 'LESS',
+    'title' => 'LESS settings',
     'description' => 'Administer LESS settings',
     'page callback' => 'drupal_get_form',
     'page arguments' => array('less_settings_form'),
     'access arguments' => array(LESS_PERMISSION),
-    'file' => 'includes/less.admin.inc',
+    'file' => 'less.admin.inc',
     'type' => MENU_NORMAL_ITEM,
   );
 
   $items['admin/config/development/less/settings'] = array(
-    'title' => 'LESS Settings',
+    'title' => $items['admin/config/development/less']['title'],
     'type' => MENU_DEFAULT_LOCAL_TASK,
   );
 
@@ -77,10 +62,8 @@ function less_menu() {
     'title' => 'LESS watch callback',
     'type' => MENU_CALLBACK,
     'page callback' => '_less_watch',
-    'access callback' => 'variable_get',
-    'access arguments' => array(LESS_WATCH, FALSE),
+    'access callback' => TRUE,
     'delivery callback' => 'drupal_json_output',
-    'file' => 'includes/less.watch.inc',
   );
 
   return $items;
@@ -103,11 +86,10 @@ function less_permission() {
  */
 function less_element_info_alter(&$type) {
   
-  // Prepend to the list of #pre_render functions so it runs first.
+  // Prepend to the list of #pre_render functions so it runs first. 
   array_unshift($type['styles']['#pre_render'], '_less_pre_render');
-
-  if (variable_get(LESS_DEVEL, FALSE)) {
-    
+  
+  if (variable_get('less_devel', FALSE)) {
     // Must run after drupal_pre_render_styles() to attach any attributes.
     array_push($type['styles']['#pre_render'], '_less_attach_src');
   }
@@ -115,14 +97,6 @@ function less_element_info_alter(&$type) {
 
 /**
  * Add original .less file path as 'src' attribute to <link />.
- * 
- * @param array $styles
- *   CSS style tags after drupal_pre_render_styles() has run.
- * 
- * @return array
- *   Styles array with 'src' attributes on LESS files.
- * 
- * @see drupal_pre_render_styles()
  */
 function _less_attach_src($styles) {
   
@@ -132,13 +106,13 @@ function _less_attach_src($styles) {
     if ($styles[$key]['#tag'] == 'link') {
       
       // Hashes are generated based on the URL without the query portion.
-      $file_url_parts = drupal_parse_url($styles[$key]['#attributes']['href']);
+      $file_url = drupal_substr($styles[$key]['#attributes']['href'], 0, mb_strpos($styles[$key]['#attributes']['href'], '?'));
       
-      // If we have a match, it means it is a compiled .less file.
-      if ($cache = cache_get('less:watch:' . drupal_hash_base64($file_url_parts['path']))) {
+      //If we have a match, it means it is a compiled .less file.
+      if ($cache = cache_get('less:watch:' . drupal_hash_base64($file_url))) {
         
         // Some inspectors allow 'src' attribute to open from a click.
-        $styles[$key]['#attributes']['src'] = url($cache->data['less']['input_file']);
+        $styles[$key]['#attributes']['src'] = $cache->data['data'];
       }
     }
   }
@@ -147,65 +121,160 @@ function _less_attach_src($styles) {
 }
 
 /**
- * Pre-render function for 'style' elements.
- * 
- * Key place where .less files are detected and processed.
- * 
- * @param array $styles
- *   All 'style' elements that are to display on the page.
- * 
- * @return array
- *   Modified style elements pointing to compiled LESS output.
+ * Processes .less files
  */
 function _less_pre_render($styles) {
   
-  $less_devel = (bool) variable_get(LESS_DEVEL, FALSE);
+  $less_devel = variable_get('less_devel', FALSE);
+  $less_dir = _less_get_dir();
   
   if ($less_devel) {
     
-    if (variable_get(LESS_WATCH, FALSE)) {
-      drupal_add_js(drupal_get_path('module', 'less') . '/scripts/less.watch.js');
+    if (variable_get('less_watch', TRUE)) {
+      drupal_add_js(drupal_get_path('module', 'less') . '/less.watch.js');
     }
     
     // Warn users once every hour that less is checking for file modifications.
     if (user_access(LESS_PERMISSION) && flood_is_allowed('less_devel_warning', 1)) {
       flood_register_event('less_devel_warning');
       
-      $message_vars = array(
-        '@url' => url('admin/config/development/less'),
-      );
-      drupal_set_message(t('LESS files are being checked for modifications on every request. Remember to <a href="@url">turn off</a> this feature on production websites.', $message_vars), 'status');
+      $message = 'LESS files are being checked for modifications on every request. Remember to <a href="@url">turn off</a> this feature on production websites.';
+      $message_vars = array("@url" => url('admin/config/development/less'));
+      drupal_set_message(t($message, $message_vars), 'status');
     }
   }
   
-  $less_items = array_intersect_key($styles['#items'], array_flip(_less_children($styles['#items'])));
+  $less_path = 'public://less/' . $less_dir;
+  
+  foreach ($styles['#items'] as $key => $info) {
+    $input_file = $info['data'];
+    if (drupal_substr($input_file, -5) == '.less') {
+      
+      $file_uri = file_uri_target($input_file);
+      $css_path = $less_path . '/' . dirname($file_uri ? $file_uri : $input_file);
+      
+      // Ensure the destination directory exists.
+      if (!_less_ensure_directory($css_path)) {
+        // Cancel the for each loop when directory doesn't exist.
+        break;
+      }
 
-  if (!empty($less_items)) {
-    
-    require_once dirname(__FILE__) . '/includes/less.process.inc';
-    
-    // Attach settings to each item.
-    array_walk($less_items, '_less_attach_settings');
+      $output_file = $css_path . '/' . basename($input_file, '.less');
+      // correct file names of files not following the .css.less naming convention
+      if (drupal_substr($output_file, -4) != '.css') {
+        $output_file .= '.css';
+      }
+      
+      $less_settings = less_get_settings(_less_file_owner($input_file));
+      
+      if (!empty($info['less'])) {
+        $less_settings = drupal_array_merge_deep($less_settings, (array) $info['less']);
+      }
+      
+      // array_multisort() the data so that the hash returns the same hash regardless order of data.
+      array_multisort($less_settings);
+      
+      // json_encode() is used because serialize() throws an error with lambda functions.
+      $output_file = substr_replace($output_file, drupal_hash_base64(json_encode($less_settings)) . '.css', -3);
+      
+      $rebuild = FALSE;
+      
+      // Set $rebuild if this file or its children have been modified.
+      if ($less_devel && is_file($output_file)) {
+        $output_file_mtime = filemtime($output_file);
+        
+        if ($less_file_cache = cache_get('less:devel:' . drupal_hash_base64($input_file))) {
+          
+          // Iterate over each file and check if there are any changes.
+          foreach ($less_file_cache->data as $filepath => $filemtime) {
+            
+            // Only rebuild if there has been a change to a file.
+            if (filemtime($filepath) > $filemtime) {
+              $rebuild = TRUE;
+              break;
+            }
+          }
+        }
+        else {
+          
+          // No cache data, force a rebuild for later comparison.
+          $rebuild = TRUE;
+        }
+      }
+      
+      // $output_file doesn't exist or is flagged for rebuild.
+      if ((!is_file($output_file) || $rebuild) && _less_inc()) {
+        
+        $less = new lessc();
+        
+        if (method_exists($less, 'registerFunction') && is_array($less_settings['functions'])) {
+          foreach ($less_settings['functions'] as $funcion => $callback) {
+            $less->registerFunction($funcion, $callback);
+          }
+        }
+        
+        if (method_exists($less, 'setVariables')) {
+          $less->setVariables($less_settings['variables']);
+        }
+        
+        $cache = NULL;
+        $output_data = NULL;
+        
+        // Since lessphp is a php class, this will capture errors for output.
+        try {
+          if ($less_devel) {
+            $less->setPreserveComments(true);
+            $cache = $less->cachedCompile($input_file);
+            cache_set('less:devel:' . drupal_hash_base64($input_file), $cache['files']);
+            $output_data = $cache['compiled'];
+          }
+          else {
+            $output_data = $less->compileFile($input_file);
+          }
+          
+        }
+        catch (Exception $e) {
+          
+          $message = 'LESS error: @message, %input_file';
+          $message_vars = array('@message' => $e->getMessage(), '%input_file' => $input_file);
+          
+          watchdog('LESS', $message, $message_vars, WATCHDOG_ERROR);
+          
+          if (user_access(LESS_PERMISSION)) {
+            drupal_set_message(t($message, $message_vars), 'error');
+          }
+        }
+        
+        if (isset($output_data)) {
+          
+          // Fix paths for images as .css is in different location.
+          $output_data = _less_rewrite_paths($input_file, $output_data);
+          
+          file_unmanaged_save_data($output_data, $output_file, FILE_EXISTS_REPLACE);
+        }
 
-    // Determine output path for each item.
-    array_walk($less_items, '_less_output_path');
+      }
 
-    // Check for rebuild each page.
-    if ($less_devel) {
+      if (is_file($output_file)) {
+        $styles['#items'][$key]['data'] = $output_file;
+        
+        if ($less_devel) {
+          
+          $less_watch_cache = $styles['#items'][$key];
+          
+          $less_watch_cache['less'] = $less_settings;
+          $less_watch_cache['data'] = $input_file;
+          $less_watch_cache['output_file'] = $output_file;
 
-      array_walk($less_items, '_less_check_build');
+          cache_set('less:watch:' . drupal_hash_base64(file_create_url($output_file)), $less_watch_cache);
+          
+          // 'preprocess' being FALSE generates a discreet <link /> rather than an @import.
+          $styles['#items'][$key]['preprocess'] = FALSE;
+        }
+      }
+
     }
 
-    // Compile '.less' files.
-    array_walk($less_items, '_less_process_file');
-
-    // Store cache information.
-    if ($less_devel) {
-
-      array_walk($less_items, '_less_store_cache_info');
-    }
-
-    $styles['#items'] = array_replace($styles['#items'], $less_items);
   }
   
   return $styles;
@@ -215,74 +284,41 @@ function _less_pre_render($styles) {
  * Implements hook_admin_menu_cache_info().
  */
 function less_admin_menu_cache_info() {
-  
-  $caches = array();
-  
-  // Add item to admin_menu's flush caches menu.
   $caches['less'] = array(
-    'title' => t('LESS compiled files'),
+    'title' => t('LESS files'),
     'callback' => 'less_flush_caches',
   );
-  
   return $caches;
-}
-
-/**
- * Implements hook_cron_queue_info().
- *
- * This hook runs before cache flush during cron. Reliably lets us know if its
- * cron or not.
- */
-function less_cron_queue_info() {
-
-  drupal_static('less_cron', TRUE);
 }
 
 /**
  * Implements hook_flush_caches().
  *
- * Triggers rebuild of all LESS files during cache flush, except during cron.
+ * Flushes compiled LESS files during cache flush, except during cron.
+ *
+ * @return An array of cache table names.
  */
 function less_flush_caches() {
   if (!drupal_static('less_cron')) {
     
-    // Rebuild the less files directory.
+    // rebuild the less files directory.
     _less_get_dir(TRUE);
     cache_clear_all('less:', 'cache', TRUE);
   }
-
-  less_clear_css_cache();
-
   return array();
 }
 
 /**
- * Deletes all stale compiled LESS files that are no longer in use.
- *
- * @see drupal_delete_file_if_stale().
- */
-function less_clear_css_cache() {
-
-  file_scan_directory(LESS_DIRECTORY, '/.+/', array('callback' => 'drupal_delete_file_if_stale'));
-}
-
-/**
- * Get/(re)generate current 'less_dir' variable.
- * 
- * @param bool $rebuild
- *   Flag to rebuild compiled output.
- * 
- * @return string
- *   current 'less_dir' Drupal variable value.
+ * Helper function to create a new less dir.
  */
 function _less_get_dir($rebuild = FALSE) {
   $less_dir = variable_get('less_dir');
   
-  // If drupal variable 'less_dir' is not set, empty, or manually reset, then
+  // If drupal variable 'less_dir' is not set, empty or manually reset then
   // generate a new unique id and save it.
   if ($rebuild || empty($less_dir)) {
     
-    // Set the less directory variable.
+    // Set the less directory variable
     variable_set('less_dir', drupal_hash_base64(uniqid('', TRUE)));
   }
   
@@ -290,29 +326,71 @@ function _less_get_dir($rebuild = FALSE) {
 }
 
 /**
- * Loads the selected LESS engine, or 'lessphp' for legacy reasons.
- * 
- * @return bool
- *   TRUE if selected LESS engine is loaded.
+ * Finds and loads the lessphp library
  */
 function _less_inc() {
   static $loaded = NULL;
   
   if (!isset($loaded)) {
     
-    $less_engine = variable_get('less_engine', 'lessphp');
+    // Locations to check for lessphp, by order of preference.
+    $include_locations = array();
     
-    if (($less_engine_library = libraries_load($less_engine)) && $less_engine_library['installed']) {
-      $loaded = $less_engine;
+    // Composer created path.
+    $include_locations[] = dirname(__FILE__) . '/vendor/autoload.php';
+    
+    // Ensure libraries module is loaded.
+    module_load_include('module', 'libraries');
+    
+    if (function_exists('libraries_get_path')) {
+      // Add libraries supported path.
+      $include_locations[] = libraries_get_path('lessphp') . '/lessc.inc.php';
     }
+    
+    // Add legacy path as final possible location.
+    $include_locations[] = dirname(__FILE__) . '/lessphp/lessc.inc.php';
+    
+    foreach ($include_locations as $include_location) {
+      if (is_file($include_location)) {
+        require_once $include_location;
+        break;
+      }
+    }
+    
+    $loaded = class_exists('lessc', TRUE) && version_compare(lessc::$VERSION, 'v0.3.7', '>=');
   }
-  
+
   return $loaded;
 }
 
 /**
- * Keeps track of .less file "ownership".
+ * Copied functionality from drupal_build_css_cache() for our own purposes.
  * 
+ * This function processes $contents and rewrites relative paths to be absolute
+ * from web root. This is mainly used to ensure that compiled .less files still
+ * reference images at their original paths.
+ */
+function _less_rewrite_paths($input_filepath, $contents) {
+  $output = '';
+  
+  // Build the base URL of this CSS file: start with the full URL.
+  $css_base_url = file_create_url($input_filepath);
+  // Move to the parent.
+  $css_base_url = substr($css_base_url, 0, strrpos($css_base_url, '/'));
+  // Simplify to a relative URL if the stylesheet URL starts with the
+  // base URL of the website.
+  if (substr($css_base_url, 0, strlen($GLOBALS['base_root'])) == $GLOBALS['base_root']) {
+    $css_base_url = substr($css_base_url, strlen($GLOBALS['base_root']));
+  }
+  
+  _drupal_build_css_path(NULL, $css_base_url . '/');
+  // Anchor all paths in the CSS with its base URL, ignoring external and absolute paths.
+  $output .= preg_replace_callback('/url\(\s*[\'"]?(?![a-z]+:|\/+)([^\'")]+)[\'"]?\s*\)/i', '_drupal_build_css_path', $contents);
+  
+  return $output;
+}
+
+/**
  * This keeps track of which modules and themes own which .less files, and any
  * variable defaults those system items define.
  * 
@@ -344,7 +422,7 @@ function _less_registry() {
           if (!empty($system_item->info['stylesheets'])) {
             foreach ($system_item->info['stylesheets'] as $stylesheets) {
               foreach ($stylesheets as $stylesheet) {
-                if (_less_is_less_filename($stylesheet)) {
+                if (drupal_substr($stylesheet, -5) == '.less') {
                   $static_stylesheets[$stylesheet] = $system_item_name;
                 }
               }
@@ -371,8 +449,8 @@ function _less_registry() {
           }
           
           // Invoke hook_less_variables(), results should be static.
-          if (module_exists($system_item_name) && ($module_defaults = module_invoke($system_item_name, 'less_variables'))) {
-            $static_defaults[$system_item_name] = array_replace((array) $static_defaults[$system_item_name], array_filter($module_defaults));
+          if ($module_defaults = module_invoke($system_item_name, 'less_variables')) {
+            $static_defaults[$system_item_name] = array_merge((array) $static_defaults[$system_item_name], array_filter($module_defaults));
           }
         }
       }
@@ -385,16 +463,12 @@ function _less_registry() {
 }
 
 /**
- * Returns .less file "owner".
- * 
  * Returns the owning module/theme for a passed in .less file, or NULL.
  * Only can resolve .less files that are added using .info files.
  * 
- * @param string $filepath
- *   System path to .less file, relative to DRUPAL_ROOT.
+ * @param $filepath
  * 
- * @return string|NULL
- *   System name of .less file "owner" or NULL in case of no known "owner".
+ * @return system name or NULL.
  */
 function _less_file_owner($filepath) {
   // Use the advanced drupal_static() pattern, since this is called very often.
@@ -414,11 +488,10 @@ function _less_file_owner($filepath) {
 /**
  * Returns the compiled list of variables and functions for a module/theme.
  * 
- * @param string $system_name
- *   Module/theme system name. NULL is cast to empty string for array indexes.
+ * @param $system_name
+ *   Module or theme system name.
  */
 function less_get_settings($system_name = NULL) {
-  
   // Use the advanced drupal_static() pattern, since this is called very often.
   static $drupal_static_fast;
   if (!isset($drupal_static_fast)) {
@@ -426,13 +499,10 @@ function less_get_settings($system_name = NULL) {
   }
   $less_settings_static = &$drupal_static_fast['cache'];
   
-  
   if (!isset($less_settings_static[$system_name])) {
     
     global $theme;
-
-    $valid_module = !empty($system_name) && module_exists($system_name);
-
+    
     $theme_settings = theme_get_setting('less', $theme);
     
     $defaults_cache = &drupal_static('less_defaults');
@@ -441,32 +511,25 @@ function less_get_settings($system_name = NULL) {
       _less_registry();
     }
     
-    // Defaults.
     $data = array(
-      'build_cache_id' => _less_get_dir(),
       'variables' => array(),
       'functions' => array(
         'token' => '_less_token_replace',
       ),
-      'paths' => array(),
-      LESS_AUTOPREFIXER => (bool) variable_get(LESS_AUTOPREFIXER, FALSE),
-      LESS_DEVEL => (bool) variable_get(LESS_DEVEL, FALSE),
-      LESS_SOURCE_MAPS => (bool) variable_get(LESS_SOURCE_MAPS, FALSE),
-      'theme' => $theme,
     );
     
     
-    /*
+    /**
      * Compile the LESS variables.
      */
     // Cached default variables from .info files and hook_less_variables().
     if (!empty($defaults_cache[$system_name])) {
-      $data['variables'] = array_replace($data['variables'], array_filter($defaults_cache[$system_name]));
+      $data['variables'] = array_merge($data['variables'], array_filter($defaults_cache[$system_name]));
     }
     
     // Saved variable values from current theme.
     if (!is_null($theme_settings) && !empty($theme_settings[$system_name])) {
-      $data['variables'] = array_replace($data['variables'], array_filter($theme_settings[$system_name]));
+      $data['variables'] = array_merge($data['variables'], array_filter($theme_settings[$system_name]));
     }
     
     // Prevent $system_name from being altered.
@@ -477,40 +540,23 @@ function less_get_settings($system_name = NULL) {
     drupal_alter('less_variables_' . $system_name, $data['variables']);
     
     
-    /*
+    /**
      * Grab the LESS functions.
      * 
      * LESS functions are not stored in the cache table since they could be
      * anonymous functions.
      */
-    if ($valid_module && module_hook($system_name, 'less_functions')) {
-      $data['functions'] = array_replace($data['functions'], (array) module_invoke($system_name, 'less_functions'));
+    if (module_hook($system_name, 'less_functions')) {
+      $data['functions'] = array_merge($data['functions'], (array) module_invoke($system_name, 'less_functions'));
     }
     
     // Prevent $system_name from being altered.
     $alter_system_name = $system_name;
     // Invoke hook_less_functions_alter().
     drupal_alter('less_functions', $data['functions'], $alter_system_name);
-    // Invoke hook_less_functions_SYSTEM_NAME_alter().
+    // Invoke hook_less_functions_system_name_alter().
     drupal_alter('less_functions_' . $system_name, $data['functions']);
     
-    
-    /*
-     * Grab the LESS include paths.
-     * 
-     */
-    if ($valid_module && module_hook($system_name, 'less_paths')) {
-      $data['paths'] = array_unique(array_merge($data['paths'], (array) module_invoke($system_name, 'less_paths')));
-    }
-    
-    // Prevent $system_name from being altered.
-    $alter_system_name = $system_name;
-    // Invoke hook_less_paths_alter().
-    drupal_alter('less_paths', $data['paths'], $alter_system_name);
-    // Invoke hook_less_paths_SYSTEM_NAME_alter().
-    drupal_alter('less_paths_' . $system_name, $data['paths']);
-    
-    $data['paths'] = array_unique($data['paths']);
     
     $less_settings_static[$system_name] = $data;
   }
@@ -521,27 +567,56 @@ function less_get_settings($system_name = NULL) {
 
 /**
  * Handler for LESS function token().
- *
- * @param string[] $arg
- *
- * @return array
  */
 function _less_token_replace($arg) {
-  list($type, $delimiter, $value) = $arg;
+  list($type, $delimeter, $value) = $arg;
   
-  return array($type, $delimiter, array(token_replace($value[0])));
+  return array($type, $delimeter, array(token_replace($value[0])));
+}
+
+/**
+ * Handles AJAX requests to check for changes to files while in developer mode.
+ */
+function _less_watch() {
+  
+  drupal_page_is_cacheable(FALSE);
+  
+  $changed_files = array();
+  
+  if (variable_get('less_watch', FALSE)) {
+    
+    $files = (isset($_POST['less_files']) && is_array($_POST['less_files'])) ? $_POST['less_files'] : array();
+    
+    foreach ($files as $file) {
+      if ($cache = cache_get('less:watch:' . drupal_hash_base64($file))) {
+        $cached_data = $cache->data;
+        
+        $current_mtime = filemtime($cached_data['output_file']);
+        
+        $styles = array(
+          '#items' => array(
+            $cached_data['data'] => $cached_data,
+          ),
+        );
+        
+        $styles = _less_pre_render($styles);
+        
+        if (filemtime($styles['#items'][$cached_data['data']]['data']) > $current_mtime) {
+          $changed_files[] = array(
+            'old_file' => $file,
+            'new_file' => file_create_url($styles['#items'][$cached_data['data']]['data']),
+          );
+        }
+      }
+    }
+  }
+  
+  return $changed_files;
 }
 
 /**
  * Helper function that attempts to create a folder if it doesn't exist.
- * 
  * Locks are used to help avoid concurrency collisions.
- * 
- * @param string $directory_path
- *   Directory of which to create/confirm existence.
- * 
- * @return bool
- *   Value indicating existence of directory.
  */
 function _less_ensure_directory($directory_path) {
   
@@ -554,7 +629,7 @@ function _less_ensure_directory($directory_path) {
     // Attempt to create directory only 3 times, else delay is too long.
     for ($i = 0; $i < 3; $i++) {
       
-      if (lock_acquire($lock_id) && $is_dir = file_prepare_directory($directory_path, FILE_CREATE_DIRECTORY | FILE_MODIFY_PERMISSIONS)) {
+      if (lock_acquire($lock_id) && $is_dir = file_prepare_directory($directory_path, FILE_CREATE_DIRECTORY)) {
         // Creation was successful, cancel the 'for' loop;
         break;
       }
@@ -566,96 +641,17 @@ function _less_ensure_directory($directory_path) {
     
     if (!$is_dir) {
       // There is a problem with the directory.
-      $message_vars = array(
-        '%dir' => $directory_path,
-      );
+      $message = 'LESS could not create a directory in %dir';
+      $message_vars = array('%dir' => $directory_path);
       
-      watchdog('LESS', 'LESS could not create a directory in %dir', $message_vars, WATCHDOG_ERROR);
+      watchdog('LESS', $message, $message_vars, WATCHDOG_ERROR);
       
       if (user_access(LESS_PERMISSION)) {
-        drupal_set_message(t('LESS could not create a directory in %dir', $message_vars), 'error', FALSE);
+        drupal_set_message(t($message, $message_vars), 'error', FALSE);
       }
       
     }
   }
   
   return $is_dir;
-}
-
-/**
- * Return keys from array that match '.less' file extension.
- * 
- * @param array $items
- *   An array where keys are expected to be filepaths.
- * 
- * @return array
- *   Array of matching filepaths.
- */
-function _less_children($items) {
-  
-  return array_filter(array_keys($items), '_less_is_less_filename');
-  
-}
-
-/**
- * Check if filename has '.less' extension.
- * 
- * @param string $filename
- *   File name/path to search for '.less' extension.
- * 
- * @return bool
- *   TRUE if $filename does end with '.less'.
- */
-function _less_is_less_filename($filename) {
-  
-  return drupal_substr($filename, -5) === '.less';
-}
-
-/**
- * Implements hook_less_engines().
- *
- * @return string[]
- */
-function less_less_engines() {
-
-  return array(
-    'less.php' => 'LessEngineLess_php',
-    'lessphp' => 'LessEngineLessphp',
-    'less.js' => 'LessEngineLess_js',
-  );
-}
-
-/**
- * @return \LessEngineInterface[]
- */
-function _less_get_engines() {
-
-  $registered_engines = module_invoke_all('less_engines');
-  drupal_alter('less_engines', $registered_engines);
-
-  return $registered_engines;
-}
-
-/**
- * @param $input_file_path
- *
- * @return \LessEngine
- *
- * @throws Exception
- */
-function less_get_engine($input_file_path) {
-
-  $engines = _less_get_engines();
-  $selected_engine = _less_inc();
-
-  if (!empty($engines[$selected_engine])) {
-
-    $class_name = $engines[$selected_engine];
-
-    return new $class_name($input_file_path);
-  }
-  else {
-
-    throw new Exception('Unable to load LessEngine.');
-  }
 }

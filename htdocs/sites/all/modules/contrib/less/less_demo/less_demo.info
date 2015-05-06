@@ -18,13 +18,13 @@ less[vars][@gradient_end]   = darken(@gradient_start, 10%);
 less[vars][@gradient_start] = #0779bf;
 less[vars][@text_glow]      = lighten(@gradient_start, 10%);
 
-; Register non-global sheets to automatically receive variables associated with
+; Register non-global sheets to automatically receive variables associate with
 ; this module.
 less[sheets][] = styles/less_demo.drupal_add_css.css.less
 
-; Information added by Drupal.org packaging script on 2015-01-30
-version = "7.x-4.0"
+; Information added by drupal.org packaging script on 2013-07-08
+version = "7.x-3.0"
 core = "7.x"
 project = "less"
-datestamp = "1422653011"
+datestamp = "1373306757"
 
