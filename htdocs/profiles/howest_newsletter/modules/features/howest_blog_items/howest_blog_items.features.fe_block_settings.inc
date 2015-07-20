@@ -33,7 +33,7 @@ function howest_blog_items_default_fe_block_settings() {
         'region' => 'sidebar_second',
         'status' => 1,
         'theme' => 'howest_newsletter',
-        'weight' => -16,
+        'weight' => -14,
       ),
     ),
     'title' => 'Zelf nieuws te melden?',
@@ -173,10 +173,38 @@ function howest_blog_items_default_fe_block_settings() {
         'region' => 'sidebar_second',
         'status' => 1,
         'theme' => 'howest_newsletter',
-        'weight' => -18,
+        'weight' => -17,
       ),
     ),
     'title' => 'Meest bekeken',
+    'visibility' => 0,
+  );
+
+  $export['views-popular-block_opvolging'] = array(
+    'cache' => -1,
+    'custom' => 0,
+    'delta' => 'popular-block_opvolging',
+    'i18n_block_language' => array(),
+    'i18n_mode' => 1,
+    'module' => 'views',
+    'node_types' => array(),
+    'pages' => '',
+    'roles' => array(),
+    'themes' => array(
+      'bartik' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'bartik',
+        'weight' => 0,
+      ),
+      'howest_newsletter' => array(
+        'region' => 'sidebar_second',
+        'status' => 1,
+        'theme' => 'howest_newsletter',
+        'weight' => -16,
+      ),
+    ),
+    'title' => '',
     'visibility' => 0,
   );
 
@@ -201,7 +229,7 @@ function howest_blog_items_default_fe_block_settings() {
         'region' => 'sidebar_second',
         'status' => 1,
         'theme' => 'howest_newsletter',
-        'weight' => -19,
+        'weight' => -18,
       ),
     ),
     'title' => '',

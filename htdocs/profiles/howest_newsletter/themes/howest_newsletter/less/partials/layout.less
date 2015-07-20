@@ -126,6 +126,35 @@ body {
   }
 }
 
+#block-views-popular-block-opvolging {
+
+  h2.block-title {
+    &:before {
+      .fa;
+      .fa-flag;
+      padding-right: 4px;
+    }
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  .views-row {
+    border: none;
+    border-bottom: 1px dotted @_grey_2;
+    display: block;
+    padding: 8px 0;
+    font-size: 1.1em;
+    border-radius: 0;
+
+    &.views-row-last {
+      border-bottom: 0;
+    }
+  }
+}
+
 #block-views-archive-block,
 #block-views-blog-items-block-blog-archive {
 
