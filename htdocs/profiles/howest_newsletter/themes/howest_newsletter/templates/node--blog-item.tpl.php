@@ -78,7 +78,7 @@
  * @see template_process()
  */
 
-  //dpm($content, 'content');
+//dpm($content, 'content');
 
   $ical_link = l(t("Add date to your calendar"), "ical/" . $node->nid . "/export.ics",
     array("absolute" => TRUE,
@@ -90,7 +90,6 @@
   hide($content['comments']);
   hide($content['links']);
 ?>
-
 <div id="node-<?php print $node->nid; ?>"
      class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
   <?php if (isset($field_deadline[LANGUAGE_NONE][0]['value']) && $field_deadline[LANGUAGE_NONE][0]['value'] == 1): ?>
@@ -116,13 +115,31 @@
         print render($content['field_content']);
         print render($content['field_location']);
       ?>
+      <div class="fa fa-comments comment-icon">
+        <?php 
+          if (isset($comment_count)) {
+            switch ($comment_count)  {
+              case 0:
+                print t('no comments');
+                break;
+              case 1:
+                print $comment_count. ' ' . t('comment');
+                break;
+
+              default:
+                print $comment_count. ' ' . t('comments');
+                break;
+            }
+          }
+        ?>
+      </div>
     </div>
     <hr>
 
-    <?php
+      <?php
         print render($content['body']);
         print $ical_link;
-        print render($content['links']);
+        print render($content['links']['statistics']);
       ?>
     <hr>
 
@@ -133,6 +150,48 @@
       print render($content['field_location']);
       ?>
     </div>
+
+    <hr>
+
+    <p class="title"><?php print t('Comments'); ?></p>
+    <ul class="comments">
+        <?php 
+          $i = 0; 
+        ?>
+        <?php foreach (element_children($content['comments']['comments']) as $delta): 
+        $i++;
+          $attributes = array();
+          $attributes['class'][] = $i % 2 ? 'odd' : 'even'; 
+       
+          if($content['comments']['comments'][$delta]['#comment']->depth == 1) {
+            $attributes['class'][] = 'indented';
+          }
+          if($content['comments']['comments'][$delta]['#comment']->divs == 0) {
+            $attributes['class'][] = 'no-border';
+          }
+        ?>
+          <?php if (!empty($content['comments']['comments'][$delta]['#comment'])):?>
+            <li <?php print drupal_attributes($attributes); ?>>
+              <h3><?php print render($content['comments']['comments'][$delta]['#comment']->field_comment_name['und'][0]['safe_value']); ?></h3>
+              <?php print render($content['comments']['comments'][$delta]['#comment']->comment_body['und'][0]['safe_value']); ?>
+              <hr>
+              <div class="author">
+                <?php print render($content['comments']['comments'][$delta]['#comment']->name); ?>
+                <span> - </span> 
+                <?php print date('d-m-Y H:i',$content['comments']['comments'][$delta]['#comment']->created); ?>
+              </div>
+              <?php if (user_is_logged_in()): ?>
+                <?php print render($content['comments']['comments'][$delta]['links']); ?>
+              <?php endif; ?>
+            </li>
+          <?php endif; ?>
+        <?php endforeach; ?>
+      </ul>
+
+      <?php
+        print render($content['links']['comment']);
+      ?>
+
   </div>
 
 </div>

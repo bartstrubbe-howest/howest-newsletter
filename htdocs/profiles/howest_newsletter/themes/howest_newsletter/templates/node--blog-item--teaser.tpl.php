@@ -81,7 +81,6 @@
   //dpm($content, 'content');
 
 ?>
-
 <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
   <?php if (isset($field_deadline[LANGUAGE_NONE][0]['value']) && $field_deadline[LANGUAGE_NONE][0]['value'] == 1): ?>
     <div class="has-deadline"></div>
@@ -107,11 +106,29 @@
         print render($content['field_location']);
       ?>
     </div>
+
+    <div class="fa fa-comments comment-icon">
+      <?php 
+        if (isset($comment_count)) {
+          switch ($comment_count)  {
+            case 0:
+              print t('no comments');
+              break;
+            case 1:
+              print $comment_count. ' ' . t('comment');
+              break;
+
+            default:
+              print $comment_count. ' ' . t('comments');
+              break;
+          }
+        }
+      ?>
+    </div>
+
     <hr>
 
-    <?php
-        print render($content['body'][0]['#markup']);
-      ?>
+    <?php print render($content['body'][0]['#markup']); ?>
 
     <span class="read-more btn">
       <a href="<?php print $node_url; ?>"><?php echo t('Read more'); ?></a>
